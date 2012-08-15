@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Interface KoolDevelop\International\ITranslator | KoolDevelop</title>
+
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1970511449"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
+						<ul>
+				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
+						</li>
+				<li class="active"><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.View.html">View</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-View.html">View<span></span></a>
+						<ul>
+				<li><a href="namespace-View.Helper.html">Helper</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-KoolDevelop.International.I18n.html">I18n</a></li>
+				<li><a href="class-KoolDevelop.International.L10n.html">L10n</a></li>
+				<li><a href="class-KoolDevelop.International.PassTroughTranslator.html">PassTroughTranslator</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-KoolDevelop.International.ITranslator.html">ITranslator</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-KoolDevelop.International.html" title="Summary of KoolDevelop\International"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="kooldevelop-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface ITranslator</h1>
+
+
+	<div class="description">
+	
+<p>Translator Interface</p>
+
+<p>Interface used by I18n for translating texts. You can create your own
+translator by implementing this interface. Set the classname to the
+core.translator setting in international.ini</p>
+
+	</div>
+
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-KoolDevelop.International.PassTroughTranslator.html">KoolDevelop\International\PassTroughTranslator</a>
+	</div>
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-KoolDevelop.html">KoolDevelop</a>\<a href="namespace-KoolDevelop.International.html">International</a><br />
+		<b>Package:</b> KoolDevelop\International<br />
+
+		<b>Located at</b> <a href="source-class-KoolDevelop.International.ITranslator.html#14" title="Go to source code">framework/international/ITranslator.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="initialize" id="_initialize">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_initialize">#</a>
+		<code><a href="source-class-KoolDevelop.International.ITranslator.html#26" title="Go to source code">initialize</a>( <span>string <var>$domain</var></span>, <span>string <var>$locale_settings</var></span>, <span><code><a href="class-KoolDevelop.Configuration.html">KoolDevelop\Configuration</a></code> <var>$configuration</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Initialize Translator</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Initialize Translator</p>
+
+<p>Use this function to initialize and configure your translator. Locale
+settings provides the configuration data specific to the current locale The full
+configuration file is also provided</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br> Domain</dd>
+					<dt><var>$locale_settings</var></dt>
+					<dd><code>string</code><br> Settings specific to current locale</dd>
+					<dt><var>$configuration</var></dt>
+					<dd><code><code><a href="class-KoolDevelop.Configuration.html">KoolDevelop\Configuration</a></code></code><br> All configuration options</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="singular" id="_singular">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_singular">#</a>
+		<code><a href="source-class-KoolDevelop.International.ITranslator.html#41" title="Go to source code">singular</a>( <span>string <var>$singular</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Translate a singular string</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Translate a singular string</p>
+
+<p>Translate a singular string and return translated string</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$singular</var></dt>
+					<dd><code>string</code><br> Untranslated string</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>Translated string<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="plural" id="_plural">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_plural">#</a>
+		<code><a href="source-class-KoolDevelop.International.ITranslator.html#52" title="Go to source code">plural</a>( <span>string <var>$singular</var></span>, <span>string <var>$plural</var></span>, <span>integer <var>$count</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Translate a plural string</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Translate a plural string</p>
+
+<p>Translate a plural/singular string and return a translation based on count.
+Altrough only singular and plural are provided as input this function can (and
+should if appropiate) return more plural forms</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$singular</var></dt>
+					<dd><code>string</code><br> Untranslated singular string</dd>
+					<dt><var>$plural</var></dt>
+					<dd><code>string</code><br> Untranslated plural string</dd>
+					<dt><var>$count</var></dt>
+					<dd><code>integer</code><br> Count</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>Translated string<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

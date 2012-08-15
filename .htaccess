@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule    ^$ application/public_html/    [L]
+   RewriteRule    (.*) application/public_html/$1 [L]
+</IfModule>

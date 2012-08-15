@@ -1,0 +1,54 @@
+// Phones and small tablets
+@media (max-width: 979px) {
+
+	// Nav
+	.navbar .nav > li > a {
+		margin-right: 0;
+		i { display: none }
+	}
+
+	// Sidebar
+	body { background-image: none }
+	.sidebar-container {
+		.side { display: none; }
+		.content { margin-left: 0; }
+	}
+
+	// Fluid rows
+	.row-fluid { width: 100%; }
+
+	// Fluid spans
+	.row-fluid [class*="span"] {
+		float: none;
+		display: block;
+		width: auto;
+		margin-left: 0;
+	}
+
+	.row-fluid div[class*="span"] {
+		padding-top: 20px;
+	}
+
+	// FORM FIELDS
+	// -----------
+	// Make span* classes full width
+	.input-large,
+	.input-xlarge,
+	.input-xxlarge,
+	input[class*="span"],
+	select[class*="span"],
+	textarea[class*="span"],
+	.uneditable-input {
+		.input-block-level();
+	}
+	// But don't let it screw up prepend/append inputs
+	.input-prepend input,
+	.input-append input,
+	.input-prepend input[class*="span"],
+	.input-append input[class*="span"] {
+		display: inline-block; // redeclare so they don't wrap to new lines
+		width: auto;
+	}
+
+
+}
