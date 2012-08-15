@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KoolDevelop - Sample Application\n"
-"POT-Creation-Date: 2012-08-14 21:35+0200\n"
-"PO-Revision-Date: 2012-08-14 21:36+0100\n"
+"POT-Creation-Date: 2012-08-16 00:31+0200\n"
+"PO-Revision-Date: 2012-08-16 00:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Nederlands\n"
@@ -16,41 +16,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n == 1 ? 0 : 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: /controller/Start.php:38
+#: /controller/Start.php:37
+msgid "test"
+msgid_plural "testen"
+msgstr[0] "test"
+msgstr[1] "testen"
+
+#: /controller/Start.php:42
 msgid "KoolDevelop - PHP Framework - Kool Software en Development"
 msgstr "KoolDevelop - PHP Framework - Kool Software en Development"
 
-#: /controller/Tips.php:38
+#: /controller/Tips.php:36
 #, fuzzy
 msgid "Search for tips"
 msgstr "Zoeken in tips…"
 
-#: /view/layout/default.php:62
+#: /view/layout/default.php:61
 msgid "KoolDevelop"
 msgstr "KoolDevelop"
 
-#: /view/layout/default.php:66
+#: /view/layout/default.php:65
 msgid "Home"
 msgstr "Startpagina"
 
-#: /view/layout/default.php:67, /view/start/index.php:24,
-#: /view/start/index.php:51, /view/tips/index.php:28
+#: /view/layout/default.php:66, /view/start/index.php:23,
+#: /view/start/index.php:42, /view/tips/index.php:27
 msgid "Tips"
 msgstr "Tips"
 
-#: /view/start/index.php:20, /view/tips/index.php:20
+#: /view/layout/default.php:67, /view/start/index.php:49
+msgid "API"
+msgstr "API"
+
+#: /view/layout/default.php:68, /view/start/index.php:56
+msgid "Author"
+msgstr "Ontwikkelaar"
+
+#: /view/start/index.php:19, /view/tips/index.php:19
 msgid "Search in tips…"
 msgstr "Zoeken in tips…"
 
-#: /view/start/index.php:26
+#: /view/start/index.php:25
 msgid "Database"
 msgstr "Database"
 
-#: /view/start/index.php:27
+#: /view/start/index.php:26
 msgid "Security"
 msgstr "Veiligheid"
 
-#: /view/start/index.php:28
+#: /view/start/index.php:27
 msgid "Model-View-Controler"
 msgstr "Model-View-Controller"
 
@@ -66,19 +80,11 @@ msgstr ""
 "Deze simpele applicatie laat de werking van het KoolDevelop framework zien. "
 "Neem een kijkje in de code om het snel te leren."
 
-#: /view/start/index.php:41
-msgid "Author"
-msgstr "Ontwikkelaar"
-
-#: /view/start/index.php:46
-msgid "API"
-msgstr "API"
-
-#: /view/start/index.php:59
+#: /view/start/index.php:67
 msgid "Namespace based"
 msgstr "Gebruikt Namespaces"
 
-#: /view/start/index.php:60
+#: /view/start/index.php:68
 msgid ""
 "The framework utilizes PHP namespaces fully, allowing easy inclusion of "
 "external libraries. It has an easy to configure AutoLoader for internal "
@@ -88,11 +94,11 @@ msgstr ""
 "externe libraries en maakt de applicatie toekomstbestendig. Het framework "
 "heeft een simpel configureerbaar PSR-0 compatible autoloader."
 
-#: /view/start/index.php:64
+#: /view/start/index.php:72
 msgid "Model-View-Controller"
 msgstr "Model-View-Controller"
 
-#: /view/start/index.php:65
+#: /view/start/index.php:73
 msgid ""
 "The framework has a clear usage of the Model-View-Controller pattern helping "
 "you to write clean, understandible code. All parts of this pattern are "
@@ -102,11 +108,11 @@ msgstr ""
 "helpt de ontwikkelaar een goed gestructureerde applicatie te ontwikkelen. "
 "Alle onderdelen van het pattern zijn goed ontkoppeld opgezet."
 
-#: /view/start/index.php:74
+#: /view/start/index.php:82
 msgid "No tricks"
 msgstr "Geen magie"
 
-#: /view/start/index.php:75
+#: /view/start/index.php:83
 msgid ""
 "The framework plays no tricks, it helps you where it can, but it doesn't do "
 "much without you telling it to. This prevents high loads, bloated "
@@ -116,11 +122,11 @@ msgstr ""
 "niet iets doen zonder dat jij daar opdracht toe geeft. Dit voorkomt een hoge "
 "load, onnodig grote en complexe applicaties en onverwachte problemen."
 
-#: /view/start/index.php:81
+#: /view/start/index.php:89
 msgid "Fluent database adaptor"
 msgstr "Fluent database adaptor"
 
-#: /view/start/index.php:82
+#: /view/start/index.php:90
 msgid ""
 "The framework includes a lightweight Fluent database adaptor for SQL "
 "databases utilizing prepared statements for speed and security."
@@ -129,11 +135,11 @@ msgstr ""
 "databases die gebruikt maakt van prepared statements voor snelheid en "
 "veiligheid."
 
-#: /view/start/index.php:93
+#: /view/start/index.php:101
 msgid "Pure PHP views"
 msgstr "Pure PHP Views"
 
-#: /view/start/index.php:94
+#: /view/start/index.php:102
 msgid ""
 "No templating engine that adds yet another layer of obfuscation but pure PHP "
 "view files with some powerfull utilties like Elements (reusable mini-views), "
@@ -144,15 +150,15 @@ msgstr ""
 "(herbruikbare mini Views), Helpers (simpel te laden libraries voor Views) en "
 "Placeholders."
 
-#: /view/start/index.php:96
+#: /view/start/index.php:104
 msgid "In layout or in a view/element"
 msgstr "In een layout of view"
 
-#: /view/start/index.php:109
+#: /view/start/index.php:117
 msgid "Easy configuration"
 msgstr "Gemakkelijke configuratie"
 
-#: /view/start/index.php:110
+#: /view/start/index.php:118
 msgid ""
 "No large amount of configuration files to edit. Every major part of the "
 "framework has it's own .ini file. You only need to configure what you use."

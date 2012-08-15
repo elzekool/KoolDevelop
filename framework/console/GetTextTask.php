@@ -1,27 +1,30 @@
 <?php
 /**
- * Console Task interface
+ * GetText Console Task
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
- * @subpackage Console
+ * @subpackage International
  **/
 
 namespace KoolDevelop\Console;
 
 
 /**
- * Console Task interface
+ * GetText Console Task
+ *
+ * This task searches for translatable strings (Strings within shorthand
+ * translation functions __(), __n(),...) and writes a GetText dictonary file (.pot)
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
- * @subpackage Console
+ * @subpackage International
  **/
-class LocaleTask implements \KoolDevelop\Console\ITask
+class GetTextTask implements \KoolDevelop\Console\ITask
 {
     /**
      * Default command
@@ -290,13 +293,13 @@ class LocaleTask implements \KoolDevelop\Console\ITask
 
 		$parseFunctions = array(
 			"__"    => 'singular',
-			"__e"   => 'singular',            
+			"__e"   => 'singular',
             "__w"   => 'singular',
             "__f"   => 'singular',
-            
-			"__n"   => 'plural',            
+
+			"__n"   => 'plural',
 			"__en"  => 'plural',
-            "__ew"  => 'plural',                        
+            "__wn"  => 'plural',
             "__fn"  => 'plural'
 		);
 

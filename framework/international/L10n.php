@@ -77,10 +77,10 @@ final class L10n
      * @return string[] Locale settings
      */
     public function getLocaleSettings() {
-        if ($this->CurrentLocale === null) {
+        if ($this->CurrentLocaleSettings === null) {
 			throw new \RuntimeException(__f("No locale found/setup",'kooldevelop'));
 		}
-		return $this->CurrentLocale;
+		return $this->CurrentLocaleSettings;
     }
 
 	/**
@@ -132,7 +132,7 @@ final class L10n
 			$found_mapping = $this->Mappings[0];
 		}
 
-        $this->CurrentLocaleSettings = $found_mapping;
+        $this->CurrentLocaleSettings = $found_mapping['settings'];
 		$this->CurrentLocale = $found_mapping['locale'];
 		setlocale(LC_ALL, $this->CurrentLocale);
 
@@ -153,8 +153,8 @@ final class L10n
 		foreach(explode(',', $languages) as $language) {
 			$mappings[] = array(
 				'regex' => $configuration->get($language . '.regex', ''),
-				'folder' => $configuration->get($language . '.folder', ''),
-				'locale' => $configuration->get($language . '.locale', '')
+				'locale' => $configuration->get($language . '.locale', ''),
+                'settings' => $configuration->get($language,  array())
 			);
 		}
 

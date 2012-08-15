@@ -85,7 +85,7 @@ function __n($singular, $plural, $count, $domain = 'default') {
  *
  * @return void
  */
-function __ne($singular, $plural, $count, $domain = 'default') {
+function __en($singular, $plural, $count, $domain = 'default') {
 	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
 	echo $i18n->plural($singular, $plural, $count);
 }
@@ -100,7 +100,7 @@ function __ne($singular, $plural, $count, $domain = 'default') {
  *
  * @return void
  */
-function __nw($singular, $plural, $count, $domain = 'default') {
+function __wn($singular, $plural, $count, $domain = 'default') {
 	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
 	echo htmlspecialchars($i18n->plural($singular, $plural, $count));
 }
