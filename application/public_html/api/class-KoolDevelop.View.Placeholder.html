@@ -116,6 +116,16 @@
 	
 <p>Placeholder</p>
 
+<p>Placeholders persits content for displaying in views and layouts. Capture
+content with start() and end() functions or add arbritairy content with add().
+Read Placeholder as string (e.g. with echo) to retrieve collected content.</p>
+
+<p>A placeholder can be created/retrieved from a view with the placeholder()
+function</p>
+
+<p>A good use for placeholders are layout elements outside the view container
+(like sidebars)</p>
+
 	</div>
 
 
@@ -136,6 +146,8 @@
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
+				<b>See:</b>
+				<code><code><a href="class-KoolDevelop.View.View.html#_">KoolDevelop\View\View::placeholder()</a></code></code><br />
 		<b>Located at</b> <a href="source-class-KoolDevelop.View.Placeholder.html#14" title="Go to source code">framework/view/Placeholder.php</a><br />
 	</div>
 
@@ -153,7 +165,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_start">#</a>
-		<code><a href="source-class-KoolDevelop.View.Placeholder.html#44" title="Go to source code">start</a>( <span>boolean <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.View.Placeholder.html#54" title="Go to source code">start</a>( <span>boolean <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -191,7 +203,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_end">#</a>
-		<code><a href="source-class-KoolDevelop.View.Placeholder.html#64" title="Go to source code">end</a>( )</code>
+		<code><a href="source-class-KoolDevelop.View.Placeholder.html#74" title="Go to source code">end</a>( )</code>
 
 		<div class="description short">
 			
@@ -213,6 +225,50 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-KoolDevelop.View.Placeholder.html#94" title="Go to source code">add</a>( <span>string <var>$content</var></span>, <span>boolean <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Add arbritairy content</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add arbritairy content</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$content</var></dt>
+					<dd><code>string</code><br> Content to add</dd>
+					<dt><var>$replace</var></dt>
+					<dd><code>boolean</code><br> Replace current content, false to append</dd>
+				</dl></div>
+
+
+
+				<h4>Retrun</h4>
+				<div class="list">
+						void<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="__toString" id="___toString">
 
 		<td class="attributes"><code>
@@ -224,7 +280,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-KoolDevelop.View.Placeholder.html#84" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-KoolDevelop.View.Placeholder.html#113" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			
