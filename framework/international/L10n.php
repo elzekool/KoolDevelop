@@ -14,6 +14,11 @@ namespace KoolDevelop\International;
 /**
  * Localization
  *
+ * Localisation tools, find and react to the selected locale.
+ * Used in combination with the internationalization class.
+ *
+ * @see \KoolDevelop\International\I18n
+ * 
  * @package KoolDevelop
  * @subpackage International
  */

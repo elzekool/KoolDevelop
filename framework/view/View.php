@@ -14,6 +14,11 @@ namespace KoolDevelop\View;
 /**
  * View
  *
+ * Base part of the Model-View-Container pattern. The view is responsible
+ * for displaying data. Rending of a view consists of rendering a view file.
+ * The rendered view file is then passed to a layout file, this is then render to
+ * the browser. 
+ *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *

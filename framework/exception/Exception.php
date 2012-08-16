@@ -14,13 +14,16 @@ namespace KoolDevelop\Exception;
 /**
  * KoolDevelop Base Exception
  *
+ * Extention of \Exception class with getDetails() / setDetails(). The default
+ * error handler can display this data, usefull for adding extra debugging data.
+ *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
  * @subpackage Core
  **/
-abstract class Exception extends \Exception
+class Exception extends \Exception
 {
     /**
      * Details

@@ -17,13 +17,16 @@ use KoolDevelop\Database\Adaptor as DatabaseAdaptor;
 /**
  * Container Model
  *
+ * With the container model you can retrieve data from a database table 
+ * and convert this data into Models. The ContainerModel is a form of ORM.
+ *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
  * @subpackage Model
  **/
-abstract class ContainerModel
+abstract class ContainerModel extends \Model
 {
 
     /**

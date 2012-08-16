@@ -1,6 +1,6 @@
 <?php
 /**
- * Invalid Class Exception
+ * Database Exception
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -12,7 +12,10 @@
 namespace KoolDevelop\Exception;
 
 /**
- * Invalid Class Exception
+ * Database Exception
+ *
+ * Thrown on database errors. Use getPDOException() / setPDOException() for
+ * passing trough the associated PDO Exception
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
