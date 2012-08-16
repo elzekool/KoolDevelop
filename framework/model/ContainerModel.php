@@ -103,34 +103,7 @@ abstract class ContainerModel
         $model = new $this->Model();
         return $model;
     }
-
-    /**
-     * Get Model By
-     *
-     * @param string $field Field
-     * @param string $value Value
-     *
-     * @return \KoolDevelop\Model\Model Model
-     */
-    public function getBy($field, $value) {
-
-        // Create new SELECT query
-        $query = DatabaseAdaptor::getInstance($this->DatabaseConfiguration)->newQuery();
-        $query->select('*')->from($this->DatabaseTable)->where($field . ' = ?', $value);
-        $result = $query->execute();
-
-        // Try to fetch row
-        if (false === ($database_row = $result->fetch())) {
-            return null;
-        }
-
-        $model = $this->newObject();
-        $this->_DatabaseToModel($database_row, $model);
-
-        return $model;
-
-    }
-
+    
     /**
      * Save Object
      *
@@ -227,7 +200,47 @@ abstract class ContainerModel
     }
 
     /**
-     * Return Models that comply to the conditions
+     * Return first Model that complies to the conditions or null if none match
+     *
+     * @param mixed[]    $conditions Conditions
+     * @param string[][] $sort       Sorting [0] => Field, [1] => Direction
+     *
+     * @return \KoolDevelop\Model\Model Model
+     */
+    public function first($conditions = array(), $sort = array()) {
+
+        // Create new SELECT query
+        $query = DatabaseAdaptor::getInstance($this->DatabaseConfiguration)->newQuery();
+        $query->select('*')->from($this->DatabaseTable);
+
+        // Limit on 1 
+        $query->limit(1, 0);
+
+        if (count($sort) > 0) {
+            if (!is_array($sort[0])) {
+                $sort = array($sort);
+            }
+            foreach($sort as $_sort) {
+                $query->orderby($_sort[0], $_sort[1]);
+            }
+        }
+
+        // Process conditions
+        $this->_ProcesConditions($conditions, $query);
+        $result = $query->execute();
+
+        $models = null;
+        if(false !== ($database_row = $result->fetch())) {
+            $model = $this->newObject();
+            $this->_DatabaseToModel($database_row, $model);
+        }
+
+        return $model;
+
+    }
+    
+    /**
+     * Return Models that complies to the conditions
      *
      * @param mixed[]    $conditions Conditions
      * @param string[][] $sort       Sorting [0] => Field, [1] => Direction

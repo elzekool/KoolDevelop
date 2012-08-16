@@ -4,10 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.7.0" />
 
-	<title>Function __ne | KoolDevelop</title>
+	<title>Class KoolDevelop\Console\GetTextTask | KoolDevelop</title>
 
 	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1970511449"></script>
+	<script type="text/javascript" src="elementlist.js?575041598"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -21,11 +21,11 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
+				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
+				<li class="active"><a href="namespace-KoolDevelop.Console.html">Console</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Controller.html">Controller</a>
 						</li>
@@ -44,7 +44,7 @@
 				<li><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
 							</ul></li>
-				<li class="active"><a href="namespace-None.html">None</a>
+				<li><a href="namespace-None.html">None</a>
 						</li>
 				<li><a href="namespace-View.html">View<span></span></a>
 						<ul>
@@ -60,30 +60,18 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Bootstrapper.html">Bootstrapper</a></li>
-				<li><a href="class-Controller.html">Controller</a></li>
-				<li><a href="class-Element.html">Element</a></li>
-				<li><a href="class-Helper.html">Helper</a></li>
-				<li><a href="class-Model.html">Model</a></li>
-				<li><a href="class-View.html">View</a></li>
+				<li><a href="class-KoolDevelop.Console.Console.html">Console</a></li>
+				<li class="active"><a href="class-KoolDevelop.Console.GetTextTask.html">GetTextTask</a></li>
 			</ul>
 
-
-
-
-
-			<h3>Functions</h3>
+			<h3>Interfaces</h3>
 			<ul>
-				<li><a href="function-__.html">__</a></li>
-				<li><a href="function-__e.html">__e</a></li>
-				<li><a href="function-__f.html">__f</a></li>
-				<li><a href="function-__fn.html">__fn</a></li>
-				<li><a href="function-__n.html">__n</a></li>
-				<li class="active"><a href="function-__ne.html">__ne</a></li>
-				<li><a href="function-__nw.html">__nw</a></li>
-				<li><a href="function-__w.html">__w</a></li>
-				<li><a href="function-r.html">r</a></li>
+				<li><a href="class-KoolDevelop.Console.ITask.html">ITask</a></li>
 			</ul>
+
+
+
+
 		</div>
 	</div>
 </div>
@@ -105,10 +93,10 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+				<a href="namespace-KoolDevelop.Console.html" title="Summary of KoolDevelop\Console"><span>Namespace</span></a>
 			</li>
 			<li class="active">
-<span>Function</span>			</li>
+<span>Class</span>			</li>
 		</ul>
 		<ul>
 			<li>
@@ -122,66 +110,96 @@
 		</ul>
 	</div>
 
-<div id="content" class="function">
-	<h1>Function __ne</h1>
+<div id="content" class="class">
+	<h1>Class GetTextTask</h1>
 
 
 	<div class="description">
 	
-<p>Translate and echo plural text</p>
+<p>GetText Console Task</p>
+
+<p>This task searches for translatable strings (Strings within shorthand
+translation functions __(), __n(),...) and writes a GetText dictonary file
+(.pot)</p>
 
 	</div>
 
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>KoolDevelop\Console\GetTextTask</span></b>			
+			 implements 
+				<a href="class-KoolDevelop.Console.ITask.html"><span>KoolDevelop\Console\ITask</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
 	<div class="info">
 		
-		<b>Package:</b> KoolDevelop\Core<br />
+		
+		<b>Namespace:</b> <a href="namespace-KoolDevelop.html">KoolDevelop</a>\<a href="namespace-KoolDevelop.Console.html">Console</a><br />
+		<b>Package:</b> KoolDevelop\International<br />
+
 				<b>Copyright:</b>
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-function-__ne.html#78" title="Go to source code">framework/shorthand.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Console.GetTextTask.html#15" title="Go to source code">framework/console/GetTextTask.php</a><br />
 	</div>
 
 
-	<table class="summary" id="parameters">
-	<caption>Parameters summary</caption>
-	<tr data-order="singular" id="$singular">
-		<td class="name"><code>
-			string
-		</code></td>
-		<td class="value"><code><var>$singular</var></code></td>
-		<td>
-			 Singular Text
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="index" id="_index">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
 		</td>
-	</tr>
-	<tr data-order="plural" id="$plural">
-		<td class="name"><code>
-			string
-		</code></td>
-		<td class="value"><code><var>$plural</var></code></td>
-		<td>
-			 Plural Text
-		</td>
-	</tr>
-	<tr data-order="count" id="$count">
-		<td class="name"><code>
-			integer
-		</code></td>
-		<td class="value"><code><var>$count</var></code></td>
-		<td>
-			 Count
-		</td>
-	</tr>
-	<tr data-order="domain" id="$domain">
-		<td class="name"><code>
-			string
-		</code></td>
-		<td class="value"><code><var>$domain</var> = <span class="php-quote">'default'</span></code></td>
-		<td>
-			 Domain
-		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_index">#</a>
+		<code><a href="source-class-KoolDevelop.Console.GetTextTask.html#29" title="Go to source code">index</a>( )</code>
+
+		<div class="description short">
+			
+<p>Default command</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Default command</p>
+
+
+
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-KoolDevelop.Console.ITask.html#_">KoolDevelop\Console\ITask::index</a></code></div>
+		</div>
+		</div></td>
 	</tr>
 	</table>
+
+
+
+
+
+
+
 
 
 

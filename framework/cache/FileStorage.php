@@ -15,7 +15,7 @@ namespace KoolDevelop\Cache;
  * File Cache Storage
  *
  * Stores cache files on disk in small text files. Path is configurable
- * with the [path] configuration option
+ * with the [path] configuration option.
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment

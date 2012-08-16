@@ -14,6 +14,10 @@ namespace KoolDevelop\Route;
 /**
  * Interface for Router routings
  *
+ * Implement this interface to create your own route modifiers. 
+ * 
+ * @see \KoolDevelop\Router
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
@@ -22,14 +26,12 @@ namespace KoolDevelop\Route;
  **/
 interface IRoute
 {
-
 	/**
 	 * Proces routing
 	 *
 	 * @param string $route Reference to current route
 	 *
-	 * @return bool Stop further processing
+	 * @return boolean Stop further processing
 	 */
 	public function route(&$route);
-
 }

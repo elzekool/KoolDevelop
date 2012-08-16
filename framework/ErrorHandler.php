@@ -14,13 +14,16 @@ namespace KoolDevelop;
 /**
  * Error Handler
  *
+ * Base error handler. This class is used for handling exceptions / recoverable errors.
+ * You can prepend or replace the default onError observer with your own.
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class ErrorHandler extends \KoolDevelop\Observable
+class ErrorHandler extends \KoolDevelop\Observable
 {
 	/**
 	 * Singleton Instance

@@ -13,14 +13,14 @@ namespace KoolDevelop\View;
 
 /**
  * Placeholder
- *
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class Placeholder
+class Placeholder
 {
 
     /**

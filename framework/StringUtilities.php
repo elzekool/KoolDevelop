@@ -13,6 +13,8 @@ namespace KoolDevelop;
 
 /**
  * String Utilities
+ * 
+ * Contains functions for manipulating strings
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -20,7 +22,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class StringUtilities 
+class StringUtilities 
 {
 
     /**

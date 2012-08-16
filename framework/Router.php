@@ -14,13 +14,20 @@ namespace KoolDevelop;
 /**
  * Router
  *
+ * Routers URI's to the correct controller and controller action. Has tools for
+ * reading and manipulating the current URI (for views e.g.). You can use the shorthand
+ * function r() to retreve the current router instance.
+ * 
+ * If you want to customize the routing add custom route modifiers in a Bootstrapper application
+ * with the addRoute function()
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class Router extends \KoolDevelop\Observable
+class Router extends \KoolDevelop\Observable
 {
 	/**
 	 * RegEx for named parameters

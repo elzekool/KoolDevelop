@@ -7,7 +7,7 @@
 	<title>Class KoolDevelop\Router | KoolDevelop</title>
 
 	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1970511449"></script>
+	<script type="text/javascript" src="elementlist.js?575041598"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -120,6 +120,13 @@
 	
 <p>Router</p>
 
+<p>Routers URI's to the correct controller and controller action. Has tools for
+reading and manipulating the current URI (for views e.g.). You can use the
+shorthand function r() to retreve the current router instance.</p>
+
+<p>If you want to customize the routing add custom route modifiers in a
+Bootstrapper application with the addRoute function()</p>
+
 	</div>
 
 	<dl class="tree">
@@ -145,7 +152,7 @@
 
 
 	<div class="info">
-		<b>Final</b><br />
+		
 		
 		<b>Namespace:</b> <a href="namespace-KoolDevelop.html">KoolDevelop</a><br />
 		<b>Package:</b> KoolDevelop\Core<br />
@@ -171,7 +178,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInstance">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#55" title="Go to source code">getInstance</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#62" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
 			
@@ -208,7 +215,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getBase">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#68" title="Go to source code">getBase</a>( <span>boolean <var>$secure</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#75" title="Go to source code">getBase</a>( <span>boolean <var>$secure</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -250,7 +257,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUrl">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#91" title="Go to source code">getUrl</a>( <span> <var>$base</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#98" title="Go to source code">getUrl</a>( <span> <var>$base</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -287,7 +294,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getParameters">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#103" title="Go to source code">getParameters</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#110" title="Go to source code">getParameters</a>( )</code>
 
 		<div class="description short">
 			
@@ -324,7 +331,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getNamedParameters">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#115" title="Go to source code">getNamedParameters</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#122" title="Go to source code">getNamedParameters</a>( )</code>
 
 		<div class="description short">
 			
@@ -361,7 +368,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getNamedUrl">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#134" title="Go to source code">getNamedUrl</a>( <span> <var>$parameters</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span> <var>$reset</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#141" title="Go to source code">getNamedUrl</a>( <span> <var>$parameters</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span> <var>$reset</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -390,7 +397,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addRoute">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#199" title="Go to source code">addRoute</a>( <span><code><a href="class-KoolDevelop.Route.IRoute.html">KoolDevelop\Route\IRoute</a></code> <var>$route</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#206" title="Go to source code">addRoute</a>( <span><code><a href="class-KoolDevelop.Route.IRoute.html">KoolDevelop\Route\IRoute</a></code> <var>$route</var></span> )</code>
 
 		<div class="description short">
 			
@@ -428,7 +435,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_route">#</a>
-		<code><a href="source-class-KoolDevelop.Router.html#210" title="Go to source code">route</a>( <span>string <var>$url</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Router.html#217" title="Go to source code">route</a>( <span>string <var>$url</var></span> )</code>
 
 		<div class="description short">
 			
@@ -479,7 +486,7 @@
 			string
 		</code></td>
 		<td class="name"><code>
-				<a href="source-class-KoolDevelop.Router.html#25" title="Go to source code"><b>NAMED_PARAMETER_REGEG</b></a>
+				<a href="source-class-KoolDevelop.Router.html#32" title="Go to source code"><b>NAMED_PARAMETER_REGEG</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-quote">'/^(.*):(.*)$/U'</span></code></td>
 		<td class="description"><div>

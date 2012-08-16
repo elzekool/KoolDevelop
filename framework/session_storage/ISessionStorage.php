@@ -14,6 +14,11 @@ namespace KoolDevelop\SessionStorage;
 /**
  * Session Storage Interface
  *
+ * Implement this interface for usage in combination with \KoolDevelop\Session
+ * class.
+ * 
+ * @see \KoolDevelop\Session
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *

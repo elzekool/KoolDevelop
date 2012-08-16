@@ -28,7 +28,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class Configuration
+class Configuration
 {
     /**
      * Current Environment

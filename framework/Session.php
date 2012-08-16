@@ -13,6 +13,9 @@ namespace KoolDevelop;
 
 /**
  * Session
+ * 
+ * Base session control. Allows one ore more Session Storage objects to be registrated.
+ * Registrate new Session Storage objects with registerSessionStorage. 
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -20,7 +23,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class Session
+class Session
 {
 	/**
 	 * Singleton Instance

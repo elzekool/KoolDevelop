@@ -14,6 +14,9 @@ namespace KoolDevelop\View;
 /**
  * Element
  *
+ * Reusable mini View. Use this for elements like a menu and other parts of your
+ * views/layouts. Render an element from view/layout with $this->element(<element file>, <paramers>);
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *

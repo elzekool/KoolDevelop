@@ -8,7 +8,7 @@
 	<title>File framework/international/L10n.php | KoolDevelop</title>
 
 	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1970511449"></script>
+	<script type="text/javascript" src="elementlist.js?575041598"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -61,6 +61,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-KoolDevelop.International.GettextTranslator.html">GettextTranslator</a></li>
 				<li><a href="class-KoolDevelop.International.I18n.html">I18n</a></li>
 				<li class="active"><a href="class-KoolDevelop.International.L10n.html">L10n</a></li>
 				<li><a href="class-KoolDevelop.International.PassTroughTranslator.html">PassTroughTranslator</a></li>
@@ -157,7 +158,7 @@
 </span><a href="#42" id="42" class="l"> 42: </a><span class="php-comment">     * @var string
 </span><a href="#43" id="43" class="l"> 43: </a><span class="php-comment">     */</span>
 <a href="#44" id="44" class="l"> 44: </a>    <span class="php-keyword1">private</span> <span class="php-var">$CurrentLocale</span>;
-<a href="#45" id="45" class="l"> 45: </a>    
+<a href="#45" id="45" class="l"> 45: </a>
 <a href="#46" id="46" class="l"> 46: </a>    <span class="php-comment">/**
 </span><a href="#47" id="47" class="l"> 47: </a><span class="php-comment">     * Locale settings from international.ini
 </span><a href="#48" id="48" class="l"> 48: </a><span class="php-comment">     * @var string[]
@@ -182,22 +183,22 @@
 <a href="#67" id="67" class="l"> 67: </a>        }
 <a href="#68" id="68" class="l"> 68: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;CurrentLocale;
 <a href="#69" id="69" class="l"> 69: </a>    }
-<a href="#70" id="70" class="l"> 70: </a>    
+<a href="#70" id="70" class="l"> 70: </a>
 <a href="#71" id="71" class="l"> 71: </a>    <span class="php-comment">/**
 </span><a href="#72" id="72" class="l"> 72: </a><span class="php-comment">     * Get current Locale settings from international.ini
-</span><a href="#73" id="73" class="l"> 73: </a><span class="php-comment">     * 
-</span><a href="#74" id="74" class="l"> 74: </a><span class="php-comment">     * Returns the settings from international.ini for the current 
+</span><a href="#73" id="73" class="l"> 73: </a><span class="php-comment">     *
+</span><a href="#74" id="74" class="l"> 74: </a><span class="php-comment">     * Returns the settings from international.ini for the current
 </span><a href="#75" id="75" class="l"> 75: </a><span class="php-comment">     * locale.
-</span><a href="#76" id="76" class="l"> 76: </a><span class="php-comment">     * 
+</span><a href="#76" id="76" class="l"> 76: </a><span class="php-comment">     *
 </span><a href="#77" id="77" class="l"> 77: </a><span class="php-comment">     * @return string[] Locale settings
 </span><a href="#78" id="78" class="l"> 78: </a><span class="php-comment">     */</span>
 <a href="#79" id="79" class="l"> 79: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getLocaleSettings() {
-<a href="#80" id="80" class="l"> 80: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;CurrentLocale === <span class="php-keyword1">null</span>) {
+<a href="#80" id="80" class="l"> 80: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;CurrentLocaleSettings === <span class="php-keyword1">null</span>) {
 <a href="#81" id="81" class="l"> 81: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \RuntimeException(__f(<span class="php-quote">&quot;No locale found/setup&quot;</span>,<span class="php-quote">'kooldevelop'</span>));
 <a href="#82" id="82" class="l"> 82: </a>        }
-<a href="#83" id="83" class="l"> 83: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;CurrentLocale;
+<a href="#83" id="83" class="l"> 83: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;CurrentLocaleSettings;
 <a href="#84" id="84" class="l"> 84: </a>    }
-<a href="#85" id="85" class="l"> 85: </a>    
+<a href="#85" id="85" class="l"> 85: </a>
 <a href="#86" id="86" class="l"> 86: </a>    <span class="php-comment">/**
 </span><a href="#87" id="87" class="l"> 87: </a><span class="php-comment">     * Constructor
 </span><a href="#88" id="88" class="l"> 88: </a><span class="php-comment">     */</span>
@@ -205,7 +206,7 @@
 <a href="#90" id="90" class="l"> 90: </a>
 <a href="#91" id="91" class="l"> 91: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'international'</span>);
 <a href="#92" id="92" class="l"> 92: </a>        <span class="php-var">$session</span> = \KoolDevelop\Session::getInstance();
-<a href="#93" id="93" class="l"> 93: </a>        
+<a href="#93" id="93" class="l"> 93: </a>
 <a href="#94" id="94" class="l"> 94: </a>        <span class="php-var">$session_id</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.session_id'</span>, <span class="php-quote">'lang'</span>);
 <a href="#95" id="95" class="l"> 95: </a>        <span class="php-var">$session_storage</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.session_handler'</span>, <span class="php-quote">'Php'</span>);
 <a href="#96" id="96" class="l"> 96: </a>        <span class="php-var">$session_timeout</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.session_timeout'</span>, <span class="php-num">0</span>);
@@ -219,7 +220,7 @@
 <a href="#104" id="104" class="l">104: </a>            <span class="php-var">$langs</span> = <span class="php-keyword1">array</span>(
 <a href="#105" id="105" class="l">105: </a>                <span class="php-var">$_GET</span>[<span class="php-var">$get_param</span>] =&gt; <span class="php-num">1</span>
 <a href="#106" id="106" class="l">106: </a>            );
-<a href="#107" id="107" class="l">107: </a>            <span class="php-var">$session</span>-&gt;set(<span class="php-var">$session_id</span>, <span class="php-var">$_GET</span>[<span class="php-var">$get_param</span>], <span class="php-var">$session_timeout</span>, <span class="php-var">$session_storage</span>);          
+<a href="#107" id="107" class="l">107: </a>            <span class="php-var">$session</span>-&gt;set(<span class="php-var">$session_id</span>, <span class="php-var">$_GET</span>[<span class="php-var">$get_param</span>], <span class="php-var">$session_timeout</span>, <span class="php-var">$session_storage</span>);
 <a href="#108" id="108" class="l">108: </a>        } <span class="php-keyword1">else</span> <span class="php-keyword1">if</span> (<span class="php-var">$session</span>-&gt;exists(<span class="php-var">$session_id</span>, <span class="php-var">$session_storage</span>)) {
 <a href="#109" id="109" class="l">109: </a>            <span class="php-var">$session_language</span> = <span class="php-var">$session</span>-&gt;get(<span class="php-var">$session_id</span>, <span class="php-keyword1">null</span>, <span class="php-var">$session_storage</span>);
 <a href="#110" id="110" class="l">110: </a>            <span class="php-var">$langs</span> = <span class="php-keyword1">array</span>(
@@ -228,7 +229,7 @@
 <a href="#113" id="113" class="l">113: </a>        } <span class="php-keyword1">else</span> {
 <a href="#114" id="114" class="l">114: </a>            <span class="php-var">$langs</span> = <span class="php-var">$this</span>-&gt;getBrowserLanguages();
 <a href="#115" id="115" class="l">115: </a>        }
-<a href="#116" id="116" class="l">116: </a>        
+<a href="#116" id="116" class="l">116: </a>
 <a href="#117" id="117" class="l">117: </a>        <span class="php-var">$found_mapping</span> = <span class="php-keyword1">null</span>;
 <a href="#118" id="118" class="l">118: </a>
 <a href="#119" id="119" class="l">119: </a>        <span class="php-keyword1">foreach</span>(<span class="php-var">$langs</span> <span class="php-keyword1">as</span> <span class="php-var">$lang</span> =&gt; <span class="php-var">$factor</span>) {
@@ -247,10 +248,10 @@
 <a href="#132" id="132" class="l">132: </a>            <span class="php-var">$found_mapping</span> = <span class="php-var">$this</span>-&gt;Mappings[<span class="php-num">0</span>];
 <a href="#133" id="133" class="l">133: </a>        }
 <a href="#134" id="134" class="l">134: </a>
-<a href="#135" id="135" class="l">135: </a>        <span class="php-var">$this</span>-&gt;CurrentLocaleSettings = <span class="php-var">$found_mapping</span>;
+<a href="#135" id="135" class="l">135: </a>        <span class="php-var">$this</span>-&gt;CurrentLocaleSettings = <span class="php-var">$found_mapping</span>[<span class="php-quote">'settings'</span>];
 <a href="#136" id="136" class="l">136: </a>        <span class="php-var">$this</span>-&gt;CurrentLocale = <span class="php-var">$found_mapping</span>[<span class="php-quote">'locale'</span>];
 <a href="#137" id="137" class="l">137: </a>        <span class="php-keyword2">setlocale</span>(LC_ALL, <span class="php-var">$this</span>-&gt;CurrentLocale);
-<a href="#138" id="138" class="l">138: </a>        
+<a href="#138" id="138" class="l">138: </a>
 <a href="#139" id="139" class="l">139: </a>    }
 <a href="#140" id="140" class="l">140: </a>
 <a href="#141" id="141" class="l">141: </a>    <span class="php-comment">/**
@@ -264,15 +265,15 @@
 <a href="#149" id="149" class="l">149: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'international'</span>);
 <a href="#150" id="150" class="l">150: </a>        <span class="php-var">$languages</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.languages'</span>, <span class="php-quote">'nl'</span>);
 <a href="#151" id="151" class="l">151: </a>
-<a href="#152" id="152" class="l">152: </a>        <span class="php-var">$mappings</span> = <span class="php-keyword1">array</span>();        
+<a href="#152" id="152" class="l">152: </a>        <span class="php-var">$mappings</span> = <span class="php-keyword1">array</span>();
 <a href="#153" id="153" class="l">153: </a>        <span class="php-keyword1">foreach</span>(<span class="php-keyword2">explode</span>(<span class="php-quote">','</span>, <span class="php-var">$languages</span>) <span class="php-keyword1">as</span> <span class="php-var">$language</span>) {
 <a href="#154" id="154" class="l">154: </a>            <span class="php-var">$mappings</span>[] = <span class="php-keyword1">array</span>(
 <a href="#155" id="155" class="l">155: </a>                <span class="php-quote">'regex'</span> =&gt; <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$language</span> . <span class="php-quote">'.regex'</span>, <span class="php-quote">''</span>),
-<a href="#156" id="156" class="l">156: </a>                <span class="php-quote">'folder'</span> =&gt; <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$language</span> . <span class="php-quote">'.folder'</span>, <span class="php-quote">''</span>),
-<a href="#157" id="157" class="l">157: </a>                <span class="php-quote">'locale'</span> =&gt; <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$language</span> . <span class="php-quote">'.locale'</span>, <span class="php-quote">''</span>)
+<a href="#156" id="156" class="l">156: </a>                <span class="php-quote">'locale'</span> =&gt; <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$language</span> . <span class="php-quote">'.locale'</span>, <span class="php-quote">''</span>),
+<a href="#157" id="157" class="l">157: </a>                <span class="php-quote">'settings'</span> =&gt; <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$language</span>,  <span class="php-keyword1">array</span>())
 <a href="#158" id="158" class="l">158: </a>            );
 <a href="#159" id="159" class="l">159: </a>        }
-<a href="#160" id="160" class="l">160: </a>        
+<a href="#160" id="160" class="l">160: </a>
 <a href="#161" id="161" class="l">161: </a>        <span class="php-comment">// Mappings teruggeven</span>
 <a href="#162" id="162" class="l">162: </a>        <span class="php-keyword1">return</span> <span class="php-var">$mappings</span>;
 <a href="#163" id="163" class="l">163: </a>    }

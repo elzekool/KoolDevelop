@@ -14,6 +14,10 @@ namespace KoolDevelop\Route;
 /**
  * Regular expression route
  *
+ * Regular Expression route modifief. Matches routes/URI's on a regular expression
+ * to allow complex routes. Use $1, $2.. to use specific match groups to the outputed 
+ * URI/route.
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
@@ -43,9 +47,9 @@ class RegEx implements \KoolDevelop\Route\IRoute
 	/**
 	 * Constructor
 	 *
-	 * @param <type> $in   Regular expression to match
-	 * @param <type> $out  Output on match
-	 * @param <type> $stop Stop on match
+	 * @param string  $in   Regular expression to match
+	 * @param string  $out  Output on match (You can use $1, $2.. to get pattern matches)
+	 * @param boolean $stop Stop on match
 	 */
 	public function __construct($in, $out, $stop = false) {
 		$this->In = $in;
@@ -58,7 +62,7 @@ class RegEx implements \KoolDevelop\Route\IRoute
 	 *
 	 * @param string $route Reference to current route
 	 *
-	 * @return bool Stop further processing
+	 * @return boolean Stop further processing
 	 */
 	public function route(&$route) {
 		$matches = array();

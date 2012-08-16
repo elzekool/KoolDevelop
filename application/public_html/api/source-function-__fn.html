@@ -8,7 +8,7 @@
 	<title>File framework/shorthand.php | KoolDevelop</title>
 
 	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1970511449"></script>
+	<script type="text/javascript" src="elementlist.js?575041598"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -77,12 +77,12 @@
 			<ul>
 				<li><a href="function-__.html">__</a></li>
 				<li><a href="function-__e.html">__e</a></li>
+				<li><a href="function-__en.html">__en</a></li>
 				<li><a href="function-__f.html">__f</a></li>
 				<li class="active"><a href="function-__fn.html">__fn</a></li>
 				<li><a href="function-__n.html">__n</a></li>
-				<li><a href="function-__ne.html">__ne</a></li>
-				<li><a href="function-__nw.html">__nw</a></li>
 				<li><a href="function-__w.html">__w</a></li>
+				<li><a href="function-__wn.html">__wn</a></li>
 				<li><a href="function-r.html">r</a></li>
 			</ul>
 		</div>
@@ -211,7 +211,7 @@
 </span><a href="#85" id="85" class="l"> 85: </a><span class="php-comment"> *
 </span><a href="#86" id="86" class="l"> 86: </a><span class="php-comment"> * @return void
 </span><a href="#87" id="87" class="l"> 87: </a><span class="php-comment"> */</span>
-<a href="#88" id="88" class="l"> 88: </a><span class="php-keyword1">function</span> __ne(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>, <span class="php-var">$domain</span> = <span class="php-quote">'default'</span>) {
+<a href="#88" id="88" class="l"> 88: </a><span class="php-keyword1">function</span> __en(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>, <span class="php-var">$domain</span> = <span class="php-quote">'default'</span>) {
 <a href="#89" id="89" class="l"> 89: </a>    <span class="php-var">$i18n</span> = \KoolDevelop\International\I18n::getInstance(<span class="php-var">$domain</span>);
 <a href="#90" id="90" class="l"> 90: </a>    <span class="php-keyword1">echo</span> <span class="php-var">$i18n</span>-&gt;plural(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>);
 <a href="#91" id="91" class="l"> 91: </a>}
@@ -226,7 +226,7 @@
 </span><a href="#100" id="100" class="l">100: </a><span class="php-comment"> *
 </span><a href="#101" id="101" class="l">101: </a><span class="php-comment"> * @return void
 </span><a href="#102" id="102" class="l">102: </a><span class="php-comment"> */</span>
-<a href="#103" id="103" class="l">103: </a><span class="php-keyword1">function</span> __nw(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>, <span class="php-var">$domain</span> = <span class="php-quote">'default'</span>) {
+<a href="#103" id="103" class="l">103: </a><span class="php-keyword1">function</span> __wn(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>, <span class="php-var">$domain</span> = <span class="php-quote">'default'</span>) {
 <a href="#104" id="104" class="l">104: </a>    <span class="php-var">$i18n</span> = \KoolDevelop\International\I18n::getInstance(<span class="php-var">$domain</span>);
 <a href="#105" id="105" class="l">105: </a>    <span class="php-keyword1">echo</span> <span class="php-keyword2">htmlspecialchars</span>(<span class="php-var">$i18n</span>-&gt;plural(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>));
 <a href="#106" id="106" class="l">106: </a>}

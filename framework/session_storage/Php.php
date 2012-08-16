@@ -13,6 +13,11 @@ namespace KoolDevelop\SessionStorage;
 
 /**
  * PHP Session Storage
+ * 
+ * Default PHP Session storage with added security (session fiaxation and hijacking
+ * prevention messures). 
+ * 
+ * @see \KoolDevelop\Session
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -20,13 +25,43 @@ namespace KoolDevelop\SessionStorage;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class Php implements \KoolDevelop\SessionStorage\ISessionStorage
+class Php implements \KoolDevelop\SessionStorage\ISessionStorage
 {
+
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
-		@session_start();
+
+        
+        @session_start();        
+        
+        // Prevent session fixation
+        if (!isset($_SESSION['PhpSessionStorageInitiated'])) {
+            session_regenerate_id();
+            $_SESSION['PhpSessionStorageInitiated'] = true;
+        }
+        
+        // Prevent session hijacking
+        if (!isset($_SESSION['PhpSessionStorageUA']) OR !isset($_SESSION['PhpSessionStorageIP'])) {
+            $_SESSION['PhpSessionStorageUA'] = sha1(@$_SERVER['HTTP_USER_AGENT']);
+            $_SESSION['PhpSessionStorageIP'] = sha1(@$_SERVER['REMOTE_ADDR']);
+            return;
+            
+        // We mark a session save when user agent matches or remote IP matches
+        } else if ($_SESSION['PhpSessionStorageUA'] == sha1(@$_SERVER['HTTP_USER_AGENT'])) {
+            // Session considerd safe
+            return;
+        } else if ($_SESSION['PhpSessionStorageUA'] == sha1(@$_SERVER['REMOTE_ADDR'])) {
+            // Session considerd safe
+            return;
+        }
+        
+        // Session is unsafe, destroy it and die
+        session_destroy();
+        $_SESSION = array();
+        die("SESSION CORRUPTED");
+        
 	}
 
 	/**

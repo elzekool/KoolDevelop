@@ -14,6 +14,10 @@ namespace KoolDevelop;
 /**
  * Observable
  *
+ * Extend this class to make your object actions observable. Add observers
+ * in your class constructor with addObservable. Register observers for the
+ * created observables with addObserver.
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *

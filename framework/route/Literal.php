@@ -15,6 +15,9 @@ namespace KoolDevelop\Route;
 
 /**
  * Literal expression route
+ * 
+ * Literal route modifier, converts exact URI/Routes. Use this to route an exact
+ * URI, e.g. "/" for the homepage
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -45,9 +48,9 @@ class Literal implements \KoolDevelop\Route\IRoute
 	/**
 	 * Constructor
 	 *
-	 * @param <type> $in   Route to match
-	 * @param <type> $out  Output on match
-	 * @param <type> $stop Stop on match
+	 * @param string  $in   Route/URI to match
+	 * @param string  $out  Output on match
+	 * @param boolean $stop Stop on match
 	 */
 	public function __construct($in, $out, $stop = false) {
 		$this->In = $in;
@@ -60,7 +63,7 @@ class Literal implements \KoolDevelop\Route\IRoute
 	 *
 	 * @param string $route Reference to current route
 	 *
-	 * @return bool Stop further processing
+	 * @return boolean Stop further processing
 	 */
 	public function route(&$route) {
 		if ($route == $this->In) {

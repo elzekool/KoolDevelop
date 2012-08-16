@@ -7,7 +7,7 @@
 	<title>Class KoolDevelop\Observable | KoolDevelop</title>
 
 	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1970511449"></script>
+	<script type="text/javascript" src="elementlist.js?575041598"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -120,6 +120,10 @@
 	
 <p>Observable</p>
 
+<p>Extend this class to make your object actions observable. Add observers in
+your class constructor with addObservable. Register observers for the created
+observables with addObserver.</p>
+
 	</div>
 
 
@@ -172,7 +176,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addObservable">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#31" title="Go to source code">addObservable</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Observable.html#35" title="Go to source code">addObservable</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -210,7 +214,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fireObservable">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#50" title="Go to source code">fireObservable</a>( <span>string <var>$observable</var></span>, <span>boolean <var>$stopontrue</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Observable.html#54" title="Go to source code">fireObservable</a>( <span>string <var>$observable</var></span>, <span>boolean <var>$stopontrue</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -250,7 +254,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addObserver">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#79" title="Go to source code">addObserver</a>( <span>string <var>$observable</var></span>, <span>&lt;type&gt; <var>$callback</var></span>, <span>&lt;type&gt; <var>$prepend</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Observable.html#83" title="Go to source code">addObserver</a>( <span>string <var>$observable</var></span>, <span>&lt;type&gt; <var>$callback</var></span>, <span>&lt;type&gt; <var>$prepend</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -298,7 +302,7 @@ be used for deleting observer</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_clearObservers">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#109" title="Go to source code">clearObservers</a>( <span>string <var>$observable</var></span>, <span>string <var>$id</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Observable.html#113" title="Go to source code">clearObservers</a>( <span>string <var>$observable</var></span>, <span>string <var>$id</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
