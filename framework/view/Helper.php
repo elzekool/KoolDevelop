@@ -47,5 +47,4 @@ abstract class Helper
 		$this->View = $View;
 	}
 
-
 }

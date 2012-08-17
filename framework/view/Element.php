@@ -23,9 +23,9 @@ namespace KoolDevelop\View;
  * @package KoolDevelop
  * @subpackage Core
  **/
-abstract class Element extends \KoolDevelop\View\View
+abstract class Element extends \KoolDevelop\View\View implements \KoolDevelop\Configuration\IConfigurable
 {
-
+    
     /**
      * Parent View
      * @var \KoolDevelop\View\View
@@ -108,5 +108,17 @@ abstract class Element extends \KoolDevelop\View\View
 		}
 
 	}
+
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {      
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'path.element', 'APP_PATH "" DS "view" DS "element"', ('Path where Element files are stored'))
+        );
+    }
+
 
 }

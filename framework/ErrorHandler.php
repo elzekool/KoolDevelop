@@ -23,7 +23,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-class ErrorHandler extends \KoolDevelop\Observable
+class ErrorHandler extends \KoolDevelop\Observable implements \KoolDevelop\Configuration\IConfigurable
 {
 	/**
 	 * Singleton Instance
@@ -123,6 +123,19 @@ class ErrorHandler extends \KoolDevelop\Observable
 		$this->fireObservable('onError', true, $e);
 	}
 
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {      
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'errors.display_errors', '0', ('1 to show PHP errors, 0 to hide them')),
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'errors.error_reporting', 'E_ALL & ~(E_DEPRECATED)', ('PHP Error types to handle')),
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'errors.display_stacktrace', '0', ('1 to show stacktrace, 0 to hide them')),
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'errors.display_details', '0', ('1 to show display details of KoolDevelop specific exceptions, 0 to hide them'))
+        );
+    }
 
 
 }

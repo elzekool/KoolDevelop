@@ -59,6 +59,8 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
         $hostname = $_SERVER['HTTP_HOST'];
         if (preg_match('/\.kooldevelop$/', $hostname) != 0) {
             return 'development';
+        } else if (preg_match('/localhost$/', $hostname) != 0) {
+            return 'localhost';            
         } else {
             return 'production';
         }
