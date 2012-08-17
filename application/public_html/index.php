@@ -12,29 +12,29 @@
  * Application path
  * @var string
  */
-define('_APP_PATH_', realpath(dirname(__FILE__) . '/../'));
+define('APP_PATH', realpath(dirname(__FILE__) . '/../'));
 
 /**
  * Framework path
  * @var string
  */
-define('_FRAMEWORK_PATH_', realpath(dirname(__FILE__) . '/../../framework/'));
+define('FRAMEWORK_PATH', realpath(dirname(__FILE__) . '/../../framework/'));
 
 /**
  * Configuration path
  * @var string
  */
-define('_CONFIG_PATH_', _APP_PATH_ . '/config');
+define('CONFIG_PATH', APP_PATH . '/config');
 
 /**
  * Libraries path
  * @var string
  */
-define('_LIBS_PATH_', realpath(dirname(__FILE__) . '/../../libraries/'));
+define('LIBS_PATH', realpath(dirname(__FILE__) . '/../../libraries/'));
 
 /**
  * Load initialisaton
  */
-require _FRAMEWORK_PATH_ . '/init.php';
+require FRAMEWORK_PATH . '/init.php';
 
 

@@ -15,7 +15,7 @@ namespace KoolDevelop;
  * Configuration
  * 
  * Reads and parsers configuration files. These configuration files are put in
- * the _CONFIG_PATH_ of your application. The .ini files are parsed with PHP so you
+ * the CONFIG_PATH of your application. The .ini files are parsed with PHP so you
  * can use PHP for special needs. 
  * 
  * It is possible to use specific configuration files based on the current environment
@@ -85,11 +85,11 @@ class Configuration
 		}
         
         // First check in envirionment location
-        if (file_exists(_CONFIG_PATH_ . DS . self::$CurrentEnvironment . DS . $configuration . '.ini')) {
-            $filename = _CONFIG_PATH_ . DS . self::$CurrentEnvironment . DS . $configuration . '.ini';            
+        if (file_exists(CONFIG_PATH . DS . self::$CurrentEnvironment . DS . $configuration . '.ini')) {
+            $filename = CONFIG_PATH . DS . self::$CurrentEnvironment . DS . $configuration . '.ini';            
         // Then check in default location
-        } else if (file_exists(_CONFIG_PATH_ . DS . $configuration . '.ini')) {
-            $filename = _CONFIG_PATH_ . DS . $configuration . '.ini';            
+        } else if (file_exists(CONFIG_PATH . DS . $configuration . '.ini')) {
+            $filename = CONFIG_PATH . DS . $configuration . '.ini';            
         } else {
             throw new \InvalidArgumentException(__f("Invalid Configuration File",'kooldevelop'));            
         }

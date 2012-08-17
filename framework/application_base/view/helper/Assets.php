@@ -57,7 +57,7 @@ class Assets extends \Helper
     public function script($src, $force = false, $inline = false) {
         if ($force OR !in_array($src, $this->Files)) {
             $this->Files[] = $src;
-            $js_file = Configuration::getInstance('core')->get('path.public_html', _APP_PATH_ . DS . "public_html") . DS . $src;
+            $js_file = Configuration::getInstance('core')->get('path.public_html', APP_PATH . DS . "public_html") . DS . $src;
             if ($inline AND file_exists($js_file)) {
                 $this->OutputJS[] = '<script type="text/javascript">' . file_get_contents($js_file) . '</script>' . "\n";
             } else {
@@ -79,7 +79,7 @@ class Assets extends \Helper
     public function css($src, $media = 'all', $force = false, $inline = false) {
         if ($force OR !in_array($src, $this->Files)) {
             $this->Files[] = $src;
-            $css_file = Configuration::getInstance('core')->get('path.public_html', _APP_PATH_ . DS . "public_html") . DS . $src;
+            $css_file = Configuration::getInstance('core')->get('path.public_html', APP_PATH . DS . "public_html") . DS . $src;
             if ($inline AND file_exists($css_file)) {
                 $this->OutputCSS[] = '<style type="text/css" media="' . htmlspecialchars($media) . '">' . file_get_contents($css_file) . '</style>' . "\n";
             } else {

@@ -179,9 +179,9 @@
 <a href="#63" id="63" class="l"> 63: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> __construct() {
 <a href="#64" id="64" class="l"> 64: </a>  
 <a href="#65" id="65" class="l"> 65: </a>        <span class="php-comment">// Add default mappings</span>
-<a href="#66" id="66" class="l"> 66: </a>        <span class="php-var">$this</span>-&gt;addMapping(<span class="php-quote">'\\KoolDevelop\\'</span>, _FRAMEWORK_PATH_);        
-<a href="#67" id="67" class="l"> 67: </a>        <span class="php-var">$this</span>-&gt;addMapping(<span class="php-quote">'\\'</span>, _APP_PATH_);
-<a href="#68" id="68" class="l"> 68: </a>        <span class="php-var">$this</span>-&gt;addMapping(<span class="php-quote">'\\'</span>, \_FRAMEWORK_PATH_ . DS . <span class="php-quote">'application_base'</span>);
+<a href="#66" id="66" class="l"> 66: </a>        <span class="php-var">$this</span>-&gt;addMapping(<span class="php-quote">'\\KoolDevelop\\'</span>, FRAMEWORK_PATH);        
+<a href="#67" id="67" class="l"> 67: </a>        <span class="php-var">$this</span>-&gt;addMapping(<span class="php-quote">'\\'</span>, APP_PATH);
+<a href="#68" id="68" class="l"> 68: </a>        <span class="php-var">$this</span>-&gt;addMapping(<span class="php-quote">'\\'</span>, \FRAMEWORK_PATH . DS . <span class="php-quote">'application_base'</span>);
 <a href="#69" id="69" class="l"> 69: </a>        
 <a href="#70" id="70" class="l"> 70: </a>        <span class="php-comment">// Register autoloader</span>
 <a href="#71" id="71" class="l"> 71: </a>        <span class="php-keyword2">spl_autoload_register</span>(<span class="php-keyword1">array</span>(<span class="php-var">$this</span>, <span class="php-quote">'autoload'</span>));
@@ -221,7 +221,7 @@
 <a href="#105" id="105" class="l">105: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$last_ns_pos</span> = <span class="php-keyword2">strripos</span>(<span class="php-var">$classname</span>, <span class="php-quote">'\\'</span>)) {
 <a href="#106" id="106" class="l">106: </a>            <span class="php-var">$namespace</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$classname</span>, <span class="php-num">0</span>, <span class="php-var">$last_ns_pos</span>);
 <a href="#107" id="107" class="l">107: </a>            <span class="php-var">$classname</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$classname</span>, <span class="php-var">$last_ns_pos</span> + <span class="php-num">1</span>);
-<a href="#108" id="108" class="l">108: </a>            <span class="php-var">$filename</span>  = _LIBS_PATH_ . DS . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'\\'</span>, DS, <span class="php-var">$namespace</span>) . DS;
+<a href="#108" id="108" class="l">108: </a>            <span class="php-var">$filename</span>  = LIBS_PATH . DS . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'\\'</span>, DS, <span class="php-var">$namespace</span>) . DS;
 <a href="#109" id="109" class="l">109: </a>        }        
 <a href="#110" id="110" class="l">110: </a>        <span class="php-var">$filename</span> .= <span class="php-keyword2">str_replace</span>(<span class="php-quote">'_'</span>, DS, <span class="php-var">$classname</span>) . <span class="php-quote">'.php'</span>;
 <a href="#111" id="111" class="l">111: </a>

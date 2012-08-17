@@ -131,7 +131,7 @@
 </span><a href="#15" id="15" class="l"> 15: </a><span class="php-comment"> * Configuration
 </span><a href="#16" id="16" class="l"> 16: </a><span class="php-comment"> * 
 </span><a href="#17" id="17" class="l"> 17: </a><span class="php-comment"> * Reads and parsers configuration files. These configuration files are put in
-</span><a href="#18" id="18" class="l"> 18: </a><span class="php-comment"> * the _CONFIG_PATH_ of your application. The .ini files are parsed with PHP so you
+</span><a href="#18" id="18" class="l"> 18: </a><span class="php-comment"> * the CONFIG_PATH of your application. The .ini files are parsed with PHP so you
 </span><a href="#19" id="19" class="l"> 19: </a><span class="php-comment"> * can use PHP for special needs. 
 </span><a href="#20" id="20" class="l"> 20: </a><span class="php-comment"> * 
 </span><a href="#21" id="21" class="l"> 21: </a><span class="php-comment"> * It is possible to use specific configuration files based on the current environment
@@ -201,11 +201,11 @@
 <a href="#85" id="85" class="l"> 85: </a>        }
 <a href="#86" id="86" class="l"> 86: </a>        
 <a href="#87" id="87" class="l"> 87: </a>        <span class="php-comment">// First check in envirionment location</span>
-<a href="#88" id="88" class="l"> 88: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">file_exists</span>(_CONFIG_PATH_ . DS . self::<span class="php-var">$CurrentEnvironment</span> . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>)) {
-<a href="#89" id="89" class="l"> 89: </a>            <span class="php-var">$filename</span> = _CONFIG_PATH_ . DS . self::<span class="php-var">$CurrentEnvironment</span> . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>;            
+<a href="#88" id="88" class="l"> 88: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">file_exists</span>(CONFIG_PATH . DS . self::<span class="php-var">$CurrentEnvironment</span> . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>)) {
+<a href="#89" id="89" class="l"> 89: </a>            <span class="php-var">$filename</span> = CONFIG_PATH . DS . self::<span class="php-var">$CurrentEnvironment</span> . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>;            
 <a href="#90" id="90" class="l"> 90: </a>        <span class="php-comment">// Then check in default location</span>
-<a href="#91" id="91" class="l"> 91: </a>        } <span class="php-keyword1">else</span> <span class="php-keyword1">if</span> (<span class="php-keyword2">file_exists</span>(_CONFIG_PATH_ . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>)) {
-<a href="#92" id="92" class="l"> 92: </a>            <span class="php-var">$filename</span> = _CONFIG_PATH_ . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>;            
+<a href="#91" id="91" class="l"> 91: </a>        } <span class="php-keyword1">else</span> <span class="php-keyword1">if</span> (<span class="php-keyword2">file_exists</span>(CONFIG_PATH . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>)) {
+<a href="#92" id="92" class="l"> 92: </a>            <span class="php-var">$filename</span> = CONFIG_PATH . DS . <span class="php-var">$configuration</span> . <span class="php-quote">'.ini'</span>;            
 <a href="#93" id="93" class="l"> 93: </a>        } <span class="php-keyword1">else</span> {
 <a href="#94" id="94" class="l"> 94: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \InvalidArgumentException(__f(<span class="php-quote">&quot;Invalid Configuration File&quot;</span>,<span class="php-quote">'kooldevelop'</span>));            
 <a href="#95" id="95" class="l"> 95: </a>        }

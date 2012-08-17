@@ -404,7 +404,7 @@
 </span><a href="#288" id="288" class="l">288: </a><span class="php-comment">     */</span>
 <a href="#289" id="289" class="l">289: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> initialize(<span class="php-var">$domain</span>, <span class="php-var">$locale_settings</span>, \KoolDevelop\Configuration <span class="php-var">$configuration</span>) {
 <a href="#290" id="290" class="l">290: </a>
-<a href="#291" id="291" class="l">291: </a>        <span class="php-var">$mo_filename</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.path'</span>, _APP_PATH_ . DS . <span class="php-quote">'international'</span>) . DS . <span class="php-var">$locale_settings</span>[<span class="php-quote">'path'</span>] . DS . <span class="php-var">$domain</span> . <span class="php-quote">'.mo'</span>;
+<a href="#291" id="291" class="l">291: </a>        <span class="php-var">$mo_filename</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.path'</span>, APP_PATH . DS . <span class="php-quote">'international'</span>) . DS . <span class="php-var">$locale_settings</span>[<span class="php-quote">'path'</span>] . DS . <span class="php-var">$domain</span> . <span class="php-quote">'.mo'</span>;
 <a href="#292" id="292" class="l">292: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">file_exists</span>(<span class="php-var">$mo_filename</span>)) {
 <a href="#293" id="293" class="l">293: </a>            <span class="php-keyword1">return</span>;
 <a href="#294" id="294" class="l">294: </a>        }
