@@ -61,7 +61,7 @@ abstract class Bootstrapper
     public function route($route = null) {
         
         if ($route === null) {
-           $route = isset($_GET['url']) ? $_GET['url'] : ''; 
+           $route = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : ''; 
         }
         
         $router = \KoolDevelop\Router::getInstance();

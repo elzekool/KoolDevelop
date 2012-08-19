@@ -22,7 +22,7 @@ namespace KoolDevelop\Exception;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class InvalidClassException extends \KoolDevelop\Exception\Exception
+class InvalidClassException extends \KoolDevelop\Exception\Exception
 {
 
 }

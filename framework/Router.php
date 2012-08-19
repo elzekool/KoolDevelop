@@ -274,6 +274,16 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 		$controller->runAction();
 		
 	}
+
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array();
+    }
     
     /**
      * Get Configuration options for this class

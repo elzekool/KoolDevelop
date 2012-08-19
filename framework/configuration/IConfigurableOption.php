@@ -24,7 +24,7 @@ namespace KoolDevelop\Configuration;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class IConfigurableOption
+class IConfigurableOption
 {
     /**
      * File for configuration (without .ini suffix)

@@ -21,7 +21,7 @@ namespace KoolDevelop\International;
  * @package KoolDevelop
  * @subpackage International
  */
-final class I18n
+class I18n
 {
     /**
      * Translator

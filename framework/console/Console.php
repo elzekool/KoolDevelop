@@ -21,7 +21,7 @@ namespace KoolDevelop\Console;
  * @package KoolDevelop
  * @subpackage Console
  **/
-final class Console extends \KoolDevelop\Observable
+class Console extends \KoolDevelop\Observable
 {
 
     /**

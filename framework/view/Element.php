@@ -110,6 +110,16 @@ abstract class Element extends \KoolDevelop\View\View implements \KoolDevelop\Co
 	}
 
     /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array();
+    }
+    
+    /**
      * Get Configuration options for this class
      * 
      * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class

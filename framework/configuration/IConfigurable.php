@@ -28,6 +28,14 @@ namespace KoolDevelop\Configuration;
 interface IConfigurable
 {
     /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses();
+    
+    /**
      * Get Configuration options for this class
      * 
      * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class

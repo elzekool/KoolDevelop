@@ -24,7 +24,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class AutoLoader 
+class AutoLoader 
 {
 
     /**

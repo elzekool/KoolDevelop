@@ -20,7 +20,7 @@ namespace KoolDevelop\Database;
  * @package KoolDevelop
  * @subpackage Database
  **/
-final class Query
+class Query
 {
     /**
      * Profiling Log
