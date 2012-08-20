@@ -42,6 +42,12 @@ abstract class Bootstrapper
      */
     abstract public function console();
     
+    /**
+     * Function called on webservice request
+     * 
+     * @return void
+     */
+    abstract public function webservice();
     
     /**
      * Determine current environment. This environment is used

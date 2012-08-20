@@ -40,13 +40,22 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
     }
 
     /**
+     * Function called on webservice request
+     * 
+     * @return void
+     */
+    public function webservice() {
+        
+    }
+
+        /**
      * Determine current environment. This environment is used
      * to determine configuration files
      *
      * @return string
      */
     public function getEnvironment() {
-        return 'production';
+        return REQUEST_TYPE;
     }
 
 }

@@ -9,6 +9,10 @@
  * @subpackage Console
  **/
 
+/**
+ * @ignore
+ */
+define('REQUEST_TYPE', 'console');
 
 /**
  * Directory Seperator

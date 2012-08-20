@@ -8,6 +8,14 @@
  * @package SampleApplication
  **/
 
+
+/**
+ * Request type (web|webservice|console)
+ * @var string
+ */
+define('REQUEST_TYPE', 'web');
+
+
 /**
  * Application path
  * @var string
