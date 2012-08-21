@@ -21,7 +21,7 @@ namespace KoolDevelop\International;
  * @package KoolDevelop
  * @subpackage International
  */
-final class I18n
+class I18n
 {
     /**
      * Translator
@@ -38,13 +38,20 @@ final class I18n
 	/**
 	 * Get \KoolDevelop\International\I18n instance
 	 *
+     * @param string  $domain Domain
+     * @param boolean $create Create instance if not already initialized
+     * 
 	 * @return \KoolDevelop\International\I18n
 	 */
-	public static function getInstance($domain) {
+	public static function getInstance($domain, $create = true) {
 		if (!isset(self::$Instances[$domain])) {
         	self::$Instances[$domain] = new self($domain);
       	}
-      	return self::$Instances[$domain];
+        if ($create) {
+            return self::$Instances[$domain];
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -54,7 +61,6 @@ final class I18n
         $configuration = \KoolDevelop\Configuration::getInstance('international');
         $locale_settings = \KoolDevelop\International\L10n::getInstance()->getLocaleSettings();
         $translator = $configuration->get('core.translator', '\\KoolDevelop\\International\\PassTroughTranslator');
-
         $this->Translator = new $translator();
         $this->Translator->initialize($domain, $locale_settings, $configuration);
 	}

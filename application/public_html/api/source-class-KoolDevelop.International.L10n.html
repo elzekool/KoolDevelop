@@ -7,8 +7,8 @@
 
 	<title>File framework/international/L10n.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?575041598"></script>
+	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
+	<script type="text/javascript" src="elementlist.js?2422460540"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -25,6 +25,8 @@
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
 						</li>
@@ -134,11 +136,11 @@
 </span><a href="#18" id="18" class="l"> 18: </a><span class="php-comment"> * Used in combination with the internationalization class.
 </span><a href="#19" id="19" class="l"> 19: </a><span class="php-comment"> *
 </span><a href="#20" id="20" class="l"> 20: </a><span class="php-comment"> * @see \KoolDevelop\International\I18n
-</span><a href="#21" id="21" class="l"> 21: </a><span class="php-comment"> * 
+</span><a href="#21" id="21" class="l"> 21: </a><span class="php-comment"> *
 </span><a href="#22" id="22" class="l"> 22: </a><span class="php-comment"> * @package KoolDevelop
 </span><a href="#23" id="23" class="l"> 23: </a><span class="php-comment"> * @subpackage International
 </span><a href="#24" id="24" class="l"> 24: </a><span class="php-comment"> */</span>
-<a href="#25" id="25" class="l"> 25: </a><span class="php-keyword1">final</span> <span class="php-keyword1">class</span> L10n
+<a href="#25" id="25" class="l"> 25: </a><span class="php-keyword1">class</span> L10n <span class="php-keyword1">implements</span> \KoolDevelop\Configuration\IConfigurable
 <a href="#26" id="26" class="l"> 26: </a>{
 <a href="#27" id="27" class="l"> 27: </a>    <span class="php-comment">/**
 </span><a href="#28" id="28" class="l"> 28: </a><span class="php-comment">     * Singleton Instance
@@ -314,9 +316,40 @@
 <a href="#198" id="198" class="l">198: </a>        <span class="php-keyword1">return</span> <span class="php-var">$langs</span>;
 <a href="#199" id="199" class="l">199: </a>    }
 <a href="#200" id="200" class="l">200: </a>
-<a href="#201" id="201" class="l">201: </a>}
-<a href="#202" id="202" class="l">202: </a>
-<a href="#203" id="203" class="l">203: </a><span class="xlang">?&gt;</span></code></pre>
+<a href="#201" id="201" class="l">201: </a>    <span class="php-comment">/**
+</span><a href="#202" id="202" class="l">202: </a><span class="php-comment">     * Get list of (configurable) classes that this class
+</span><a href="#203" id="203" class="l">203: </a><span class="php-comment">     * depends on. 
+</span><a href="#204" id="204" class="l">204: </a><span class="php-comment">     * 
+</span><a href="#205" id="205" class="l">205: </a><span class="php-comment">     * @return string[] Depends on
+</span><a href="#206" id="206" class="l">206: </a><span class="php-comment">     */</span>
+<a href="#207" id="207" class="l">207: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getDependendClasses() {
+<a href="#208" id="208" class="l">208: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>();
+<a href="#209" id="209" class="l">209: </a>    }
+<a href="#210" id="210" class="l">210: </a>    
+<a href="#211" id="211" class="l">211: </a>    <span class="php-comment">/**
+</span><a href="#212" id="212" class="l">212: </a><span class="php-comment">     * Get Configuration options for this class
+</span><a href="#213" id="213" class="l">213: </a><span class="php-comment">     *
+</span><a href="#214" id="214" class="l">214: </a><span class="php-comment">     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+</span><a href="#215" id="215" class="l">215: </a><span class="php-comment">     */</span>
+<a href="#216" id="216" class="l">216: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getConfigurationOptions() {
+<a href="#217" id="217" class="l">217: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(
+<a href="#218" id="218" class="l">218: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_timeout'</span>, <span class="php-quote">'0'</span>, (<span class="php-quote">'Session storage timeout (in seconds)'</span>)),
+<a href="#219" id="219" class="l">219: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.get_param'</span>, <span class="php-quote">'&quot;lang&quot;'</span>, (<span class="php-quote">'GET param used for choosing language'</span>)),
+<a href="#220" id="220" class="l">220: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_id'</span>, <span class="php-quote">'&quot;lang&quot;'</span>, (<span class="php-quote">'Session key to use'</span>)),
+<a href="#221" id="221" class="l">221: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_handler'</span>, <span class="php-quote">'&quot;Php&quot;'</span>, (<span class="php-quote">'Session handler to persist language choice'</span>)),
+<a href="#222" id="222" class="l">222: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.languages'</span>, <span class="php-quote">'&quot;en&quot;'</span>, (<span class="php-quote">'Comma separated list of language keys. Make sure sections are added'</span>)),
+<a href="#223" id="223" class="l">223: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.path'</span>, <span class="php-quote">'APP_PATH &quot;&quot; DS &quot;international&quot;'</span>, (<span class="php-quote">'Base path for folder based translator'</span>)),
+<a href="#224" id="224" class="l">224: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.translator'</span>, <span class="php-quote">'&quot;\KoolDevelop\International\PassTroughTranslator&quot;'</span>, (<span class="php-quote">'Used translator'</span>), <span class="php-keyword1">false</span>),
+<a href="#225" id="225" class="l">225: </a>            
+<a href="#226" id="226" class="l">226: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.regex'</span>, <span class="php-quote">'&quot;/^en(.*)/&quot;'</span>, (<span class="php-quote">'Regular expression used to detect browser language preference'</span>)),
+<a href="#227" id="227" class="l">227: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.locale'</span>, <span class="php-quote">'en-GB.UTF8'</span>, (<span class="php-quote">'Locale'</span>)),
+<a href="#228" id="228" class="l">228: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.path'</span>, <span class="php-quote">'en'</span>, (<span class="php-quote">'Path for path based translators'</span>), <span class="php-keyword1">false</span>),
+<a href="#229" id="229" class="l">229: </a>        );
+<a href="#230" id="230" class="l">230: </a>    }
+<a href="#231" id="231" class="l">231: </a>
+<a href="#232" id="232" class="l">232: </a>}
+<a href="#233" id="233" class="l">233: </a>
+<a href="#234" id="234" class="l">234: </a><span class="xlang">?&gt;</span></code></pre>
 
 	<div id="footer">
 		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>

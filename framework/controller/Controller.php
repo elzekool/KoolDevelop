@@ -65,7 +65,7 @@ abstract class Controller extends \KoolDevelop\Observable
 	 *
 	 * @return string Action to perform
 	 */
-	final protected function getAction() {
+	protected function getAction() {
 		return $this->Action;
 	}
 
@@ -76,7 +76,7 @@ abstract class Controller extends \KoolDevelop\Observable
 	 *
 	 * @return void
 	 */
-	final public function setAction($action) {
+	public function setAction($action) {
 
 		if (preg_match('/^[A-Za-z]([A-Za-z0-9_])*$/', $action) == false) {
 			throw new \InvalidArgumentException(__f("Controller action contains invalid characters",'kooldevelop'));
@@ -106,7 +106,7 @@ abstract class Controller extends \KoolDevelop\Observable
 	 *
 	 * @return array
 	 */
-	final protected function getParameters() {
+	protected function getParameters() {
 		return $this->Parameters;
 	}
 
@@ -117,7 +117,7 @@ abstract class Controller extends \KoolDevelop\Observable
 	 *
 	 * @return void
 	 */
-	final public function setParameters($parameters) {
+	public function setParameters($parameters) {
 		$this->Parameters = $parameters;
 	}
 
@@ -126,7 +126,7 @@ abstract class Controller extends \KoolDevelop\Observable
 	 *
 	 * @return void
 	 */
-	final public function runAction() {
+	public function runAction() {
 
 		// Check if required parameters are set
 	 	$class_reflection = new \ReflectionClass($this);

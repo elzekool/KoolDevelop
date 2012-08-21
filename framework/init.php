@@ -11,19 +11,19 @@
 
 ini_set('display_errors', '1');
 
-if (!defined('_APP_PATH_')) {
+if (!defined('APP_PATH')) {
 	throw new Exception("Application path not set!");
 }
 
-if (!defined('_FRAMEWORK_PATH_')) {
+if (!defined('FRAMEWORK_PATH')) {
 	throw new Exception("Framework path not set!");
 }
 
-if (!defined('_LIBS_PATH_')) {
+if (!defined('LIBS_PATH')) {
 	throw new Exception("Libraries path not set!");
 }
 
-if (!defined('_CONFIG_PATH_')) {
+if (!defined('CONFIG_PATH')) {
 	throw new Exception("Configuration path not set!");
 }
 
@@ -37,10 +37,10 @@ if (!defined('DS')) {
 
 
 // Load shorthand functions
-require _FRAMEWORK_PATH_ . DS . 'shorthand.php';
+require FRAMEWORK_PATH . DS . 'shorthand.php';
 
 // Load AutoLoader
-require_once _FRAMEWORK_PATH_ . DS . 'AutoLoader.php';
+require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
 $autoload = KoolDevelop\AutoLoader::getInstance();
 
 try {

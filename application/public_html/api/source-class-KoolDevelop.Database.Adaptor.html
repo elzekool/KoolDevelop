@@ -7,8 +7,8 @@
 
 	<title>File framework/database/Adaptor.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?575041598"></script>
+	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
+	<script type="text/javascript" src="elementlist.js?2422460540"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -25,6 +25,8 @@
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
 						</li>
@@ -132,7 +134,7 @@
 </span><a href="#20" id="20" class="l"> 20: </a><span class="php-comment"> * @package KoolDevelop
 </span><a href="#21" id="21" class="l"> 21: </a><span class="php-comment"> * @subpackage Database
 </span><a href="#22" id="22" class="l"> 22: </a><span class="php-comment"> **/</span>
-<a href="#23" id="23" class="l"> 23: </a><span class="php-keyword1">final</span> <span class="php-keyword1">class</span> Adaptor 
+<a href="#23" id="23" class="l"> 23: </a><span class="php-keyword1">class</span> Adaptor <span class="php-keyword1">implements</span> \KoolDevelop\Configuration\IConfigurable
 <a href="#24" id="24" class="l"> 24: </a>{
 <a href="#25" id="25" class="l"> 25: </a>
 <a href="#26" id="26" class="l"> 26: </a>    <span class="php-comment">/**
@@ -222,7 +224,36 @@
 <a href="#110" id="110" class="l">110: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getLastInsertedId(<span class="php-var">$name</span> = <span class="php-keyword1">null</span>) {
 <a href="#111" id="111" class="l">111: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;PdoConnection-&gt;lastInsertId(<span class="php-var">$name</span>);        
 <a href="#112" id="112" class="l">112: </a>    }
-<a href="#113" id="113" class="l">113: </a>}</code></pre>
+<a href="#113" id="113" class="l">113: </a>    
+<a href="#114" id="114" class="l">114: </a>    <span class="php-comment">/**
+</span><a href="#115" id="115" class="l">115: </a><span class="php-comment">     * Get list of (configurable) classes that this class
+</span><a href="#116" id="116" class="l">116: </a><span class="php-comment">     * depends on. 
+</span><a href="#117" id="117" class="l">117: </a><span class="php-comment">     * 
+</span><a href="#118" id="118" class="l">118: </a><span class="php-comment">     * @return string[] Depends on
+</span><a href="#119" id="119" class="l">119: </a><span class="php-comment">     */</span>
+<a href="#120" id="120" class="l">120: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getDependendClasses() {
+<a href="#121" id="121" class="l">121: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(
+<a href="#122" id="122" class="l">122: </a>            <span class="php-quote">'\\KoolDevelop\\Database\\Query'</span>,
+<a href="#123" id="123" class="l">123: </a>            <span class="php-quote">'\\KoolDevelop\\Database\\Result'</span>,
+<a href="#124" id="124" class="l">124: </a>            <span class="php-quote">'\\KoolDevelop\\Database\\Row'</span>
+<a href="#125" id="125" class="l">125: </a>        );
+<a href="#126" id="126" class="l">126: </a>    }
+<a href="#127" id="127" class="l">127: </a>    
+<a href="#128" id="128" class="l">128: </a>    <span class="php-comment">/**
+</span><a href="#129" id="129" class="l">129: </a><span class="php-comment">     * Get Configuration options for this class
+</span><a href="#130" id="130" class="l">130: </a><span class="php-comment">     * 
+</span><a href="#131" id="131" class="l">131: </a><span class="php-comment">     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+</span><a href="#132" id="132" class="l">132: </a><span class="php-comment">     */</span>
+<a href="#133" id="133" class="l">133: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getConfigurationOptions() {
+<a href="#134" id="134" class="l">134: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(
+<a href="#135" id="135" class="l">135: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'database'</span>, <span class="php-quote">'default.dsn'</span>, <span class="php-quote">'&quot;mysql:host=127.0.0.1;dbname=&quot;'</span>, (<span class="php-quote">'Data Source Name'</span>)),
+<a href="#136" id="136" class="l">136: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'database'</span>, <span class="php-quote">'default.username'</span>, <span class="php-quote">'&quot;&quot;'</span>, (<span class="php-quote">'Username'</span>)),
+<a href="#137" id="137" class="l">137: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'database'</span>, <span class="php-quote">'default.password'</span>, <span class="php-quote">'&quot;&quot;'</span>, (<span class="php-quote">'Password'</span>)),
+<a href="#138" id="138" class="l">138: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'database'</span>, <span class="php-quote">'default.profiling'</span>, <span class="php-quote">'0'</span>, (<span class="php-quote">'0 = Disable profiling, 1 = Enable profiling, see Query::ProfileLog'</span>)),
+<a href="#139" id="139" class="l">139: </a>        );
+<a href="#140" id="140" class="l">140: </a>    }
+<a href="#141" id="141" class="l">141: </a>    
+<a href="#142" id="142" class="l">142: </a>}</code></pre>
 
 	<div id="footer">
 		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>

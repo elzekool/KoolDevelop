@@ -42,6 +42,12 @@ abstract class Bootstrapper
      */
     abstract public function console();
     
+    /**
+     * Function called on webservice request
+     * 
+     * @return void
+     */
+    abstract public function webservice();
     
     /**
      * Determine current environment. This environment is used
@@ -61,7 +67,7 @@ abstract class Bootstrapper
     public function route($route = null) {
         
         if ($route === null) {
-           $route = isset($_GET['url']) ? $_GET['url'] : ''; 
+           $route = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : ''; 
         }
         
         $router = \KoolDevelop\Router::getInstance();

@@ -20,7 +20,7 @@ namespace KoolDevelop\Database;
  * @package KoolDevelop
  * @subpackage Database
  **/
-final class Result extends \PDOStatement
+class Result extends \PDOStatement
 {
 
 }

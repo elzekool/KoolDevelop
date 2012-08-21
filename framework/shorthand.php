@@ -117,12 +117,18 @@ function __wn($singular, $plural, $count, $domain = 'default') {
  * @return Translated Text
  */
 function __f($text, $domain = 'default') {
-	try {
-        $i18n = \KoolDevelop\International\I18n::getInstance($domain);
-        return $i18n->singular($text);
-    } catch(\Exception $e) {
-        // Ignore exception
+    if (!defined('__STOP_F__')) {
         return $text;
+    }
+    define('__STOP_F__', true);
+	try {
+        if(null !== ($i18n = \KoolDevelop\International\I18n::getInstance($domain, false))) {
+            return $i18n->singular($text);
+        } else {
+            return $text;
+        }        
+    } catch(\Exception $e) {        
+        return $text;        
     }
 }
 
@@ -141,9 +147,16 @@ function __f($text, $domain = 'default') {
  * @return string Translated text
  */
 function __fn($singular, $plural, $count, $domain = 'default') {
+    if (defined('__STOP_F__')) {
+        return ($count == 1) ? $singular : $plural;
+    }
+    define('__STOP_F__', true);
     try {
-        $i18n = \KoolDevelop\International\I18n::getInstance($domain);
-        return $i18n->plural($singular, $plural, $count);
+        if (null !== ($i18n = \KoolDevelop\International\I18n::getInstance($domain, false))) {
+            return $i18n->plural($singular, $plural, $count);
+        } else {
+            return ($count == 1) ? $singular : $plural;
+        }
     } catch(\Exception $e) {
         return ($count == 1) ? $singular : $plural;
     }

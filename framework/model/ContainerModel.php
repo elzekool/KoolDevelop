@@ -26,7 +26,7 @@ use KoolDevelop\Database\Adaptor as DatabaseAdaptor;
  * @package KoolDevelop
  * @subpackage Model
  **/
-abstract class ContainerModel extends \Model
+abstract class ContainerModel extends \Model implements \KoolDevelop\Configuration\IConfigurable
 {
 
     /**
@@ -284,6 +284,30 @@ abstract class ContainerModel extends \Model
 
         return $models;
 
+    }
+
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array(
+            '\\KoolDevelop\\Database\\Adaptor',
+            '\\KoolDevelop\\Database\\Query',
+            '\\KoolDevelop\\Database\\Result',
+            '\\KoolDevelop\\Database\\Row'
+        );
+    }
+    
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {
+        return array();
     }
 
 

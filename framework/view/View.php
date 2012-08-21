@@ -25,7 +25,7 @@ namespace KoolDevelop\View;
  * @package KoolDevelop
  * @subpackage Core
  **/
-abstract class View extends \KoolDevelop\Observable
+abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Configuration\IConfigurable
 {
 
     /**
@@ -269,6 +269,27 @@ abstract class View extends \KoolDevelop\Observable
 		}
 
 	}
-
+    
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array();
+    }
+    
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {      
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'path.view', 'APP_PATH "" DS "view"', ('Path where View files are stored')),
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'path.layout', 'APP_PATH "" DS "view" DS "layout"', ('Path where Layout files are stored'))
+        );
+    }
 
 }

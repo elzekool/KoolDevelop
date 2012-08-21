@@ -24,7 +24,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class AutoLoader 
+class AutoLoader 
 {
 
     /**
@@ -63,9 +63,9 @@ final class AutoLoader
     private function __construct() {
   
         // Add default mappings
-        $this->addMapping('\\KoolDevelop\\', _FRAMEWORK_PATH_);        
-        $this->addMapping('\\', _APP_PATH_);
-        $this->addMapping('\\', \_FRAMEWORK_PATH_ . DS . 'application_base');
+        $this->addMapping('\\KoolDevelop\\', FRAMEWORK_PATH);        
+        $this->addMapping('\\', APP_PATH);
+        $this->addMapping('\\', \FRAMEWORK_PATH . DS . 'application_base');
         
         // Register autoloader
         spl_autoload_register(array($this, 'autoload'));
@@ -105,7 +105,7 @@ final class AutoLoader
         if ($last_ns_pos = strripos($classname, '\\')) {
             $namespace = substr($classname, 0, $last_ns_pos);
             $classname = substr($classname, $last_ns_pos + 1);
-            $filename  = _LIBS_PATH_ . DS . str_replace('\\', DS, $namespace) . DS;
+            $filename  = LIBS_PATH . DS . str_replace('\\', DS, $namespace) . DS;
         }        
         $filename .= str_replace('_', DS, $classname) . '.php';
 
@@ -135,7 +135,7 @@ final class AutoLoader
             }
         }
         
-        $classname = '\\' . \str_replace('_', '\\', $classname);
+        $classname = str_replace('\\\\', '\\', '\\' . \str_replace('_', '\\', $classname));
 
         // Loop trough Prefix Mappings
         foreach ($this->PrefixMappings as $prefix => $mappings) {
@@ -148,7 +148,9 @@ final class AutoLoader
                     $_classpath = $this->underscore_path('\\' . join('\\', $_classpath)) . '\\' . $_classfile;
                     
                     $filename = $mapping . DS . \str_replace(array('\\'), DS, $_classpath) . '.php';				
+                    
                     if (\file_exists($filename)) {
+                        //echo " [FOUND] \n";
                         include $filename;
                         return true;
                     }

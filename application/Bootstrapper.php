@@ -25,13 +25,7 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
      * @return void
      */
     public function init() {
-
-        // Register session storage
-        \KoolDevelop\Session::getInstance()->registerSessionStorage(
-            'Php',
-            new \KoolDevelop\SessionStorage\Php()
-        );
-
+        
         // Add default route
         $router = \KoolDevelop\Router::getInstance();
         $router->addRoute(new \KoolDevelop\Route\Literal('/', '/start/index'));
@@ -49,6 +43,15 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
     }
 
     /**
+     * Function called on webservice request
+     * 
+     * @return void
+     */
+    public function webservice() {
+        
+    }
+    
+    /**
      * Determine current environment. This environment is used
      * to determine configuration files
      *
@@ -59,6 +62,8 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
         $hostname = $_SERVER['HTTP_HOST'];
         if (preg_match('/\.kooldevelop$/', $hostname) != 0) {
             return 'development';
+        } else if (preg_match('/localhost$/', $hostname) != 0) {
+            return 'localhost';            
         } else {
             return 'production';
         }

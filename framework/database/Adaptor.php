@@ -20,7 +20,7 @@ namespace KoolDevelop\Database;
  * @package KoolDevelop
  * @subpackage Database
  **/
-final class Adaptor 
+class Adaptor implements \KoolDevelop\Configuration\IConfigurable
 {
 
 	/**
@@ -110,4 +110,33 @@ final class Adaptor
     public function getLastInsertedId($name = null) {
         return $this->PdoConnection->lastInsertId($name);        
     }
+    
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array(
+            '\\KoolDevelop\\Database\\Query',
+            '\\KoolDevelop\\Database\\Result',
+            '\\KoolDevelop\\Database\\Row'
+        );
+    }
+    
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('database', 'default.dsn', '"mysql:host=127.0.0.1;dbname="', ('Data Source Name')),
+            new \KoolDevelop\Configuration\IConfigurableOption('database', 'default.username', '""', ('Username')),
+            new \KoolDevelop\Configuration\IConfigurableOption('database', 'default.password', '""', ('Password')),
+            new \KoolDevelop\Configuration\IConfigurableOption('database', 'default.profiling', '0', ('0 = Disable profiling, 1 = Enable profiling, see Query::ProfileLog')),
+        );
+    }
+    
 }

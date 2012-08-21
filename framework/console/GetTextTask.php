@@ -32,7 +32,7 @@ class GetTextTask implements \KoolDevelop\Console\ITask
      * @return void
      */
     public function index() {
-        $this->execute(_APP_PATH_);
+        $this->execute(APP_PATH);
     }
 
     /**

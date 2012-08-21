@@ -9,6 +9,10 @@
  * @subpackage Console
  **/
 
+/**
+ * @ignore
+ */
+define('REQUEST_TYPE', 'console');
 
 /**
  * Directory Seperator
@@ -20,32 +24,32 @@ define('DS', DIRECTORY_SEPARATOR);
  * Application path
  * @var string
  */
-define('_APP_PATH_', dirname(__FILE__) . DS . 'application');
+define('APP_PATH', dirname(__FILE__) . DS . 'application');
 
 /**
  * Framework path
  * @var string
  */
-define('_FRAMEWORK_PATH_', dirname(__FILE__)  . DS . 'framework');
+define('FRAMEWORK_PATH', dirname(__FILE__)  . DS . 'framework');
 
 /**
  * Configuration path
  * @var string
  */
-define('_CONFIG_PATH_', _APP_PATH_  . DS . '/config');
+define('CONFIG_PATH', APP_PATH  . DS . '/config');
 
 /**
  * Libraries path
  * @var string
  */
-define('_LIBS_PATH_', dirname(__FILE__)  . DS . 'libraries');
+define('LIBS_PATH', dirname(__FILE__)  . DS . 'libraries');
 
 // Load AutoLoader
-require_once _FRAMEWORK_PATH_ . DS . 'AutoLoader.php';
+require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
 $autoload = KoolDevelop\AutoLoader::getInstance();
     
 // Load shorthand functions
-require _FRAMEWORK_PATH_ . DS . 'shorthand.php';
+require FRAMEWORK_PATH . DS . 'shorthand.php';
 
 // Start Console Application
 \KoolDevelop\Console\Console::getInstance()->start();

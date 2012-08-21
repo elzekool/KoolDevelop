@@ -18,11 +18,11 @@ namespace KoolDevelop\International;
  * Used in combination with the internationalization class.
  *
  * @see \KoolDevelop\International\I18n
- * 
+ *
  * @package KoolDevelop
  * @subpackage International
  */
-final class L10n
+class L10n implements \KoolDevelop\Configuration\IConfigurable
 {
 	/**
 	 * Singleton Instance
@@ -197,6 +197,39 @@ final class L10n
 		}
 		return $langs;
 	}
+
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array(
+            '\KoolDevelop\Session'
+        );
+    }
+    
+    /**
+     * Get Configuration options for this class
+     *
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_timeout', '0', ('Session storage timeout (in seconds)')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.get_param', '"lang"', ('GET param used for choosing language')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_id', '"lang"', ('Session key to use')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_handler', '"Default"', ('Session handler to persist language choice')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.languages', '"en"', ('Comma separated list of language keys. Make sure sections are added')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.path', 'APP_PATH "" DS "international"', ('Base path for folder based translator')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.translator', '"\KoolDevelop\International\PassTroughTranslator"', ('Used translator'), false),
+            
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'en.regex', '"/^en(.*)/"', ('Regular expression used to detect browser language preference')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'en.locale', 'en-GB.UTF8', ('Locale')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'en.path', 'en', ('Path for path based translators'), false),
+        );
+    }
 
 }
 

@@ -24,7 +24,7 @@ namespace KoolDevelop\Exception;
  * @package KoolDevelop
  * @subpackage Core
  **/
-final class NotFoundException extends \KoolDevelop\Exception\Exception
+class NotFoundException extends \KoolDevelop\Exception\Exception
 {
 
 }

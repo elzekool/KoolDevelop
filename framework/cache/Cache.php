@@ -20,7 +20,7 @@ namespace KoolDevelop\Cache;
  * @package KoolDevelop
  * @package Cache
  **/
-final class Cache
+class Cache
 {
 
     /**

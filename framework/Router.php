@@ -27,7 +27,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-class Router extends \KoolDevelop\Observable
+class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configuration\IConfigurable
 {
 	/**
 	 * RegEx for named parameters
@@ -274,5 +274,27 @@ class Router extends \KoolDevelop\Observable
 		$controller->runAction();
 		
 	}
+
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array();
+    }
+    
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {      
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'url.base', '', ('URL for application')),
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'url.secure_base', '', ('Secure (https) URL for application'))
+        );
+    }
 
 }

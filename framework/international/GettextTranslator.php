@@ -288,7 +288,7 @@ class GettextTranslator implements \KoolDevelop\International\ITranslator
      */
     public function initialize($domain, $locale_settings, \KoolDevelop\Configuration $configuration) {
 
-        $mo_filename = $configuration->get('core.path', _APP_PATH_ . DS . 'international') . DS . $locale_settings['path'] . DS . $domain . '.mo';
+        $mo_filename = $configuration->get('core.path', APP_PATH . DS . 'international') . DS . $locale_settings['path'] . DS . $domain . '.mo';
         if (!file_exists($mo_filename)) {
             return;
         }
