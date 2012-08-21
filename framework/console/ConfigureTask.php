@@ -84,13 +84,14 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
 
 			// Find property in the form of
 			// property = ...
-			if (\preg_match('/^' . $option . '(\s*)=/', $file_contents[$x])) {
+			if (\preg_match('/^(;?)' . $option . '(\s*)=/', $file_contents[$x])) {
 				return true;
 			}
 
+
 			// Find property in the form of
 			// property[] = ...
-			if (\preg_match('/^' . $option . '\[\](\s*)=/', $file_contents[$x])) {
+			if (\preg_match('/^(;?)' . $option . '\[\](\s*)=/', $file_contents[$x])) {
 				return true;
 			}
 

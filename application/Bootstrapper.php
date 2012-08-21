@@ -25,13 +25,7 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
      * @return void
      */
     public function init() {
-
-        // Register session storage
-        \KoolDevelop\Session::getInstance()->registerSessionStorage(
-            'Php',
-            new \KoolDevelop\SessionStorage\Php()
-        );
-
+        
         // Add default route
         $router = \KoolDevelop\Router::getInstance();
         $router->addRoute(new \KoolDevelop\Route\Literal('/', '/start/index'));

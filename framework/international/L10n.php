@@ -205,7 +205,9 @@ class L10n implements \KoolDevelop\Configuration\IConfigurable
      * @return string[] Depends on
      */
     public static function getDependendClasses() {
-        return array();
+        return array(
+            '\KoolDevelop\Session'
+        );
     }
     
     /**
@@ -218,7 +220,7 @@ class L10n implements \KoolDevelop\Configuration\IConfigurable
             new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_timeout', '0', ('Session storage timeout (in seconds)')),
             new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.get_param', '"lang"', ('GET param used for choosing language')),
             new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_id', '"lang"', ('Session key to use')),
-            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_handler', '"Php"', ('Session handler to persist language choice')),
+            new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.session_handler', '"Default"', ('Session handler to persist language choice')),
             new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.languages', '"en"', ('Comma separated list of language keys. Make sure sections are added')),
             new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.path', 'APP_PATH "" DS "international"', ('Base path for folder based translator')),
             new \KoolDevelop\Configuration\IConfigurableOption('international', 'core.translator', '"\KoolDevelop\International\PassTroughTranslator"', ('Used translator'), false),

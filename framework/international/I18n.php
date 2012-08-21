@@ -61,7 +61,6 @@ class I18n
         $configuration = \KoolDevelop\Configuration::getInstance('international');
         $locale_settings = \KoolDevelop\International\L10n::getInstance()->getLocaleSettings();
         $translator = $configuration->get('core.translator', '\\KoolDevelop\\International\\PassTroughTranslator');
-
         $this->Translator = new $translator();
         $this->Translator->initialize($domain, $locale_settings, $configuration);
 	}

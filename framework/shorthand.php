@@ -117,8 +117,12 @@ function __wn($singular, $plural, $count, $domain = 'default') {
  * @return Translated Text
  */
 function __f($text, $domain = 'default') {
+    if (!defined('__STOP_F__')) {
+        return $text;
+    }
+    define('__STOP_F__', true);
 	try {
-        if (null !== ($i18n = \KoolDevelop\International\I18n::getInstance($domain, false))) {
+        if(null !== ($i18n = \KoolDevelop\International\I18n::getInstance($domain, false))) {
             return $i18n->singular($text);
         } else {
             return $text;
@@ -143,6 +147,10 @@ function __f($text, $domain = 'default') {
  * @return string Translated text
  */
 function __fn($singular, $plural, $count, $domain = 'default') {
+    if (defined('__STOP_F__')) {
+        return ($count == 1) ? $singular : $plural;
+    }
+    define('__STOP_F__', true);
     try {
         if (null !== ($i18n = \KoolDevelop\International\I18n::getInstance($domain, false))) {
             return $i18n->plural($singular, $plural, $count);

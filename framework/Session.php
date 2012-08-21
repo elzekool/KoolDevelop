@@ -23,7 +23,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-class Session
+class Session implements \KoolDevelop\Configuration\IConfigurable
 {
 	/**
 	 * Singleton Instance
@@ -54,6 +54,10 @@ class Session
 	 */
 	private function __construct() {
         $config = \KoolDevelop\Configuration::getInstance('session');
+        foreach($config->get('storage', array()) as $name => $classname) {
+            $storage = new $classname();
+            $this->registerSessionStorage($name, $storage);
+        }
 	}
 
 	/**
@@ -99,7 +103,7 @@ class Session
 		$storage = $this->_unifyStorageArgument($storage);
 		foreach($storage as $storage_handler) {
 			if (!isset($this->Storage[$storage_handler])) {
-				throw new \InvalidArgumentException(__f('Storage Handler Not Found','kooldevelop'));
+				throw new \InvalidArgumentException(__f('Session storage Handler Not Found','kooldevelop'));
 			}
 			$this->Storage[$storage_handler]->set($id, $value, $timeout);
 		}
@@ -118,7 +122,7 @@ class Session
 		$storage = $this->_unifyStorageArgument($storage);
 		foreach($storage as $storage_handler) {
 			if (!isset($this->Storage[$storage_handler])) {
-				throw new \InvalidArgumentException(__f('Storage Handler Not Found','kooldevelop'));
+				throw new \InvalidArgumentException(__f('Session storage Handler Not Found','kooldevelop'));
 			}
 			if ($this->Storage[$storage_handler]->exists($id)) {
 				return $this->Storage[$storage_handler]->get($id);
@@ -139,7 +143,7 @@ class Session
 		$storage = $this->_unifyStorageArgument($storage);
 		foreach($storage as $storage_handler) {
 			if (!isset($this->Storage[$storage_handler])) {
-				throw new \InvalidArgumentException(__f('Storage Handler Not Found','kooldevelop'));
+				throw new \InvalidArgumentException(__f('Session storage Handler Not Found','kooldevelop'));
 			}
 			if ($this->Storage[$storage_handler]->exists($id)) {
 				return true;
@@ -160,11 +164,33 @@ class Session
 		$storage = $this->_unifyStorageArgument($storage);
 		foreach($storage as $storage_handler) {
 			if (!isset($this->Storage[$storage_handler])) {
-				throw new \InvalidArgumentException(__f('Storage Handler Not Found','kooldevelop'));
+				throw new \InvalidArgumentException(__f('Session storage Handler Not Found','kooldevelop'));
 			}
 			if ($this->Storage[$storage_handler]->exists($id)) {
 				$this->Storage[$storage_handler]->del($id);
 			}
 		}
 	}
+    
+/**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array();
+    }
+    
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('session', 'storage.Default', '"\KoolDevelop\SessionStorage\Php"', ('Define your session storage here. Add new options to define a new one.'))
+        );
+    }
+    
 }
