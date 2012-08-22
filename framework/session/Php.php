@@ -9,7 +9,7 @@
  * @subpackage Core
  **/
 
-namespace KoolDevelop\SessionStorage;
+namespace KoolDevelop\Session;
 
 /**
  * PHP Session Storage
@@ -17,7 +17,7 @@ namespace KoolDevelop\SessionStorage;
  * Default PHP Session storage with added security (session fiaxation and hijacking
  * prevention messures). 
  * 
- * @see \KoolDevelop\Session
+ * @see \KoolDevelop\Session\Session
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -25,7 +25,7 @@ namespace KoolDevelop\SessionStorage;
  * @package KoolDevelop
  * @subpackage Core
  **/
-class Php implements \KoolDevelop\SessionStorage\ISessionStorage
+class Php implements \KoolDevelop\Session\ISessionStorage
 {
 
 	/**

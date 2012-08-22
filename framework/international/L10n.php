@@ -94,7 +94,7 @@ class L10n implements \KoolDevelop\Configuration\IConfigurable
 	private function __construct() {
 
 		$configuration = \KoolDevelop\Configuration::getInstance('international');
-		$session = \KoolDevelop\Session::getInstance();
+		$session = \KoolDevelop\Session\Session::getInstance();
 
 		$session_id = $configuration->get('core.session_id', 'lang');
 		$session_storage = $configuration->get('core.session_handler', 'Php');

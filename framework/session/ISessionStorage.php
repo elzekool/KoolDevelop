@@ -9,7 +9,7 @@
  * @package Core
  **/
 
-namespace KoolDevelop\SessionStorage;
+namespace KoolDevelop\Session;
 
 /**
  * Session Storage Interface
@@ -17,7 +17,7 @@ namespace KoolDevelop\SessionStorage;
  * Implement this interface for usage in combination with \KoolDevelop\Session
  * class.
  * 
- * @see \KoolDevelop\Session
+ * @see \KoolDevelop\Session\Session
  * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
