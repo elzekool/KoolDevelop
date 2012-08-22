@@ -104,6 +104,9 @@ $assets->script('js/bootstrap-collapse.js');
 
         <?php $assets->outputScript(); ?>
         
+        <!--//
+            <?php print_r(\KoolDevelop\Database\Query::$ProfileLog); ?>
+        //-->
     </body>
 </html>
 

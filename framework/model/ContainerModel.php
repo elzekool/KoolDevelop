@@ -232,7 +232,7 @@ abstract class ContainerModel extends \Model implements \KoolDevelop\Configurati
         $this->_ProcesConditions($conditions, $query);
         $result = $query->execute();
 
-        $models = null;
+        $model = null;
         if(false !== ($database_row = $result->fetch())) {
             $model = $this->newObject();
             $this->_DatabaseToModel($database_row, $model);

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Assets Helper
  *
@@ -16,6 +15,9 @@ use KoolDevelop\Configuration;
 
 /**
  * Assets Helper
+ * 
+ * Use this Helper for loading CSS and Javascript from your views
+ * Place CSS in the top and Javascript in the bottom of your HTML document.
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment

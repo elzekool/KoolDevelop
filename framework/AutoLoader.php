@@ -12,6 +12,11 @@
 namespace KoolDevelop;
 
 /**
+ * Require \KoolDevelop\Configuration\IConfigurable
+ */
+require_once FRAMEWORK_PATH . DS . 'configuration' . DS . 'IConfigurable.php';
+
+/**
  * AutoLoader
  * 
  * This Autoloader is one of the main components of the KoolDevelop framework.
@@ -24,7 +29,7 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-class AutoLoader 
+class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
 {
 
     /**
@@ -237,4 +242,27 @@ class AutoLoader
         }
     }
 
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array();
+    }
+    
+
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {      
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('cache', 'autoloader.class', '"\KoolDevelop\Cache\FileStorage"', ('You can add a cache for classpaths, this prevents scanning of source tree for each class. Don\'t use on development machines.'), false),
+            new \KoolDevelop\Configuration\IConfigurableOption('cache', 'autoloader.path', 'APP_PATH "" DS "cache"', '', false),            
+        );
+    }
+    
 }

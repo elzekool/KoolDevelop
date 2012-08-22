@@ -32,6 +32,20 @@ final class Tips extends \Controller
      * @return void
      */
     public function index() {
+                
+        $pagination = $this->View->helper('Pagination');
+        /* @var $pagination \View\Helper\Pagination */
+        
+                
+        $pagination
+            ->setContainerModel(new \Model\TipContainer())
+            ->setSearchConditions(array('language' => 'en'))
+            ->setAllowedSortingFields(array('title', 'id'))
+            ->setPageSize(25)
+            ->paginate();
+        
+
+        
         
         $this->View->setTitle(__('Search for tips'));
         $this->View->setLayout('default');

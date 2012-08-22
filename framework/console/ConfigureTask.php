@@ -25,6 +25,7 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
 {
     
     private $DefaultClasses = array(
+        '\\KoolDevelop\\AutoLoader',
         '\\KoolDevelop\\Router',
         '\\KoolDevelop\\ErrorHandler',
         '\\KoolDevelop\\View\\View',
@@ -51,7 +52,9 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
 			}
 		}
 		
-		$file_contents[] = '';
+        if (count($file_contents) != 0) {
+            $file_contents[] = '';
+        }
 		$file_contents[] = '[' . $section . ']';
 		return \count($file_contents)-1;
 	}

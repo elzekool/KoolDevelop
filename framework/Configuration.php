@@ -127,7 +127,7 @@ class Configuration
         }
         
         if ($this->Configuration === null) {
-            throw new \InvalidArgumentException(__f("Failure to load configuration",'kooldevelop'));            
+            $this->Configuration = array();         
         }
         
         

@@ -47,9 +47,10 @@ define('LIBS_PATH', dirname(__FILE__)  . DS . 'libraries');
 // Load AutoLoader
 require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
 $autoload = KoolDevelop\AutoLoader::getInstance();
-    
+
 // Load shorthand functions
 require FRAMEWORK_PATH . DS . 'shorthand.php';
+
 
 // Start Console Application
 \KoolDevelop\Console\Console::getInstance()->start();

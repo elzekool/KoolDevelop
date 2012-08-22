@@ -75,11 +75,13 @@ class Cache
      * @param string $config Configuration identifier
      */
     protected function __construct($config) {
+        
         $configuration = \KoolDevelop\Configuration::getInstance('cache');
         if (null === ($cache_config = $configuration->get($config, null))) {
             return;
         }
-        $this->loadStorage($cache_config['class'], $cache_config);
+        
+        $this->loadStorage($cache_config['class'], $cache_config);        
 
     }
 

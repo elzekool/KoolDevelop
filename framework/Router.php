@@ -126,6 +126,8 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 	 */
 	public function getNamedParameters() {
 
+        // @todo Cache named parameters is static
+        
 		$parameters = array();
 		$matches = array();
 

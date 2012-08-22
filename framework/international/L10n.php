@@ -206,7 +206,7 @@ class L10n implements \KoolDevelop\Configuration\IConfigurable
      */
     public static function getDependendClasses() {
         return array(
-            '\KoolDevelop\Session'
+            '\\KoolDevelop\\Session\\Session'
         );
     }
     
