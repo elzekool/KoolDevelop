@@ -46,6 +46,18 @@ class AutoLoader
     private $Vendors = array();
     
     /**
+     * Classpath caching
+     * @var string[]
+     */
+    private $ClassPaths = array();
+    
+    /**
+     * Cache for Classpaths
+     * @var \KoolDevelop\Cache\Cache
+     */
+    private $Cache;
+    
+    /**
      * Get KoolDevelop\AutoLoader instance
      *
      * @return KoolDevelop\AutoLoader
@@ -61,7 +73,7 @@ class AutoLoader
      * Constructor
      */
     private function __construct() {
-  
+        
         // Add default mappings
         $this->addMapping('\\KoolDevelop\\', FRAMEWORK_PATH);        
         $this->addMapping('\\', APP_PATH);
@@ -69,8 +81,22 @@ class AutoLoader
         
         // Register autoloader
         spl_autoload_register(array($this, 'autoload'));
+        
+        // Laad Cache
+        $this->Cache = \KoolDevelop\Cache\Cache::getInstance('autoloader');
+        $this->ClassPaths = $this->Cache->loadObject('classpaths', array());
+        
     }
-
+  
+    /**
+     * Destructor
+     * @ignore
+     */
+    public function __destruct() {
+        // Save classpaths to cache
+        $this->Cache->saveObject('classpaths', $this->ClassPaths);
+    }
+    
     /**
      * Underscore path element
      *
@@ -99,17 +125,18 @@ class AutoLoader
      */
     private function autoloadPSR0($classname) {
         
-        $classname = ltrim($classname, '\\');
+        $_classname = ltrim($_classname, '\\');
         $filename  = '';
         $namespace = '';
-        if ($last_ns_pos = strripos($classname, '\\')) {
-            $namespace = substr($classname, 0, $last_ns_pos);
-            $classname = substr($classname, $last_ns_pos + 1);
+        if ($last_ns_pos = strripos($_classname, '\\')) {
+            $namespace = substr($_classname, 0, $last_ns_pos);
+            $_classname = substr($_classname, $last_ns_pos + 1);
             $filename  = LIBS_PATH . DS . str_replace('\\', DS, $namespace) . DS;
         }        
-        $filename .= str_replace('_', DS, $classname) . '.php';
+        $filename .= str_replace('_', DS, $_classname) . '.php';
 
         if (file_exists($filename)) {
+            $this->ClassPaths[$classname] = $filename;
             require $filename;
             return true;
         }
@@ -135,22 +162,22 @@ class AutoLoader
             }
         }
         
-        $classname = str_replace('\\\\', '\\', '\\' . \str_replace('_', '\\', $classname));
+        $_classname = str_replace('\\\\', '\\', '\\' . \str_replace('_', '\\', $classname));
 
         // Loop trough Prefix Mappings
         foreach ($this->PrefixMappings as $prefix => $mappings) {
-            if (\strpos($classname, $prefix) === 0) {
+            if (\strpos($_classname, $prefix) === 0) {
                 foreach ($mappings as $mapping) {                    
                     
                     // Underscore path elements and don't touch class                    
-                    $_classpath = explode('\\', \substr($classname, strlen($prefix)));
+                    $_classpath = explode('\\', \substr($_classname, strlen($prefix)));
                     $_classfile = array_pop($_classpath);                    
                     $_classpath = $this->underscore_path('\\' . join('\\', $_classpath)) . '\\' . $_classfile;
                     
                     $filename = $mapping . DS . \str_replace(array('\\'), DS, $_classpath) . '.php';				
                     
                     if (\file_exists($filename)) {
-                        //echo " [FOUND] \n";
+                        $this->ClassPaths[$classname] = $filename;
                         include $filename;
                         return true;
                     }

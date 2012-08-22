@@ -9,7 +9,7 @@
  * @subpackage Core
  **/
 
-namespace KoolDevelop;
+namespace KoolDevelop\Session;
 
 /**
  * Session
@@ -27,20 +27,20 @@ class Session implements \KoolDevelop\Configuration\IConfigurable
 {
 	/**
 	 * Singleton Instance
-	 * @var \KoolDevelop\Session
+	 * @var \KoolDevelop\Session\Session
 	 */
 	private static $Instance;
 
 	/**
 	 * Registered session storage handlers
-	 * @var KoolDevelop\SessionStorage\ISessionStorage[]
+	 * @var KoolDevelop\Session\ISessionStorage[]
 	 */
 	private $Storage = array();
 
 	/**
-	 * Get \KoolDevelop\Session instance
+	 * Get \KoolDevelop\Session\Session instance
 	 *
-	 * @return \KoolDevelop\Session
+	 * @return \KoolDevelop\Session\Session
 	 */
 	public static function getInstance() {
 		if (self::$Instance === null) {
@@ -80,11 +80,11 @@ class Session implements \KoolDevelop\Configuration\IConfigurable
 	 * Register new storage Handler
 	 *
 	 * @param string                                      $id      Identifier
-	 * @param \KoolDevelop\SessionStorage\ISessionStorage $storage Storage Handler
+	 * @param \KoolDevelop\Session\Session\ISessionStorage $storage Storage Handler
 	 *
 	 * @return void
 	 */
-	public function registerSessionStorage($id, \KoolDevelop\SessionStorage\ISessionStorage &$storage) {
+	public function registerSessionStorage($id, \KoolDevelop\Session\ISessionStorage &$storage) {
 		if (isset($this->Storage[$id])) {
 			throw new \RuntimeException(__f('Session Storage Id already defined','kooldevelop'));
 		}
@@ -172,7 +172,7 @@ class Session implements \KoolDevelop\Configuration\IConfigurable
 		}
 	}
     
-/**
+    /**
      * Get list of (configurable) classes that this class
      * depends on. 
      * 
@@ -189,7 +189,7 @@ class Session implements \KoolDevelop\Configuration\IConfigurable
      */
     public static function getConfigurationOptions() {
         return array(
-            new \KoolDevelop\Configuration\IConfigurableOption('session', 'storage.Default', '"\KoolDevelop\SessionStorage\Php"', ('Define your session storage here. Add new options to define a new one.'))
+            new \KoolDevelop\Configuration\IConfigurableOption('session', 'storage.Default', '"\KoolDevelop\Session\Php"', ('Define your session storage here. Add new options to define a new one.'))
         );
     }
     
