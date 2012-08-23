@@ -35,12 +35,6 @@ define('FRAMEWORK_PATH', realpath(dirname(__FILE__) . '/../../framework/'));
 define('CONFIG_PATH', APP_PATH . '/config');
 
 /**
- * Libraries path
- * @var string
- */
-define('LIBS_PATH', realpath(dirname(__FILE__) . '/../../libraries/'));
-
-/**
  * Load initialisaton
  */
 require FRAMEWORK_PATH . '/init.php';

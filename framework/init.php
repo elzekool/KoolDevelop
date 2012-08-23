@@ -19,10 +19,6 @@ if (!defined('FRAMEWORK_PATH')) {
 	throw new Exception("Framework path not set!");
 }
 
-if (!defined('LIBS_PATH')) {
-	throw new Exception("Libraries path not set!");
-}
-
 if (!defined('CONFIG_PATH')) {
 	throw new Exception("Configuration path not set!");
 }

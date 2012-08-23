@@ -63,9 +63,9 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
     private $Cache;
     
     /**
-     * Get KoolDevelop\AutoLoader instance
+     * Get \KoolDevelop\AutoLoader instance
      *
-     * @return KoolDevelop\AutoLoader
+     * @return \KoolDevelop\AutoLoader
      */
     public static function getInstance() {
         if (self::$Instance === null) {
@@ -130,19 +130,24 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
      */
     private function autoloadPSR0($classname) {
         
-        $_classname = ltrim($_classname, '\\');
+        $_classname = ltrim($classname, '\\');
         $filename  = '';
         $namespace = '';
         if ($last_ns_pos = strripos($_classname, '\\')) {
             $namespace = substr($_classname, 0, $last_ns_pos);
             $_classname = substr($_classname, $last_ns_pos + 1);
-            $filename  = LIBS_PATH . DS . str_replace('\\', DS, $namespace) . DS;
+            $filename  = str_replace('\\', DS, $namespace) . DS;
         }        
         $filename .= str_replace('_', DS, $_classname) . '.php';
 
-        if (file_exists($filename)) {
+        if (file_exists(APP_PATH . DS . 'libs' . DS . $filename)) {
             $this->ClassPaths[$classname] = $filename;
-            require $filename;
+            require APP_PATH . DS . 'libs' . DS . $filename;
+            return true;
+            
+        } elseif (file_exists(FRAMEWORK_PATH . DS . 'libs' . DS . $filename)) {
+            $this->ClassPaths[$classname] = $filename;
+            require FRAMEWORK_PATH . DS . 'libs' . DS . $filename;
             return true;
         }
         

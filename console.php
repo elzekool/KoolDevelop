@@ -38,12 +38,6 @@ define('FRAMEWORK_PATH', dirname(__FILE__)  . DS . 'framework');
  */
 define('CONFIG_PATH', APP_PATH  . DS . '/config');
 
-/**
- * Libraries path
- * @var string
- */
-define('LIBS_PATH', dirname(__FILE__)  . DS . 'libraries');
-
 // Load AutoLoader
 require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
 $autoload = KoolDevelop\AutoLoader::getInstance();
