@@ -29,6 +29,7 @@ class Bootstrapper extends \KoolDevelop\Bootstrapper
         // Add default route
         $router = \KoolDevelop\Router::getInstance();
         $router->addRoute(new \KoolDevelop\Route\Literal('/', '/start/index'));
+        $router->addRoute(new \KoolDevelop\Route\RegEx('/^\/tip\/(.*)$/', '/tips/view/$1', true));
         $router->addRoute(new \KoolDevelop\Route\RegEx('/^\/tips(.*)$/', '/tips/index/$1'));
 
     }

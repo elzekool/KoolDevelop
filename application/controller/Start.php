@@ -20,19 +20,18 @@ namespace Controller;
  **/
 final class Start extends \Controller
 {
-    
+
     public function __construct() {
         parent::__construct();
         $this->View->set('controller', 'start');
     }
-    
+
     /**
      * Homepage of application
-     * 
+     *
      * @return void
      */
     public function index() {
-        
         $this->View->setTitle(__('KoolDevelop - PHP Framework - Kool Software en Development'));
         $this->View->setLayout('default');
         $this->View->setView('start/index');

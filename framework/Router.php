@@ -140,10 +140,23 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 		return $parameters;
 	}
 
+    /**
+     * Get URL with named parameters
+     * 
+     * Returns an URL with the given named parameters. In the default method
+     * the current named parameters are also passed along. You can
+     * set a specific base URL else the current base url is used.
+     * 
+     * @param string[] $parameters Parameters, use null to unset
+     * @param string   $base       Base URL
+     * @param boolean  $reset      Reset current base parameters
+     * 
+     * @return string URL
+     */
 	public function getNamedUrl($parameters = array(), $base = null, $reset = false) {
 		$params = $reset ? array() : $this->getNamedParameters();
 		foreach($parameters as $key => $value) {
-			if (empty($value)) {
+			if ($value === null) {
 				unset($params[$key]);
 			} else {
 				$params[$key] = $value;
@@ -156,9 +169,15 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 				if (\preg_match(self::NAMED_PARAMETER_REGEG, $url_part)) {
 					break;
 				}
-				$base .= $url_part . '/';
+                if ($url_part != '') {
+                    $base .= $url_part . '/';
+                }
 			}
-		}
+		} else {
+            if (substr($base, -1) != '/') {
+                $base .= '/';
+            }
+        }
 
 		$url = $base;
 		foreach($params as $key => $value) {

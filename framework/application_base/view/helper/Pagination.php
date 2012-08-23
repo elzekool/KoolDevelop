@@ -50,7 +50,27 @@ class Pagination extends \Helper
      * Parameters
      * @var string[]
      */
-    private $Parameters = array();
+    private $BaseParameters = array();
+    
+    /**
+     * Default Base URL
+     * @var string
+     */
+    private $DefaultBaseUrl = null;
+    
+    /**
+     * Current page number
+     * @var int
+     */
+    private $CurrentPageNumber = 0;
+    
+    /**
+     * Number of pages
+     * @var int
+     */
+    private $NumberOfPages = 0;    
+    
+    
     
     /**
      * Set ContainerModel
@@ -101,6 +121,81 @@ class Pagination extends \Helper
         $this->AllowedSortingFields = $AllowedSortingFields;
         return $this;
     }
+    
+    /**
+     * Set Base Parameters
+     * 
+     * @param string[] $parameters Base parameters
+     * 
+     * @return \View\Helper\Pagination Self
+     */
+    public function setBaseParameters($parameters) {
+        $this->BaseParameters = $parameters;
+        return $this;
+    }
+    
+    /**
+     * Set Default Base URL
+     * 
+     * @param string $base Base URL
+     * 
+     * @return \View\Helper\Pagination Self
+     */
+    public function setDefaultBaseUrl($base) {
+        $this->DefaultBaseUrl = $base;
+        return $this;
+    }
+    
+    
+    /**
+     * Paginate
+     * 
+     * Load items from Container and set the following View vars
+     * $paginate_count = Total number of items
+     * $paginate_page  = Current page
+     * $paginate_pages = Total number of pages
+     * $paginate_items = Items from ContainerModel
+     * 
+     * @return \View\Helper\Pagination Self
+     */
+    public function paginate() {
+        
+        $page = $this->getParameter('page', 0);
+        $sort = $this->getParameter('sort', $this->AllowedSortingFields[0]);
+        $direction = strtoupper($this->getParameter('direction', 'ASC'));
+        
+        $count = $this->ContainerModel->count($this->SearchConditions);
+        $pages = ceil($count / $this->PageSize);        
+        
+        if ($page >= $pages) {
+            $page = $pages - 1;
+        }
+        
+        if ($page < 0) {
+            $page = 0;
+        }
+        
+        if (!in_array($sort, $this->AllowedSortingFields)) {
+            $sort = $this->AllowedSortingFields[0];
+        }
+        
+        if (!in_array($direction, array('ASC', 'DESC'))) {
+            $direction = 'ASC';
+        }
+        
+        $items = $this->ContainerModel->index(
+            $this->SearchConditions,
+            array(array($sort,$direction)), 
+            $this->PageSize, 
+            $page * $this->PageSize
+        );
+        
+        $this->getView()->set('paginate_count', $count);
+        $this->getView()->set('paginate_page', $this->CurrentPageNumber = $page);
+        $this->getView()->set('paginate_pages', $this->NumberOfPages = $pages);
+        $this->getView()->set('paginate_items', $items);        
+        
+    }
 
     /**
      * Get Parameter
@@ -121,8 +216,8 @@ class Pagination extends \Helper
         $value = $default;
         $named = \KoolDevelop\Router::getInstance()->getNamedParameters();
         
-        if (array_key_exists($name, $this->Parameters)) {
-            $value = $this->Parameters[$name];
+        if (array_key_exists($name, $this->BaseParameters)) {
+            $value = $this->BaseParameters[$name];
         }
         
         if (array_key_exists($name, $named)) {
@@ -136,66 +231,80 @@ class Pagination extends \Helper
         return $value;
                 
     }
-        
+    
+    
     /**
-     * Get Link to sort on field
+     * Get Link with Named parameters added
      * 
-     * 
-     * @param string $field       Field
-     * @param string $default_dir Default direction (ASC/DESC)
+     * @param string[] $parameters Parameters, use null to unset
+     * @param string   $base       Base URL
+     * @param boolean  $reset      Reset current base parameters
      * 
      * @return string URL
      */
-    public function getSortLink($field, $default_dir = 'ASC') {
+    public function getLink($parameters = array(), $base = null, $reset = true) {
+        
+        $base_parameters = $reset ? array() : $this->BaseParameters;
+        $base_parameters['sort'] = $this->getParameter('sort', null);
+        $base_parameters['direction'] = $this->getParameter('direction', null);
+        $base_parameters['page'] = $this->getParameter('page', 0);
+        
+        $parameters = array_merge($base_parameters, $parameters);
+        $base = ($base === null) ? $this->DefaultBaseUrl : null;
+        
+        return r()->getNamedUrl($parameters, $base, $reset);
         
     }
     
     /**
-     * Paginate
+     * Get Link to sort on field
      * 
-     * Load items from Container and set the following View vars
-     * $paginate_count = Total number of items
-     * $paginate_page  = Current page
-     * $paginate_pages = Total number of pages
-     * $paginate_items = Items from ContainerModel
+     * @param string   $field       Field
+     * @param string   $default_dir Default direction (ASC/DESC)
+     * @param string   $base        Base URL to use, null to use current
+     * @param string[] $parameters  Parameters to pass along, null to use default
      * 
-     * @return \View\Helper\Pagination Self
+     * @return string URL
      */
-    public function Paginate() {
+    public function getSortLink($field, $default_dir = 'ASC', $base = null, $parameters = null) {
         
-        $page = $this->getParameter('page', 0);
-        $sort = $this->getParameter('sort', $this->AllowedSortingFields[0]);
-        $direction = strtoupper($this->getParameter('direction', 'ASC'));
-        
-        $count = $this->ContainerModel->count($this->SearchConditions);
-        $pages = ceil($count / $this->PageSize);        
-        
-        if ($page >= $pages) {
-            $page = $pages - 1;
+        if ($parameters === null) {
+            $reset = false;
+            $parameters = array();
+        } else {
+            $reset = true;
         }
         
-        if (!in_array($sort, $this->AllowedSortingFields)) {
-            $sort = $this->AllowedSortingFields[0];
+        if ($field == $this->getParameter('sort', null)) {
+            $parameters['direction'] = strtoupper($this->getParameter('direction')) == 'ASC' ? 'DESC' : 'ASC';
+        } else {
+            $parameters['direction'] = $default_dir;
         }
         
-        if (!in_array($direction, array('ASC', 'DESC'))) {
-            $direction = 'ASC';
-        }
-        
-        $items = $this->ContainerModel->index(
-            $this->SearchConditions,
-            array(array($sort,$direction)), 
-            $this->PageSize, 
-            $page * $this->PageSize
-        );
-        
-        $this->getView()->set('paginate_count', $count);
-        $this->getView()->set('paginate_page', $page);
-        $this->getView()->set('paginate_pages', $pages);
-        $this->getView()->set('paginate_items', $items);
-        
+        $parameters['sort'] = $field;
+
+        return $this->getLink($parameters, $base, $reset);
         
     }
+    
+    /**
+     * Get list of page numbers in range of current
+     * 
+     * @param type $count Number of pages to return
+     * 
+     * @return int[] Page numbers
+     */
+    public function getPageNumbers($count = 10) {
+        $pages = array();
+        $page = $this->CurrentPageNumber;
+        for($x = $page - ($count / 2); $x < ($page + ($count / 2)); $x++) {           
+            if (($x >= 0) AND ($x < $this->NumberOfPages)) {
+                $pages[] = $x;
+            }            
+        }
+        return $pages;
+    }
+    
     
     
 }

@@ -14,21 +14,73 @@ namespace KoolDevelop\Model;
 /**
  * Simple Model <-> Array converter
  *
+ * Converter that converts underscored array values to CamelCased
+ * getter and setter functions
+ * 
+ * Example: display_name => getDisplayName / setDisplayName
+ * 
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
  * @subpackage Model
  **/
-class SimpleArrayConverter implements \KoolDevelop\Model\IArrayConverter
+class SimpleArrayConverter extends \KoolDevelop\Observable implements \KoolDevelop\Model\IArrayConverter
 {
+    /**
+     * Underscored field names
+     * @var string[] 
+     */
+    private $Fields;
     
-    
-    public function convertArrayToModel($data, \Model &$model) {
-        
+    /**
+     * Constructor
+     * 
+     * @param string[] $Fields Underscored field names
+     */
+    function __construct($Fields) {
+        $this->Fields = $Fields;
+        $this->addObservable('beforeConvertModelToArray');
+        $this->addObservable('afterConvertModelToArray');
+        $this->addObservable('beforeConvertArrayToModel');
+        $this->addObservable('afterConvertArrayToModel');
     }
-    
+
+   /**
+     * Convert Model data to array
+     * 
+     * @param \Model $model Model
+     * 
+     * @return mixed[] Array
+     */
     public function convertModelToArray(\Model &$model) {
-        
+        $data = array();
+        $this->fireObservable('beforeConvertModelToArray', $model, $data);
+        foreach($this->Fields as $field_underscored) {
+            $getter = 'get' . \KoolDevelop\StringUtilities::camelcase($field_underscored);
+            $data[$field_underscored] = $model->$getter();
+        }
+        $this->fireObservable('afterConvertModelToArray', $model, $data);
+        return $data;
     }
+    
+    
+    /**
+     * Convert Array to Model data
+     * 
+     * @param mixed[] $data  Input Arrat
+     * @param \Model  $model Model
+     * 
+     * @return void
+     */
+    public function convertArrayToModel($data, \Model &$model) {
+        $this->fireObservable('beforeConvertArrayToModel', $model, $data);
+        foreach($this->Fields as $field_underscored) {
+            $setter = 'set' . \KoolDevelop\StringUtilities::camelcase($field_underscored);
+            $model->$setter($data[$field_underscored]);
+        }
+        $this->fireObservable('afterConvertArrayToModel', $model, $data);
+    }
+ 
+    
 }
