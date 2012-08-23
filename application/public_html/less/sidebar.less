@@ -1,0 +1,56 @@
+body {
+	// http://www.alistapart.com/articles/fauxcolumns/
+	background: #fff url(../img/fauxsidebar.png) 0 0 repeat-y;
+}
+
+.sidebar-container {
+
+    .side {
+		position: absolute;
+		left: 0;
+        width: 260px;
+    }
+    .content {
+        margin-left: 280px;
+    }
+}
+
+.navbar-fixed-top .sidebar-container {
+    .side, .content {
+        padding-left: @gridGutterWidth;
+    }
+}
+
+.sidebar {
+	padding-top: 10px;
+    width: 260px;
+
+    .nav {
+
+        h2 {
+            color: @grayLight;
+            font-weight: 100;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+            
+            a {
+                display: block;
+                color: @gray;
+                font-size: @baseFontSize * 1.1;
+                line-height: @baseLineHeight * 1.2;
+                margin-left: -(@gridGutterWidth / 2);
+                margin-right: -(@gridGutterWidth / 2);
+                padding: 3px (@gridGutterWidth / 2);
+                &:hover {
+                    text-decoration: none;
+                    background: darken(@grayLighter, 5%);
+                }
+            }
+            
+        }
+
+    }
+}

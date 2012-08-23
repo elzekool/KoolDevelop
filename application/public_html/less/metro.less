@@ -1,0 +1,101 @@
+/*!
+ * Bootstrap v2.0.4
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+// CSS Reset
+@import "reset.less";
+
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+// Grid system and page structure
+@import "scaffolding.less";
+@import "grid.less";
+@import "layouts.less";
+
+// Base CSS
+@import "type.less";
+@import "code.less";
+@import "forms.less";
+@import "tables.less";
+
+// Components: common
+@import "font-awesome.less";
+@import "dropdowns.less";
+@import "component-animations.less";
+@import "close.less";
+
+// Components: Buttons & Alerts
+@import "buttons.less";
+@import "button-groups.less";
+@import "alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "navs.less";
+@import "navbar.less";
+@import "breadcrumbs.less";
+@import "pagination.less";
+@import "pager.less";
+
+// Components: Popovers
+@import "modals.less";
+@import "tooltip.less";
+@import "sidebar.less";
+@import "tile.less";
+
+// Utility classes
+@import "utilities.less"; // Has to be last to override when necessary
+
+@import "responsive.less";
+
+html, body { height: 100%; }
+
+body {
+	overflow: hidden;
+}
+
+.row-fluid {
+    margin-bottom: 30px;
+}
+
+.content-container {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: @navbarHeight;
+	bottom: 0px;
+	overflow-y: scroll;
+	padding-top: 10px;
+
+	&::-webkit-scrollbar{ width:17px; height:17px; background-color: lighten(@grayLighter, 10%); border:none }
+
+	&::-webkit-scrollbar-thumb{background-color: @grayLighter; border:1px solid @grayLighter}
+	&::-webkit-scrollbar-thumb:hover{background-color: @grayLight}
+	&::-webkit-scrollbar-thumb:active{background-color: @grayLight}
+	&::-webkit-scrollbar-thumb:disabled{background-color: @grayLighter}
+	&::-webkit-scrollbar-corner{background-color:#f0f0f0}
+
+	&::-webkit-scrollbar-button{
+		background-color:@grayLighter;
+		background-image:url(@iconSpritePath);
+		background-repeat:no-repeat
+	}
+
+	&::-webkit-scrollbar-button:vertical{height:20px}
+	&::-webkit-scrollbar-button:hover{background-color:@grayLight; background-image:url(@iconWhiteSpritePath);}
+	&::-webkit-scrollbar-button:active{background-color:@grayLight; background-image:url(@iconWhiteSpritePath);}
+	&::-webkit-scrollbar-button:disabled{background-color:@grayLighter}
+
+	&::-webkit-scrollbar-button:vertical:increment{ background-position: -311px -116px; }
+	&::-webkit-scrollbar-button:vertical:decrement{ background-position: -286px -117px; }
+	
+
+
+}

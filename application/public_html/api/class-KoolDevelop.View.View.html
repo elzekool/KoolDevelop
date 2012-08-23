@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Class KoolDevelop\View\View | KoolDevelop</title>
+
+	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
+	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
+						<ul>
+				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+						</li>
+				<li class="active"><a href="namespace-KoolDevelop.View.html">View</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-View.html">View<span></span></a>
+						<ul>
+				<li><a href="namespace-View.Helper.html">Helper</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-KoolDevelop.View.Element.html">Element</a></li>
+				<li><a href="class-KoolDevelop.View.Helper.html">Helper</a></li>
+				<li><a href="class-KoolDevelop.View.Placeholder.html">Placeholder</a></li>
+				<li class="active"><a href="class-KoolDevelop.View.View.html">View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-KoolDevelop.View.html" title="Summary of KoolDevelop\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="kooldevelop-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class View</h1>
+
+
+	<div class="description">
+	
+<p>View</p>
+
+<p>Base part of the Model-View-Container pattern. The view is responsible for
+displaying data. Rending of a view consists of rendering a view file. The
+rendered view file is then passed to a layout file, this is then render to the
+browser.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-KoolDevelop.Observable.html"><span>KoolDevelop\Observable</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>KoolDevelop\View\View</span></b>			
+			 implements 
+				<a href="class-KoolDevelop.Configuration.IConfigurable.html"><span>KoolDevelop\Configuration\IConfigurable</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-KoolDevelop.View.Element.html">KoolDevelop\View\Element</a>, 
+			<a href="class-View.html">View</a>
+	</div>
+
+	<div>
+		<h4>Indirect known subclasses</h4>
+			<a href="class-Element.html">Element</a>
+	</div>
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-KoolDevelop.html">KoolDevelop</a>\<a href="namespace-KoolDevelop.View.html">View</a><br />
+		<b>Package:</b> KoolDevelop\Core<br />
+
+				<b>Copyright:</b>
+				Elze Kool, Kool Software en Webdevelopment<br />
+				<b>Author:</b>
+				Elze Kool<br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.View.View.html#14" title="Go to source code">framework/view/View.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#75" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+<p>Create new View instance</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Create new View instance</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTitle" id="_getTitle">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTitle">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#85" title="Go to source code">getTitle</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get Page Title</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get Page Title</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>Page Title<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTitle" id="_setTitle">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTitle">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#94" title="Go to source code">setTitle</a>( <span>string <var>$title</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set Page Title</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set Page Title</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$title</var></dt>
+					<dd><code>string</code><br> Page Title</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLayout" id="_setLayout">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLayout">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#105" title="Go to source code">setLayout</a>( <span>string <var>$layout</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set Layout</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set Layout</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$layout</var></dt>
+					<dd><code>string</code><br> Layout</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setView" id="_setView">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setView">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#126" title="Go to source code">setView</a>( <span>string <var>$view</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set View</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set View</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$view</var></dt>
+					<dd><code>string</code><br> View</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set" id="_set">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#150" title="Go to source code">set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set Var for View</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set Var for View</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Name</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br> Value</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="placeholder" id="_placeholder">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.View.Placeholder.html">KoolDevelop\View\Placeholder</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_placeholder">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#172" title="Go to source code">placeholder</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get placeholder</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get placeholder</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Placeholder name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.View.Placeholder.html">KoolDevelop\View\Placeholder</a></code></code><br>Placeholder<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="helper" id="_helper">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.View.Helper.html">KoolDevelop\View\Helper</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_helper">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#193" title="Go to source code">helper</a>( <span>string <var>$classname</var></span>, <span>string <var>$namespace</var> = <span class="php-quote">'\\View\\Helper\\'</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Get Helper</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get Helper</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$classname</var></dt>
+					<dd><code>string</code><br> Helper classname</dd>
+					<dt><var>$namespace</var></dt>
+					<dd><code>string</code><br> Namespace</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.View.Helper.html">KoolDevelop\View\Helper</a></code></code><br>Helper<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#232" title="Go to source code">render</a>( )</code>
+
+		<div class="description short">
+			
+<p>View Renderen</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>View Renderen</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDependendClasses" id="_getDependendClasses">
+
+		<td class="attributes"><code>
+			 public static
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDependendClasses">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#273" title="Go to source code">getDependendClasses</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get list of (configurable) classes that this class depends on.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get list of (configurable) classes that this class depends on.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string[]</code><br>Depends on<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getDependendClasses</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getConfigurationOptions" id="_getConfigurationOptions">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-KoolDevelop.Configuration.IConfigurableOption.html">KoolDevelop\Configuration\IConfigurableOption</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getConfigurationOptions">#</a>
+		<code><a href="source-class-KoolDevelop.View.View.html#283" title="Go to source code">getConfigurationOptions</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get Configuration options for this class</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get Configuration options for this class</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Configuration.IConfigurableOption.html">KoolDevelop\Configuration\IConfigurableOption</a>[]</code></code><br>Options for class<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getConfigurationOptions</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-KoolDevelop.Observable.html#methods">KoolDevelop\Observable</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-KoolDevelop.Observable.html#_">addObservable()</a>, 
+			<a href="class-KoolDevelop.Observable.html#_">addObserver()</a>, 
+			<a href="class-KoolDevelop.Observable.html#_">clearObservers()</a>, 
+			<a href="class-KoolDevelop.Observable.html#_">fireObservable()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="Layout" id="$Layout">
+
+		<td class="attributes"><code>
+			protected 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.View.View.html#31" title="Go to source code"><var>$Layout</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'default'</span></code></td>
+		<td class="description"><div>
+			<a href="#$Layout" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Layout</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Layout</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="PageTitle" id="$PageTitle">
+
+		<td class="attributes"><code>
+			protected 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.View.View.html#37" title="Go to source code"><var>$PageTitle</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$PageTitle" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Page title</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Page title</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="View" id="$View">
+
+		<td class="attributes"><code>
+			protected 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.View.View.html#43" title="Go to source code"><var>$View</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$View" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>View</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>View</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="ViewVars" id="$ViewVars">
+
+		<td class="attributes"><code>
+			protected 
+			mixed[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.View.View.html#49" title="Go to source code"><var>$ViewVars</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$ViewVars" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Vars for View</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Vars for View</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="Placeholders" id="$Placeholders">
+
+		<td class="attributes"><code>
+			protected 
+			Kooldevelop\View\Placeholder[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.View.View.html#55" title="Go to source code"><var>$Placeholders</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$Placeholders" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Placeholders</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Placeholders</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="Helpers" id="$Helpers">
+
+		<td class="attributes"><code>
+			protected 
+			<code><a href="class-KoolDevelop.View.Helper.html">KoolDevelop\View\Helper</a>[]</code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.View.View.html#61" title="Go to source code"><var>$Helpers</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$Helpers" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Helpers</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Helpers</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+</div>
+
+	<div id="footer">
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
