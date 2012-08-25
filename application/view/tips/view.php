@@ -18,9 +18,10 @@ $pagination = $this->helper('Pagination');
 <?php $this->placeholder('sidebar')->start(); ?>
     <div class="row-fluid">
         <div class="span12">
-            <form method="POST" action="" class="form-vertical">
-                <input type="text" class="span12" placeholder="<?php __w('Search in tips…'); ?>" />
-            </form>
+            <form method="POST" action="tips" class="form-vertical">
+                <input name="search" value="<?php echo htmlspecialchars($pagination->getParameter('search')); ?>" type="text" class="span12" placeholder="<?php __w('Search in tips…'); ?>" />
+                <button type="submit" class="btn"><i class="icon icon-search"></i> <?php __w('Search'); ?></button>
+            </form>            
         </div>
     </div>
 <?php $this->placeholder('sidebar')->end(); ?>

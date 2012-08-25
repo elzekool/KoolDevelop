@@ -18,9 +18,11 @@ $pagination = $this->helper('Pagination');
 <?php $this->placeholder('sidebar')->start(); ?>
     <div class="row-fluid">
         <div class="span12">
-            <form method="POST" action="" class="form-vertical">
-                <input type="text" class="span12" placeholder="<?php __w('Search in tips…'); ?>" />
-            </form>
+            <form method="POST" action="tips" class="form-vertical">
+                <input name="search" value="<?php echo htmlspecialchars($pagination->getParameter('search')); ?>" type="text" class="span12" placeholder="<?php __w('Search in tips…'); ?>" />
+                <button type="submit" class="btn"><i class="icon icon-search"></i> <?php __w('Search'); ?></button>
+                <a href="<?php echo $pagination->getLink(array('search' => null)); ?>" class="btn"><i class="icon icon-refresh"></i> <?php __w('Reset'); ?></a>
+            </form>            
         </div>
     </div>
 <?php $this->placeholder('sidebar')->end(); ?>
@@ -48,9 +50,10 @@ $pagination = $this->helper('Pagination');
         <table class="table">
             <thead>
                 <tr>
-                    <th width="10%"><a href="<?php echo $pagination->getSortLink('id', 'ASC'); ?>"><?php __w('#'); ?></a></th>
-                    <th width="70%"><a href="<?php echo $pagination->getSortLink('title', 'ASC'); ?>"><?php __w('Title'); ?></a></th>
-                    <th width="20%"><?php __w('Action'); ?></th>
+                    <th width="10%"><a href="<?php echo $pagination->getSortLink('tips.id', 'ASC'); ?>"><?php __w('#'); ?></a></th>
+                    <th width="40%"><a href="<?php echo $pagination->getSortLink('tips.title', 'ASC'); ?>"><?php __w('Title'); ?></a></th>
+                    <th width="40%"><a href="<?php echo $pagination->getSortLink('categories.title', 'ASC'); ?>"><?php __w('Category'); ?></a></th>
+                    <th width="10%"><?php __w('Action'); ?></th>
                 </tr>
             </thead>
             
@@ -59,6 +62,7 @@ $pagination = $this->helper('Pagination');
                     <tr>
                         <td><?php echo htmlspecialchars($tip->getId()); ?></td>
                         <td><?php echo htmlspecialchars($tip->getTitle()); ?></td>
+                        <td><?php echo htmlspecialchars($tip->getCategory()->getTitle()); ?></td>
                         <td>
                             <a href="tip/<?php echo $tip->getId(); ?>">
                                 <?php __w('View'); ?>

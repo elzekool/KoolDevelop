@@ -36,6 +36,12 @@ final class Tip extends \Model
     private $Language;
     
     /**
+     * Category Id
+     * @var int
+     */
+    private $CategoryId;
+    
+    /**
      * Title
      * @var string
      */
@@ -88,6 +94,38 @@ final class Tip extends \Model
         $this->Language = $Language;
     }
 
+    /**
+     * Get Category Id
+     * 
+     * @return int Category Id
+     */
+    public function getCategoryId() {
+        return $this->CategoryId;
+    }
+
+    /**
+     * Set Category Id
+     * 
+     * @param int $CategoryId Category Id
+     * 
+     * @return void
+     */
+    public function setCategoryId($CategoryId) {
+        $this->CategoryId = $CategoryId;
+    }
+
+    /**
+     * Get \Model\Category for Tip
+     * 
+     * @return \Model\Category Category
+     */
+    public function getCategory() {
+        if ($this->getCategoryId() === null) {
+            return null;
+        }       
+        $category_container = new \Model\CategoryContainer();
+        return $category_container->first(array('id' => $this->getCategoryId()));
+    }
     
     /**
      * Get Title
@@ -97,6 +135,8 @@ final class Tip extends \Model
     public function getTitle() {
         return $this->Title;
     }
+    
+    
 
     /**
      * Set Title

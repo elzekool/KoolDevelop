@@ -19,14 +19,6 @@
                 <input type="text" class="span12" placeholder="<?php __w('Search in tips…'); ?>" />
             </form>
 
-            <div class="nav">
-                <h2><i class="icon icon-globe"></i> <?php __w('Tips'); ?></h2>
-                <ul>
-                    <li><a href="/tips/category:database"><?php __w('Database'); ?></a></li>
-                    <li><a href="/tips/category:security"><?php __w('Security'); ?></a></li>
-                    <li><a href="/tips/category:mvc"><?php __w('Model-View-Controler'); ?></a></li>
-                </ul>
-            </div>
         </div>
     </div>
 <?php $this->placeholder('sidebar')->end(); ?>

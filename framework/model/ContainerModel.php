@@ -214,7 +214,7 @@ abstract class ContainerModel extends \Model implements \KoolDevelop\Configurati
 
         // Create new SELECT query
         $query = DatabaseAdaptor::getInstance($this->DatabaseConfiguration)->newQuery();
-        $query->select('*')->from($this->DatabaseTable);
+        $query->select($this->DatabaseTable . '.*')->from($this->DatabaseTable);
 
         // Limit on 1 
         $query->limit(1, 0);
@@ -256,7 +256,7 @@ abstract class ContainerModel extends \Model implements \KoolDevelop\Configurati
 
         // Create new SELECT query
         $query = DatabaseAdaptor::getInstance($this->DatabaseConfiguration)->newQuery();
-        $query->select('*')->from($this->DatabaseTable);
+        $query->select($this->DatabaseTable . '.*')->from($this->DatabaseTable);
 
         if ($limit !== null) {
             $query->limit($limit, $start);

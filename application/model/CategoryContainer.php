@@ -1,6 +1,6 @@
 <?php
 /**
- * Tip Container Model
+ * Category Container Model
  *
  * @author Elze Kool
  * @copyright Elze Kool, Kool Software en Webdevelopment
@@ -11,9 +11,9 @@
 namespace Model;
 
 /**
- * Tip Container Model
+ * Category Container Model
  * 
- * This is the Container Model for the Tip Model. A Container Model is responsible
+ * This is the Container Model for the Category Model. A Container Model is responsible
  * for retrieving/updating Model data
  *
  * @author Elze Kool
@@ -21,13 +21,13 @@ namespace Model;
  *
  * @package SampleApplication
  **/
-final class TipContainer extends \KoolDevelop\Model\ContainerModel
+final class CategoryContainer extends \KoolDevelop\Model\ContainerModel
 {
     /**
      * Database table to use
      * @var string
      */
-    protected $DatabaseTable = 'tips';
+    protected $DatabaseTable = 'categories';
 
     /**
      * Database configuration to use
@@ -39,7 +39,7 @@ final class TipContainer extends \KoolDevelop\Model\ContainerModel
      * Model to use
      * @var string
      */
-    protected $Model = '\\Model\\Tip';
+    protected $Model = '\\Model\\Category';
 
     /**
      * Convert Model to Database Row
@@ -50,11 +50,8 @@ final class TipContainer extends \KoolDevelop\Model\ContainerModel
      * @return void
      */
     protected function _ModelToDatabase(\KoolDevelop\Model\Model &$model, \KoolDevelop\Database\Row &$database_row) {
-        /* @var $model \Model\Tip */
+        /* @var $model \Model\Category */
         $database_row->id = $model->getId();
-        $database_row->language = $model->getLanguage();
-        $database_row->category_id = $model->getCategoryId();
-        $database_row->title = $model->getTitle();
         $database_row->text = $model->getText();
     }
 
@@ -67,12 +64,9 @@ final class TipContainer extends \KoolDevelop\Model\ContainerModel
      * return void
      */
     protected function _DatabaseToModel(\KoolDevelop\Database\Row &$database_row, \KoolDevelop\Model\Model &$model) {
-        /* @var $model \Model\Tip */
+        /* @var $model \Model\Category */
         $model->setId($database_row->id);
-        $model->setLanguage($database_row->language);
-        $model->setCategoryId($database_row->category_id);
         $model->setTitle($database_row->title);
-        $model->setText($database_row->text);
     }
 
     /**
@@ -81,7 +75,7 @@ final class TipContainer extends \KoolDevelop\Model\ContainerModel
      * @return mixed[] Value
      */
     protected function getPrimaryKey(\KoolDevelop\Model\Model &$model) {
-        /* @var $model \Model\Tip */
+        /* @var $model \Model\Category */
         return $model->getId();
     }
 
@@ -93,7 +87,7 @@ final class TipContainer extends \KoolDevelop\Model\ContainerModel
      * @return void
      */
     protected function setPrimaryKey(\KoolDevelop\Model\Model &$model, $value) {
-        /* @var $model \Model\Tip */
+        /* @var $model \Model\Category */
         $model->setId($value);        
     }
 
@@ -107,25 +101,15 @@ final class TipContainer extends \KoolDevelop\Model\ContainerModel
      */
     protected function _ProcesConditions($conditions, \KoolDevelop\Database\Query &$query) {
         
-        // Advanced usage:
-        // _ProcesConditions can also add joins
-        $query->leftJoin('categories', 'categories.id = tips.category_id');
-        
         foreach($conditions as $condition => $value) {
             
             // Tip: if / elseif is faster then select/case
             
             // Check Id
             if ($condition == 'id') {
-                $query->where('tips.id = ?', $value);
-                
-            // Check Language
-            } elseif ($condition == 'language') {
-                $query->where('tips.language = ?', $value);
-                
-            } elseif (($condition == 'search') AND !empty($value)) {
-                $query->where('tips.title lIKE ?', '%' . $value . '%');
+                $query->where('id = ?', $value);
             }
+            
         }
         
     }

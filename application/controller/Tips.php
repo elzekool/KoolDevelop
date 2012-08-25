@@ -61,10 +61,21 @@ final class Tips extends \Controller
         $pagination = $this->View->helper('Pagination');
         /* @var $pagination \View\Helper\Pagination */
 
+        $current_locale = \KoolDevelop\International\L10n::getInstance()->getLocaleSettings();
+        
+        
         $pagination
-            ->setPageSize(3)
+            ->setPageSize(10)
+            ->setSearchConditions(array(
+                'language' => $current_locale['tips_language'],
+                'search'   => $pagination->getParameter('search', '')
+            ))
+            ->setBaseParameters(array(
+                'search'   => $pagination->getParameter('search', '')
+            ))
             ->setDefaultBaseUrl(r()->getBase() . '/tips')
-            ->setAllowedSortingFields(array('title', 'id'))
+              
+            ->setAllowedSortingFields(array('tips.title', 'tips.id', 'categories.title'))
             ->setContainerModel(new \Model\TipContainer())
             ->paginate();
 
