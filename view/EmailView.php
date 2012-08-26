@@ -40,7 +40,7 @@ abstract class EmailView extends \KoolDevelop\View\View implements \KoolDevelop\
 		// Check if file exists
 		$view_file = \KoolDevelop\Configuration::getInstance('email')->get('core.view_path') . DS . str_replace(array('\\', '/'), DS, $view) . '.php';
 		if (!file_exists($view_file)) {
-			throw new \InvalidArgumentException(__f("Email view file not found",'kooldevelop'));
+			throw new \KoolDevelop\Exception\FileNotFoundException(__f("Email view file not found",'kooldevelop'));
 		}
 
 		$this->View = $view;

@@ -117,7 +117,7 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 
         $layout_file = \KoolDevelop\Configuration::getInstance('core')->get('path.layout') . DS . str_replace(array('\\', '/'), DS, $layout) . '.php';
 		if (!file_exists($layout_file)) {
-			throw new \InvalidArgumentException(__f("Layout file not found",'kooldevelop'));
+			throw new \KoolDevelop\Exception\FileNotFoundException(__f("Layout file not found",'kooldevelop'));
 		}
 
 		$this->Layout = $layout;
@@ -139,7 +139,7 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 		// Kijk of view wel bestaat
 		$view_file = \KoolDevelop\Configuration::getInstance('core')->get('path.view') . DS . str_replace(array('\\', '/'), DS, $view) . '.php';
 		if (!file_exists($view_file)) {
-			throw new \InvalidArgumentException(__f("View file not found",'kooldevelop'));
+			throw new \KoolDevelop\Exception\FileNotFoundException(__f("View file not found",'kooldevelop'));
 		}
 
 		$this->View = $view;

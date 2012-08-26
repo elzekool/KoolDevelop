@@ -127,7 +127,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
             $this->From = $address;
             $this->FromName = $name;
         } else {
-            throw new \KoolDevelop\Exception\Exception(__f('Invalid From e-mailaddress'));
+            throw new \KoolDevelop\Exception\EmailException(__f('Invalid From e-mailaddress'));
         }
         return $this;
     }
@@ -145,7 +145,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
             $this->ReplyTo = $address;
             $this->ReplyToName = $name;
         } else {
-            throw new \KoolDevelop\Exception\Exception(__f('Invalid ReplyTo e-mailaddress'));
+            throw new \KoolDevelop\Exception\EmailException(__f('Invalid ReplyTo e-mailaddress'));
         }
         return $this;
     }
@@ -162,7 +162,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
         if (self::checkEmailValid($address) AND !empty($name)) {
             $this->BCC[] = array($address, $name);
         } else {
-            throw new \KoolDevelop\Exception\Exception(__f('Invalid BCC e-mailaddress'));
+            throw new \KoolDevelop\Exception\EmailException(__f('Invalid BCC e-mailaddress'));
         }
         return $this;
     }
@@ -179,7 +179,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
         if (self::checkEmailValid($address) AND !empty($name)) {
             $this->To[] = array($address, $name);
         } else {
-            throw new \KoolDevelop\Exception\Exception(__f('Invalid To e-mailaddress'));
+            throw new \KoolDevelop\Exception\EmailException(__f('Invalid To e-mailaddress'));
         }
         return $this;
     }
@@ -194,7 +194,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
      */
     public function addAttachment($filename, $name = null) {
         if (!file_exists($filename)) {
-            throw new \KoolDevelop\Exception\Exception(__f('Attachment file does not exist'));
+            throw new \KoolDevelop\Exception\EmailException(__f('Attachment file does not exist'));
         }
         $this->Attachments[$filename] = ($name !== null ? $name : basename($filename));
         return $this;
@@ -306,7 +306,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
             }
             
         } catch (\Exception $e) {
-            $exception = new \KoolDevelop\Exception\Exception(__f('Error creating E-mail Message'));
+            $exception = new \KoolDevelop\Exception\EmailException(__f('Error creating E-mail Message'));
             $exception->setDetail($e->__toString());
             throw new $exception;
         }
@@ -357,7 +357,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
             $this->PHPMailer->Send();
             
         } catch (\Exception $e) {
-            $exception = new \KoolDevelop\Exception\Exception(__f('Error sending E-mail Message'));
+            $exception = new \KoolDevelop\Exception\EmailException(__f('Error sending E-mail Message'));
             $exception->setDetail($e->__toString());
             throw new $exception;
         }
