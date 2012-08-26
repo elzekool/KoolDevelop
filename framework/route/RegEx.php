@@ -14,7 +14,7 @@ namespace KoolDevelop\Route;
 /**
  * Regular expression route
  *
- * Regular Expression route modifief. Matches routes/URI's on a regular expression
+ * Regular Expression route modifier. Matches routes/URI's on a regular expression
  * to allow complex routes. Use $1, $2.. to use specific match groups to the outputed 
  * URI/route.
  * 
