@@ -6,7 +6,7 @@
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
- * @subpackage Core
+ * @subpackage Email
  **/
 
 namespace KoolDevelop\View;

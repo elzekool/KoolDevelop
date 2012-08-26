@@ -6,7 +6,7 @@
  * @copyright Elze Kool, Kool Software en Webdevelopment
  *
  * @package KoolDevelop
- * @subpackage Core
+ * @subpackage Email
  **/
 
 namespace KoolDevelop\Email;
@@ -234,7 +234,7 @@ class Message implements \KoolDevelop\Configuration\IConfigurable
     }
 
     /**
-     * Reset instellingen. Wist ook eventueel ingestelde ontvangers.
+     * Reset settings, allowing to send new message
      *
      * @return void
      */

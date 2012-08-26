@@ -57,7 +57,7 @@ abstract class Element extends \KoolDevelop\View\View implements \KoolDevelop\Co
 			throw new \InvalidArgumentException(__f("View name contains invalid characters",'kooldevelop'));
 		}
 
-		// Kijk of view wel bestaat
+		// Check if view file exists
 		$view_file = \KoolDevelop\Configuration::getInstance('core')->get('path.element') . DS . str_replace(array('\\', '/'), DS, $view) . '.php';
 		if (!file_exists($view_file)) {
 			throw new \InvalidArgumentException(__f("Element file not found",'kooldevelop'));
