@@ -108,7 +108,7 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
      * 
      * @return boolean Success
      */
-    public function commitTransction() {
+    public function commitTransaction() {
         return $this->PdoConnection->commit();
     }
     
