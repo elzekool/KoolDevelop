@@ -49,12 +49,6 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
 	 */
 	private $PdoConnection;
 
-	/**
-	 * Transaction Depth
-	 * @var int
-	 */
-	private $TransactionDepth = 0;
-
     /**
      * Profiling Enabled
      * @var boolean 
@@ -91,6 +85,33 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
 
 	}
 
+    /**
+     * Begin new transaction
+     * 
+     * @return boolean Success
+     */
+    public function beginTransaction() {
+        return $this->PdoConnection->beginTransaction();
+    }
+    
+    /**
+     * Rollback transaction
+     * 
+     * @return boolean Success
+     */
+    public function rollbackTransaction() {
+        return $this->PdoConnection->rollBack();
+    }
+    
+    /**
+     * Commit transaction
+     * 
+     * @return boolean Success
+     */
+    public function commitTransction() {
+        return $this->PdoConnection->commit();
+    }
+    
 	/**
 	 * Create new Query
 	 * 
