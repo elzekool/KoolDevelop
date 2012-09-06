@@ -280,6 +280,7 @@ class Query
      **/
     public function custom($sql) {
         $this->Prepared = null;
+        $this->CustomSQL = $sql;
         $this->_setType('custom');
 
         if (func_num_args() > 1) {
