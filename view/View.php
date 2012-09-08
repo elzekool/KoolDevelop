@@ -239,6 +239,8 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 		if ($this->View == null) {
 			throw new \LogicException(__f("No view set to render",'kooldevelop'));
 		}
+        
+        $this->fireObservable('beforeView', $this);
 
 		// Set View vars
 		foreach ($this->ViewVars as $var_name => $var_value) {
@@ -246,8 +248,6 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 		}
 
 		$page_title = $this->PageTitle;
-
-        $this->fireObservable('beforeView');
 
 		// Load/Render View
         ob_start();
