@@ -46,6 +46,12 @@ abstract class ContainerModel extends \Model implements \KoolDevelop\Configurati
      * @var string
      */
     protected $Model = '';
+    
+    /**
+     * Field used as Primary Key
+     * @var string 
+     */
+    protected $PrimaryKeyField = 'id';
 
     /**
      * Convert Model to Database Row
@@ -122,8 +128,8 @@ abstract class ContainerModel extends \Model implements \KoolDevelop\Configurati
        $query = DatabaseAdaptor::getInstance($this->DatabaseConfiguration)->newQuery();
 
        // Update/Insert depending on Primary Key value
-       if ($this->getPrimaryKey($model) !== null) {
-            $query->update()->into($this->DatabaseTable);
+       if (null !== ($primary_value = $this->getPrimaryKey($model))) {
+            $query->update()->into($this->DatabaseTable)->where($this->PrimaryKeyField . ' = ?', $primary_value);
        } else {
             $query->insert()->into($this->DatabaseTable);
        }
