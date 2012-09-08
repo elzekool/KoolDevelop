@@ -45,7 +45,19 @@ class Pagination extends \Helper
      * @var string[]
      */
     private $AllowedSortingFields = array('id');
-    
+	
+	/**
+	 * Default Sorting Field
+	 * @var string
+	 **/
+	private $DefaultSortField = 'id';
+	
+	/**
+	 * Default Sorting Direction
+	 * @var string
+	 **/
+	private $DefaultSortDirection = 'ASC';
+	    
     /**
      * Parameters
      * @var string[]
@@ -146,6 +158,19 @@ class Pagination extends \Helper
         return $this;
     }
     
+	/**
+	 * Set Default Sorting
+	 *
+	 * @param string $field     Default sorting Field
+	 * @param string $direction Set default sorting direction (ASC|DESC)
+	 *
+	 * @return \View\Helper\Pagination Self
+     */
+	public function setDefaultSorting($field, $direction = 'ASC') {
+		$this->DefaultSortingField = $field;
+		$this->DefaultSortingDirection = $direction;
+		return $this;
+	}
     
     /**
      * Paginate
@@ -176,7 +201,8 @@ class Pagination extends \Helper
         }
         
         if (!in_array($sort, $this->AllowedSortingFields)) {
-            $sort = $this->AllowedSortingFields[0];
+            $sort = $this->DefaultSortField;
+			$direction = $this->DefaultSortDirection;
         }
         
         if (!in_array($direction, array('ASC', 'DESC'))) {

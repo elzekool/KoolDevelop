@@ -40,10 +40,6 @@ class SimpleArrayConverter extends \KoolDevelop\Observable implements \KoolDevel
      */
     function __construct($Fields) {
         $this->Fields = $Fields;
-        $this->addObservable('beforeConvertModelToArray');
-        $this->addObservable('afterConvertModelToArray');
-        $this->addObservable('beforeConvertArrayToModel');
-        $this->addObservable('afterConvertArrayToModel');
     }
 
    /**
@@ -55,12 +51,10 @@ class SimpleArrayConverter extends \KoolDevelop\Observable implements \KoolDevel
      */
     public function convertModelToArray(\Model &$model) {
         $data = array();
-        $this->fireObservable('beforeConvertModelToArray', $model, $data);
         foreach($this->Fields as $field_underscored) {
             $getter = 'get' . \KoolDevelop\StringUtilities::camelcase($field_underscored);
             $data[$field_underscored] = $model->$getter();
         }
-        $this->fireObservable('afterConvertModelToArray', $model, $data);
         return $data;
     }
     
@@ -74,12 +68,10 @@ class SimpleArrayConverter extends \KoolDevelop\Observable implements \KoolDevel
      * @return void
      */
     public function convertArrayToModel($data, \Model &$model) {
-        $this->fireObservable('beforeConvertArrayToModel', $model, $data);
         foreach($this->Fields as $field_underscored) {
             $setter = 'set' . \KoolDevelop\StringUtilities::camelcase($field_underscored);
             $model->$setter($data[$field_underscored]);
         }
-        $this->fireObservable('afterConvertArrayToModel', $model, $data);
     }
  
     
