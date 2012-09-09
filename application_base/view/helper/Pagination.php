@@ -167,8 +167,8 @@ class Pagination extends \Helper
 	 * @return \View\Helper\Pagination Self
      */
 	public function setDefaultSorting($field, $direction = 'ASC') {
-		$this->DefaultSortingField = $field;
-		$this->DefaultSortingDirection = $direction;
+		$this->DefaultSortField = $field;
+		$this->DefaultSortDirection = $direction;
 		return $this;
 	}
     
@@ -186,8 +186,8 @@ class Pagination extends \Helper
     public function paginate() {
         
         $page = $this->getParameter('page', 0);
-        $sort = $this->getParameter('sort', $this->AllowedSortingFields[0]);
-        $direction = strtoupper($this->getParameter('direction', 'ASC'));
+        $sort = $this->getParameter('sort', $this->DefaultSortField);
+        $direction = strtoupper($this->getParameter('direction', $this->DefaultSortDirection));
         
         $count = $this->ContainerModel->count($this->SearchConditions);
         $pages = ceil($count / $this->PageSize);        
@@ -202,11 +202,10 @@ class Pagination extends \Helper
         
         if (!in_array($sort, $this->AllowedSortingFields)) {
             $sort = $this->DefaultSortField;
-			$direction = $this->DefaultSortDirection;
         }
         
         if (!in_array($direction, array('ASC', 'DESC'))) {
-            $direction = 'ASC';
+            $direction = $this->DefaultSortDirection;
         }
         
         $items = $this->ContainerModel->index(
