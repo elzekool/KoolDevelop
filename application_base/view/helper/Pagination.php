@@ -82,7 +82,17 @@ class Pagination extends \Helper
      */
     private $NumberOfPages = 0;    
     
+    /**
+     * Session storage name
+     * @var string
+     */
+    private $SessionStorageName = null;
     
+    /**
+     * Pararameters to store in session
+     * @var string[]
+     */
+    private $SessionStorageParameters = array('sort', 'direction');    
     
     /**
      * Set ContainerModel
@@ -167,10 +177,28 @@ class Pagination extends \Helper
 	 * @return \View\Helper\Pagination Self
      */
 	public function setDefaultSorting($field, $direction = 'ASC') {
-		$this->DefaultSortingField = $field;
-		$this->DefaultSortingDirection = $direction;
+		$this->DefaultSortField = $field;
+		$this->DefaultSortDirection = $direction;
 		return $this;
 	}
+    
+    /**
+     * Set Session storage options.
+     * 
+     * Sets the session storage options. The name is used to uniquely identify
+     * the pagination options.. Also the stored parameters are configurable. 
+     * Don't forget to include 'sort' and 'direction' parameters (if needed).
+     * 
+     * @param string $name       Unique name for pagination settings, use null to disable storage
+     * @param string $parameters Parameters to store
+     * 
+     * @return \View\Helper\Pagination Self
+     */
+    public function setSessionStorage($name = null, $parameters = array('sort', 'direction')) {
+        $this->SessionStorageName = $name;
+        $this->SessionStorageParameters = $parameters;
+        return $this;
+    }
     
     /**
      * Paginate
@@ -186,8 +214,8 @@ class Pagination extends \Helper
     public function paginate() {
         
         $page = $this->getParameter('page', 0);
-        $sort = $this->getParameter('sort', $this->AllowedSortingFields[0]);
-        $direction = strtoupper($this->getParameter('direction', 'ASC'));
+        $sort = $this->getParameter('sort', $this->DefaultSortField);
+        $direction = strtoupper($this->getParameter('direction', $this->DefaultSortDirection));
         
         $count = $this->ContainerModel->count($this->SearchConditions);
         $pages = ceil($count / $this->PageSize);        
@@ -202,11 +230,10 @@ class Pagination extends \Helper
         
         if (!in_array($sort, $this->AllowedSortingFields)) {
             $sort = $this->DefaultSortField;
-			$direction = $this->DefaultSortDirection;
         }
         
         if (!in_array($direction, array('ASC', 'DESC'))) {
-            $direction = 'ASC';
+            $direction = $this->DefaultSortDirection;
         }
         
         $items = $this->ContainerModel->index(
@@ -215,6 +242,14 @@ class Pagination extends \Helper
             $this->PageSize, 
             $page * $this->PageSize
         );
+        
+        if ($this->SessionStorageName !== null) {
+            foreach($this->SessionStorageParameters as $param) {
+                $session = \KoolDevelop\Session\Session::getInstance();
+                $session->set($this->SessionStorageName . '.' . $param, $this->getParameter($param));
+            }
+        }
+        
         
         $this->getView()->set('paginate_count', $count);
         $this->getView()->set('paginate_page', $this->CurrentPageNumber = $page);
@@ -244,6 +279,13 @@ class Pagination extends \Helper
         
         if (array_key_exists($name, $this->BaseParameters)) {
             $value = $this->BaseParameters[$name];
+        }
+        
+        if ($this->SessionStorageName !== null) {
+            $session = \KoolDevelop\Session\Session::getInstance();
+            if ($session->exists($this->SessionStorageName . '.' . $name)) {
+                $value = $session->get($this->SessionStorageName . '.' . $name);
+            }
         }
         
         if (array_key_exists($name, $named)) {
