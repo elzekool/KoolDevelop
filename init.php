@@ -43,10 +43,12 @@ try {
 
     // Load Bootstrapper
     $bootstrapper = new \Bootstrapper();
-    $bootstrapper->init();
-
-    // Get current environment, and save this in the configuration class
+	
+	// Get current environment, and save this in the configuration class
     \KoolDevelop\Configuration::setCurrentEnvironment($bootstrapper->getEnvironment());
+
+	// Init
+    $bootstrapper->init();
 
     // Start routing
     $bootstrapper->route();
