@@ -7,8 +7,8 @@
 
 	<title>File framework/cache/Cache.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
-	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -34,6 +34,8 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
@@ -42,7 +44,7 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
@@ -192,57 +194,59 @@
 </span><a href="#75" id="75" class="l"> 75: </a><span class="php-comment">     * @param string $config Configuration identifier
 </span><a href="#76" id="76" class="l"> 76: </a><span class="php-comment">     */</span>
 <a href="#77" id="77" class="l"> 77: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$config</span>) {
-<a href="#78" id="78" class="l"> 78: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'cache'</span>);
-<a href="#79" id="79" class="l"> 79: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> === (<span class="php-var">$cache_config</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$config</span>, <span class="php-keyword1">null</span>))) {
-<a href="#80" id="80" class="l"> 80: </a>            <span class="php-keyword1">return</span>;
-<a href="#81" id="81" class="l"> 81: </a>        }
-<a href="#82" id="82" class="l"> 82: </a>        <span class="php-var">$this</span>-&gt;loadStorage(<span class="php-var">$cache_config</span>[<span class="php-quote">'class'</span>], <span class="php-var">$cache_config</span>);
-<a href="#83" id="83" class="l"> 83: </a>
-<a href="#84" id="84" class="l"> 84: </a>    }
+<a href="#78" id="78" class="l"> 78: </a>        
+<a href="#79" id="79" class="l"> 79: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'cache'</span>);
+<a href="#80" id="80" class="l"> 80: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> === (<span class="php-var">$cache_config</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-var">$config</span>, <span class="php-keyword1">null</span>))) {
+<a href="#81" id="81" class="l"> 81: </a>            <span class="php-keyword1">return</span>;
+<a href="#82" id="82" class="l"> 82: </a>        }
+<a href="#83" id="83" class="l"> 83: </a>        
+<a href="#84" id="84" class="l"> 84: </a>        <span class="php-var">$this</span>-&gt;loadStorage(<span class="php-var">$cache_config</span>[<span class="php-quote">'class'</span>], <span class="php-var">$cache_config</span>);        
 <a href="#85" id="85" class="l"> 85: </a>
-<a href="#86" id="86" class="l"> 86: </a>    <span class="php-comment">/**
-</span><a href="#87" id="87" class="l"> 87: </a><span class="php-comment">     * Save object to cache
-</span><a href="#88" id="88" class="l"> 88: </a><span class="php-comment">     *
-</span><a href="#89" id="89" class="l"> 89: </a><span class="php-comment">     * @param string $key    Key
-</span><a href="#90" id="90" class="l"> 90: </a><span class="php-comment">     * @param mixed  $object Object
-</span><a href="#91" id="91" class="l"> 91: </a><span class="php-comment">     * @param int    $expire Expiration time in seconds
-</span><a href="#92" id="92" class="l"> 92: </a><span class="php-comment">     *
-</span><a href="#93" id="93" class="l"> 93: </a><span class="php-comment">     * @return void
-</span><a href="#94" id="94" class="l"> 94: </a><span class="php-comment">     */</span>
-<a href="#95" id="95" class="l"> 95: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> saveObject(<span class="php-var">$key</span>, <span class="php-var">$object</span>, <span class="php-var">$expire</span> = <span class="php-keyword1">null</span>) {
-<a href="#96" id="96" class="l"> 96: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> !== <span class="php-var">$this</span>-&gt;Storage) {
-<a href="#97" id="97" class="l"> 97: </a>            <span class="php-var">$this</span>-&gt;Storage-&gt;saveObject(<span class="php-var">$key</span>, <span class="php-var">$object</span>, <span class="php-var">$expire</span>);
-<a href="#98" id="98" class="l"> 98: </a>        }
-<a href="#99" id="99" class="l"> 99: </a>    }
-<a href="#100" id="100" class="l">100: </a>
-<a href="#101" id="101" class="l">101: </a>    <span class="php-comment">/**
-</span><a href="#102" id="102" class="l">102: </a><span class="php-comment">     * Load object from cache
-</span><a href="#103" id="103" class="l">103: </a><span class="php-comment">     *
-</span><a href="#104" id="104" class="l">104: </a><span class="php-comment">     * @param string $key     Key
-</span><a href="#105" id="105" class="l">105: </a><span class="php-comment">     * @param mixed  $default Default value
-</span><a href="#106" id="106" class="l">106: </a><span class="php-comment">     *
-</span><a href="#107" id="107" class="l">107: </a><span class="php-comment">     * @return mixed
-</span><a href="#108" id="108" class="l">108: </a><span class="php-comment">     */</span>
-<a href="#109" id="109" class="l">109: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> loadObject(<span class="php-var">$key</span>, <span class="php-var">$default</span> = <span class="php-keyword1">null</span>) {
-<a href="#110" id="110" class="l">110: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> !== <span class="php-var">$this</span>-&gt;Storage) {
-<a href="#111" id="111" class="l">111: </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Storage-&gt;loadObject(<span class="php-var">$key</span>, <span class="php-var">$default</span>);
-<a href="#112" id="112" class="l">112: </a>        }
-<a href="#113" id="113" class="l">113: </a>        <span class="php-keyword1">return</span> <span class="php-var">$default</span>;
-<a href="#114" id="114" class="l">114: </a>    }
-<a href="#115" id="115" class="l">115: </a>
-<a href="#116" id="116" class="l">116: </a>    <span class="php-comment">/**
-</span><a href="#117" id="117" class="l">117: </a><span class="php-comment">     * Check if storage object exists
-</span><a href="#118" id="118" class="l">118: </a><span class="php-comment">     *
-</span><a href="#119" id="119" class="l">119: </a><span class="php-comment">     * @return boolean Object exists and is valid
-</span><a href="#120" id="120" class="l">120: </a><span class="php-comment">     */</span>
-<a href="#121" id="121" class="l">121: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> objectExists(<span class="php-var">$key</span>) {
-<a href="#122" id="122" class="l">122: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> !== <span class="php-var">$this</span>-&gt;Storage) {
-<a href="#123" id="123" class="l">123: </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Storage-&gt;objectExists(<span class="php-var">$key</span>);
-<a href="#124" id="124" class="l">124: </a>        }
-<a href="#125" id="125" class="l">125: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-<a href="#126" id="126" class="l">126: </a>    }
-<a href="#127" id="127" class="l">127: </a>
-<a href="#128" id="128" class="l">128: </a>}</code></pre>
+<a href="#86" id="86" class="l"> 86: </a>    }
+<a href="#87" id="87" class="l"> 87: </a>
+<a href="#88" id="88" class="l"> 88: </a>    <span class="php-comment">/**
+</span><a href="#89" id="89" class="l"> 89: </a><span class="php-comment">     * Save object to cache
+</span><a href="#90" id="90" class="l"> 90: </a><span class="php-comment">     *
+</span><a href="#91" id="91" class="l"> 91: </a><span class="php-comment">     * @param string $key    Key
+</span><a href="#92" id="92" class="l"> 92: </a><span class="php-comment">     * @param mixed  $object Object
+</span><a href="#93" id="93" class="l"> 93: </a><span class="php-comment">     * @param int    $expire Expiration time in seconds
+</span><a href="#94" id="94" class="l"> 94: </a><span class="php-comment">     *
+</span><a href="#95" id="95" class="l"> 95: </a><span class="php-comment">     * @return void
+</span><a href="#96" id="96" class="l"> 96: </a><span class="php-comment">     */</span>
+<a href="#97" id="97" class="l"> 97: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> saveObject(<span class="php-var">$key</span>, <span class="php-var">$object</span>, <span class="php-var">$expire</span> = <span class="php-keyword1">null</span>) {
+<a href="#98" id="98" class="l"> 98: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> !== <span class="php-var">$this</span>-&gt;Storage) {
+<a href="#99" id="99" class="l"> 99: </a>            <span class="php-var">$this</span>-&gt;Storage-&gt;saveObject(<span class="php-var">$key</span>, <span class="php-var">$object</span>, <span class="php-var">$expire</span>);
+<a href="#100" id="100" class="l">100: </a>        }
+<a href="#101" id="101" class="l">101: </a>    }
+<a href="#102" id="102" class="l">102: </a>
+<a href="#103" id="103" class="l">103: </a>    <span class="php-comment">/**
+</span><a href="#104" id="104" class="l">104: </a><span class="php-comment">     * Load object from cache
+</span><a href="#105" id="105" class="l">105: </a><span class="php-comment">     *
+</span><a href="#106" id="106" class="l">106: </a><span class="php-comment">     * @param string $key     Key
+</span><a href="#107" id="107" class="l">107: </a><span class="php-comment">     * @param mixed  $default Default value
+</span><a href="#108" id="108" class="l">108: </a><span class="php-comment">     *
+</span><a href="#109" id="109" class="l">109: </a><span class="php-comment">     * @return mixed
+</span><a href="#110" id="110" class="l">110: </a><span class="php-comment">     */</span>
+<a href="#111" id="111" class="l">111: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> loadObject(<span class="php-var">$key</span>, <span class="php-var">$default</span> = <span class="php-keyword1">null</span>) {
+<a href="#112" id="112" class="l">112: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> !== <span class="php-var">$this</span>-&gt;Storage) {
+<a href="#113" id="113" class="l">113: </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Storage-&gt;loadObject(<span class="php-var">$key</span>, <span class="php-var">$default</span>);
+<a href="#114" id="114" class="l">114: </a>        }
+<a href="#115" id="115" class="l">115: </a>        <span class="php-keyword1">return</span> <span class="php-var">$default</span>;
+<a href="#116" id="116" class="l">116: </a>    }
+<a href="#117" id="117" class="l">117: </a>
+<a href="#118" id="118" class="l">118: </a>    <span class="php-comment">/**
+</span><a href="#119" id="119" class="l">119: </a><span class="php-comment">     * Check if storage object exists
+</span><a href="#120" id="120" class="l">120: </a><span class="php-comment">     *
+</span><a href="#121" id="121" class="l">121: </a><span class="php-comment">     * @return boolean Object exists and is valid
+</span><a href="#122" id="122" class="l">122: </a><span class="php-comment">     */</span>
+<a href="#123" id="123" class="l">123: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> objectExists(<span class="php-var">$key</span>) {
+<a href="#124" id="124" class="l">124: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> !== <span class="php-var">$this</span>-&gt;Storage) {
+<a href="#125" id="125" class="l">125: </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Storage-&gt;objectExists(<span class="php-var">$key</span>);
+<a href="#126" id="126" class="l">126: </a>        }
+<a href="#127" id="127" class="l">127: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+<a href="#128" id="128" class="l">128: </a>    }
+<a href="#129" id="129" class="l">129: </a>
+<a href="#130" id="130" class="l">130: </a>}</code></pre>
 
 	<div id="footer">
 		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>

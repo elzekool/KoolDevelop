@@ -7,8 +7,8 @@
 
 	<title>File framework/international/I18n.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
-	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -34,6 +34,8 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li class="active"><a href="namespace-KoolDevelop.International.html">International</a>
@@ -42,7 +44,7 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
@@ -156,54 +158,60 @@
 <a href="#38" id="38" class="l">38: </a>    <span class="php-comment">/**
 </span><a href="#39" id="39" class="l">39: </a><span class="php-comment">     * Get \KoolDevelop\International\I18n instance
 </span><a href="#40" id="40" class="l">40: </a><span class="php-comment">     *
-</span><a href="#41" id="41" class="l">41: </a><span class="php-comment">     * @return \KoolDevelop\International\I18n
-</span><a href="#42" id="42" class="l">42: </a><span class="php-comment">     */</span>
-<a href="#43" id="43" class="l">43: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getInstance(<span class="php-var">$domain</span>) {
-<a href="#44" id="44" class="l">44: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">isset</span>(self::<span class="php-var">$Instances</span>[<span class="php-var">$domain</span>])) {
-<a href="#45" id="45" class="l">45: </a>            self::<span class="php-var">$Instances</span>[<span class="php-var">$domain</span>] = <span class="php-keyword1">new</span> self(<span class="php-var">$domain</span>);
-<a href="#46" id="46" class="l">46: </a>        }
-<a href="#47" id="47" class="l">47: </a>        <span class="php-keyword1">return</span> self::<span class="php-var">$Instances</span>[<span class="php-var">$domain</span>];
-<a href="#48" id="48" class="l">48: </a>    }
-<a href="#49" id="49" class="l">49: </a>
-<a href="#50" id="50" class="l">50: </a>    <span class="php-comment">/**
-</span><a href="#51" id="51" class="l">51: </a><span class="php-comment">     * Constructor
-</span><a href="#52" id="52" class="l">52: </a><span class="php-comment">     */</span>
-<a href="#53" id="53" class="l">53: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$domain</span>) {
-<a href="#54" id="54" class="l">54: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'international'</span>);
-<a href="#55" id="55" class="l">55: </a>        <span class="php-var">$locale_settings</span> = \KoolDevelop\International\L10n::getInstance()-&gt;getLocaleSettings();
-<a href="#56" id="56" class="l">56: </a>        <span class="php-var">$translator</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.translator'</span>, <span class="php-quote">'\\KoolDevelop\\International\\PassTroughTranslator'</span>);
-<a href="#57" id="57" class="l">57: </a>
-<a href="#58" id="58" class="l">58: </a>        <span class="php-var">$this</span>-&gt;Translator = <span class="php-keyword1">new</span> <span class="php-var">$translator</span>();
-<a href="#59" id="59" class="l">59: </a>        <span class="php-var">$this</span>-&gt;Translator-&gt;initialize(<span class="php-var">$domain</span>, <span class="php-var">$locale_settings</span>, <span class="php-var">$configuration</span>);
-<a href="#60" id="60" class="l">60: </a>    }
-<a href="#61" id="61" class="l">61: </a>
-<a href="#62" id="62" class="l">62: </a>    <span class="php-comment">/**
-</span><a href="#63" id="63" class="l">63: </a><span class="php-comment">     * Translate text
-</span><a href="#64" id="64" class="l">64: </a><span class="php-comment">     *
-</span><a href="#65" id="65" class="l">65: </a><span class="php-comment">     * @param string $text Untranslated text
-</span><a href="#66" id="66" class="l">66: </a><span class="php-comment">     *
-</span><a href="#67" id="67" class="l">67: </a><span class="php-comment">     * @return string Translated tekst
-</span><a href="#68" id="68" class="l">68: </a><span class="php-comment">     */</span>
-<a href="#69" id="69" class="l">69: </a>    <span class="php-keyword1">function</span> singular(<span class="php-var">$text</span>) {
-<a href="#70" id="70" class="l">70: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Translator-&gt;singular(<span class="php-var">$text</span>);
-<a href="#71" id="71" class="l">71: </a>    }
-<a href="#72" id="72" class="l">72: </a>
-<a href="#73" id="73" class="l">73: </a>    <span class="php-comment">/**
-</span><a href="#74" id="74" class="l">74: </a><span class="php-comment">     * Translate text based on count, $count dictates wich version is used
-</span><a href="#75" id="75" class="l">75: </a><span class="php-comment">     *
-</span><a href="#76" id="76" class="l">76: </a><span class="php-comment">     * @param string $singular Singular untranslated text
-</span><a href="#77" id="77" class="l">77: </a><span class="php-comment">     * @param string $plural   Plural untranslated text
-</span><a href="#78" id="78" class="l">78: </a><span class="php-comment">     * @param int    $count    Count to determine singular/plural
-</span><a href="#79" id="79" class="l">79: </a><span class="php-comment">     *
-</span><a href="#80" id="80" class="l">80: </a><span class="php-comment">     * @return string Translated tekst
-</span><a href="#81" id="81" class="l">81: </a><span class="php-comment">     */</span>
-<a href="#82" id="82" class="l">82: </a>    <span class="php-keyword1">function</span> plural(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>) {
-<a href="#83" id="83" class="l">83: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Translator-&gt;plural(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>);
-<a href="#84" id="84" class="l">84: </a>    }
-<a href="#85" id="85" class="l">85: </a>
-<a href="#86" id="86" class="l">86: </a>
-<a href="#87" id="87" class="l">87: </a>}
-<a href="#88" id="88" class="l">88: </a></code></pre>
+</span><a href="#41" id="41" class="l">41: </a><span class="php-comment">     * @param string  $domain Domain
+</span><a href="#42" id="42" class="l">42: </a><span class="php-comment">     * @param boolean $create Create instance if not already initialized
+</span><a href="#43" id="43" class="l">43: </a><span class="php-comment">     * 
+</span><a href="#44" id="44" class="l">44: </a><span class="php-comment">     * @return \KoolDevelop\International\I18n
+</span><a href="#45" id="45" class="l">45: </a><span class="php-comment">     */</span>
+<a href="#46" id="46" class="l">46: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getInstance(<span class="php-var">$domain</span>, <span class="php-var">$create</span> = <span class="php-keyword1">true</span>) {
+<a href="#47" id="47" class="l">47: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">isset</span>(self::<span class="php-var">$Instances</span>[<span class="php-var">$domain</span>])) {
+<a href="#48" id="48" class="l">48: </a>            self::<span class="php-var">$Instances</span>[<span class="php-var">$domain</span>] = <span class="php-keyword1">new</span> self(<span class="php-var">$domain</span>);
+<a href="#49" id="49" class="l">49: </a>        }
+<a href="#50" id="50" class="l">50: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$create</span>) {
+<a href="#51" id="51" class="l">51: </a>            <span class="php-keyword1">return</span> self::<span class="php-var">$Instances</span>[<span class="php-var">$domain</span>];
+<a href="#52" id="52" class="l">52: </a>        } <span class="php-keyword1">else</span> {
+<a href="#53" id="53" class="l">53: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+<a href="#54" id="54" class="l">54: </a>        }
+<a href="#55" id="55" class="l">55: </a>    }
+<a href="#56" id="56" class="l">56: </a>
+<a href="#57" id="57" class="l">57: </a>    <span class="php-comment">/**
+</span><a href="#58" id="58" class="l">58: </a><span class="php-comment">     * Constructor
+</span><a href="#59" id="59" class="l">59: </a><span class="php-comment">     */</span>
+<a href="#60" id="60" class="l">60: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$domain</span>) {
+<a href="#61" id="61" class="l">61: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'international'</span>);
+<a href="#62" id="62" class="l">62: </a>        <span class="php-var">$locale_settings</span> = \KoolDevelop\International\L10n::getInstance()-&gt;getLocaleSettings();
+<a href="#63" id="63" class="l">63: </a>        <span class="php-var">$translator</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.translator'</span>, <span class="php-quote">'\\KoolDevelop\\International\\PassTroughTranslator'</span>);
+<a href="#64" id="64" class="l">64: </a>        <span class="php-var">$this</span>-&gt;Translator = <span class="php-keyword1">new</span> <span class="php-var">$translator</span>();
+<a href="#65" id="65" class="l">65: </a>        <span class="php-var">$this</span>-&gt;Translator-&gt;initialize(<span class="php-var">$domain</span>, <span class="php-var">$locale_settings</span>, <span class="php-var">$configuration</span>);
+<a href="#66" id="66" class="l">66: </a>    }
+<a href="#67" id="67" class="l">67: </a>
+<a href="#68" id="68" class="l">68: </a>    <span class="php-comment">/**
+</span><a href="#69" id="69" class="l">69: </a><span class="php-comment">     * Translate text
+</span><a href="#70" id="70" class="l">70: </a><span class="php-comment">     *
+</span><a href="#71" id="71" class="l">71: </a><span class="php-comment">     * @param string $text Untranslated text
+</span><a href="#72" id="72" class="l">72: </a><span class="php-comment">     *
+</span><a href="#73" id="73" class="l">73: </a><span class="php-comment">     * @return string Translated tekst
+</span><a href="#74" id="74" class="l">74: </a><span class="php-comment">     */</span>
+<a href="#75" id="75" class="l">75: </a>    <span class="php-keyword1">function</span> singular(<span class="php-var">$text</span>) {
+<a href="#76" id="76" class="l">76: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Translator-&gt;singular(<span class="php-var">$text</span>);
+<a href="#77" id="77" class="l">77: </a>    }
+<a href="#78" id="78" class="l">78: </a>
+<a href="#79" id="79" class="l">79: </a>    <span class="php-comment">/**
+</span><a href="#80" id="80" class="l">80: </a><span class="php-comment">     * Translate text based on count, $count dictates wich version is used
+</span><a href="#81" id="81" class="l">81: </a><span class="php-comment">     *
+</span><a href="#82" id="82" class="l">82: </a><span class="php-comment">     * @param string $singular Singular untranslated text
+</span><a href="#83" id="83" class="l">83: </a><span class="php-comment">     * @param string $plural   Plural untranslated text
+</span><a href="#84" id="84" class="l">84: </a><span class="php-comment">     * @param int    $count    Count to determine singular/plural
+</span><a href="#85" id="85" class="l">85: </a><span class="php-comment">     *
+</span><a href="#86" id="86" class="l">86: </a><span class="php-comment">     * @return string Translated tekst
+</span><a href="#87" id="87" class="l">87: </a><span class="php-comment">     */</span>
+<a href="#88" id="88" class="l">88: </a>    <span class="php-keyword1">function</span> plural(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>) {
+<a href="#89" id="89" class="l">89: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;Translator-&gt;plural(<span class="php-var">$singular</span>, <span class="php-var">$plural</span>, <span class="php-var">$count</span>);
+<a href="#90" id="90" class="l">90: </a>    }
+<a href="#91" id="91" class="l">91: </a>
+<a href="#92" id="92" class="l">92: </a>
+<a href="#93" id="93" class="l">93: </a>}
+<a href="#94" id="94" class="l">94: </a></code></pre>
 
 	<div id="footer">
 		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>

@@ -7,8 +7,8 @@
 
 	<title>File framework/Configuration.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
-	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -34,6 +34,8 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
@@ -42,7 +44,7 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
@@ -69,7 +71,6 @@
 				<li><a href="class-KoolDevelop.ErrorHandler.html">ErrorHandler</a></li>
 				<li><a href="class-KoolDevelop.Observable.html">Observable</a></li>
 				<li><a href="class-KoolDevelop.Router.html">Router</a></li>
-				<li><a href="class-KoolDevelop.Session.html">Session</a></li>
 				<li><a href="class-KoolDevelop.StringUtilities.html">StringUtilities</a></li>
 			</ul>
 
@@ -245,7 +246,7 @@
 <a href="#127" id="127" class="l">127: </a>        }
 <a href="#128" id="128" class="l">128: </a>        
 <a href="#129" id="129" class="l">129: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;Configuration === <span class="php-keyword1">null</span>) {
-<a href="#130" id="130" class="l">130: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \InvalidArgumentException(__f(<span class="php-quote">&quot;Invalid Configuration File&quot;</span>,<span class="php-quote">'kooldevelop'</span>));            
+<a href="#130" id="130" class="l">130: </a>            <span class="php-var">$this</span>-&gt;Configuration = <span class="php-keyword1">array</span>();         
 <a href="#131" id="131" class="l">131: </a>        }
 <a href="#132" id="132" class="l">132: </a>        
 <a href="#133" id="133" class="l">133: </a>        

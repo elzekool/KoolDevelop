@@ -7,8 +7,8 @@
 
 	<title>File framework/international/L10n.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
-	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -34,6 +34,8 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li class="active"><a href="namespace-KoolDevelop.International.html">International</a>
@@ -42,7 +44,7 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
@@ -212,7 +214,7 @@
 <a href="#94" id="94" class="l"> 94: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> __construct() {
 <a href="#95" id="95" class="l"> 95: </a>
 <a href="#96" id="96" class="l"> 96: </a>        <span class="php-var">$configuration</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'international'</span>);
-<a href="#97" id="97" class="l"> 97: </a>        <span class="php-var">$session</span> = \KoolDevelop\Session::getInstance();
+<a href="#97" id="97" class="l"> 97: </a>        <span class="php-var">$session</span> = \KoolDevelop\Session\Session::getInstance();
 <a href="#98" id="98" class="l"> 98: </a>
 <a href="#99" id="99" class="l"> 99: </a>        <span class="php-var">$session_id</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.session_id'</span>, <span class="php-quote">'lang'</span>);
 <a href="#100" id="100" class="l">100: </a>        <span class="php-var">$session_storage</span> = <span class="php-var">$configuration</span>-&gt;get(<span class="php-quote">'core.session_handler'</span>, <span class="php-quote">'Php'</span>);
@@ -323,33 +325,35 @@
 </span><a href="#205" id="205" class="l">205: </a><span class="php-comment">     * @return string[] Depends on
 </span><a href="#206" id="206" class="l">206: </a><span class="php-comment">     */</span>
 <a href="#207" id="207" class="l">207: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getDependendClasses() {
-<a href="#208" id="208" class="l">208: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>();
-<a href="#209" id="209" class="l">209: </a>    }
-<a href="#210" id="210" class="l">210: </a>    
-<a href="#211" id="211" class="l">211: </a>    <span class="php-comment">/**
-</span><a href="#212" id="212" class="l">212: </a><span class="php-comment">     * Get Configuration options for this class
-</span><a href="#213" id="213" class="l">213: </a><span class="php-comment">     *
-</span><a href="#214" id="214" class="l">214: </a><span class="php-comment">     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
-</span><a href="#215" id="215" class="l">215: </a><span class="php-comment">     */</span>
-<a href="#216" id="216" class="l">216: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getConfigurationOptions() {
-<a href="#217" id="217" class="l">217: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(
-<a href="#218" id="218" class="l">218: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_timeout'</span>, <span class="php-quote">'0'</span>, (<span class="php-quote">'Session storage timeout (in seconds)'</span>)),
-<a href="#219" id="219" class="l">219: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.get_param'</span>, <span class="php-quote">'&quot;lang&quot;'</span>, (<span class="php-quote">'GET param used for choosing language'</span>)),
-<a href="#220" id="220" class="l">220: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_id'</span>, <span class="php-quote">'&quot;lang&quot;'</span>, (<span class="php-quote">'Session key to use'</span>)),
-<a href="#221" id="221" class="l">221: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_handler'</span>, <span class="php-quote">'&quot;Php&quot;'</span>, (<span class="php-quote">'Session handler to persist language choice'</span>)),
-<a href="#222" id="222" class="l">222: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.languages'</span>, <span class="php-quote">'&quot;en&quot;'</span>, (<span class="php-quote">'Comma separated list of language keys. Make sure sections are added'</span>)),
-<a href="#223" id="223" class="l">223: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.path'</span>, <span class="php-quote">'APP_PATH &quot;&quot; DS &quot;international&quot;'</span>, (<span class="php-quote">'Base path for folder based translator'</span>)),
-<a href="#224" id="224" class="l">224: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.translator'</span>, <span class="php-quote">'&quot;\KoolDevelop\International\PassTroughTranslator&quot;'</span>, (<span class="php-quote">'Used translator'</span>), <span class="php-keyword1">false</span>),
-<a href="#225" id="225" class="l">225: </a>            
-<a href="#226" id="226" class="l">226: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.regex'</span>, <span class="php-quote">'&quot;/^en(.*)/&quot;'</span>, (<span class="php-quote">'Regular expression used to detect browser language preference'</span>)),
-<a href="#227" id="227" class="l">227: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.locale'</span>, <span class="php-quote">'en-GB.UTF8'</span>, (<span class="php-quote">'Locale'</span>)),
-<a href="#228" id="228" class="l">228: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.path'</span>, <span class="php-quote">'en'</span>, (<span class="php-quote">'Path for path based translators'</span>), <span class="php-keyword1">false</span>),
-<a href="#229" id="229" class="l">229: </a>        );
-<a href="#230" id="230" class="l">230: </a>    }
-<a href="#231" id="231" class="l">231: </a>
-<a href="#232" id="232" class="l">232: </a>}
+<a href="#208" id="208" class="l">208: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(
+<a href="#209" id="209" class="l">209: </a>            <span class="php-quote">'\\KoolDevelop\\Session\\Session'</span>
+<a href="#210" id="210" class="l">210: </a>        );
+<a href="#211" id="211" class="l">211: </a>    }
+<a href="#212" id="212" class="l">212: </a>    
+<a href="#213" id="213" class="l">213: </a>    <span class="php-comment">/**
+</span><a href="#214" id="214" class="l">214: </a><span class="php-comment">     * Get Configuration options for this class
+</span><a href="#215" id="215" class="l">215: </a><span class="php-comment">     *
+</span><a href="#216" id="216" class="l">216: </a><span class="php-comment">     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+</span><a href="#217" id="217" class="l">217: </a><span class="php-comment">     */</span>
+<a href="#218" id="218" class="l">218: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getConfigurationOptions() {
+<a href="#219" id="219" class="l">219: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(
+<a href="#220" id="220" class="l">220: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_timeout'</span>, <span class="php-quote">'0'</span>, (<span class="php-quote">'Session storage timeout (in seconds)'</span>)),
+<a href="#221" id="221" class="l">221: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.get_param'</span>, <span class="php-quote">'&quot;lang&quot;'</span>, (<span class="php-quote">'GET param used for choosing language'</span>)),
+<a href="#222" id="222" class="l">222: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_id'</span>, <span class="php-quote">'&quot;lang&quot;'</span>, (<span class="php-quote">'Session key to use'</span>)),
+<a href="#223" id="223" class="l">223: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.session_handler'</span>, <span class="php-quote">'&quot;Default&quot;'</span>, (<span class="php-quote">'Session handler to persist language choice'</span>)),
+<a href="#224" id="224" class="l">224: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.languages'</span>, <span class="php-quote">'&quot;en&quot;'</span>, (<span class="php-quote">'Comma separated list of language keys. Make sure sections are added'</span>)),
+<a href="#225" id="225" class="l">225: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.path'</span>, <span class="php-quote">'APP_PATH &quot;&quot; DS &quot;international&quot;'</span>, (<span class="php-quote">'Base path for folder based translator'</span>)),
+<a href="#226" id="226" class="l">226: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'core.translator'</span>, <span class="php-quote">'&quot;\KoolDevelop\International\PassTroughTranslator&quot;'</span>, (<span class="php-quote">'Used translator'</span>), <span class="php-keyword1">false</span>),
+<a href="#227" id="227" class="l">227: </a>            
+<a href="#228" id="228" class="l">228: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.regex'</span>, <span class="php-quote">'&quot;/^en(.*)/&quot;'</span>, (<span class="php-quote">'Regular expression used to detect browser language preference'</span>)),
+<a href="#229" id="229" class="l">229: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.locale'</span>, <span class="php-quote">'en-GB.UTF8'</span>, (<span class="php-quote">'Locale'</span>)),
+<a href="#230" id="230" class="l">230: </a>            <span class="php-keyword1">new</span> \KoolDevelop\Configuration\IConfigurableOption(<span class="php-quote">'international'</span>, <span class="php-quote">'en.path'</span>, <span class="php-quote">'en'</span>, (<span class="php-quote">'Path for path based translators'</span>), <span class="php-keyword1">false</span>),
+<a href="#231" id="231" class="l">231: </a>        );
+<a href="#232" id="232" class="l">232: </a>    }
 <a href="#233" id="233" class="l">233: </a>
-<a href="#234" id="234" class="l">234: </a><span class="xlang">?&gt;</span></code></pre>
+<a href="#234" id="234" class="l">234: </a>}
+<a href="#235" id="235" class="l">235: </a>
+<a href="#236" id="236" class="l">236: </a><span class="xlang">?&gt;</span></code></pre>
 
 	<div id="footer">
 		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>

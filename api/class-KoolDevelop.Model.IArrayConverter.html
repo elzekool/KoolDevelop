@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Interface KoolDevelop\Model\IArrayConverter | KoolDevelop</title>
+
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
+						<ul>
+				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li class="active"><a href="namespace-KoolDevelop.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.View.html">View</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-View.html">View<span></span></a>
+						<ul>
+				<li><a href="namespace-View.Helper.html">Helper</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-KoolDevelop.Model.ContainerModel.html">ContainerModel</a></li>
+				<li><a href="class-KoolDevelop.Model.Model.html">Model</a></li>
+				<li><a href="class-KoolDevelop.Model.SimpleArrayConverter.html">SimpleArrayConverter</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-KoolDevelop.Model.IArrayConverter.html">IArrayConverter</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-KoolDevelop.Model.html" title="Summary of KoolDevelop\Model"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="kooldevelop-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface IArrayConverter</h1>
+
+
+	<div class="description">
+	
+<p>Array &lt;-&gt; Model Converter Interface</p>
+
+<p>Interface for Array &lt;-&gt; Model Conversion. Classes implementing this
+interface support the conversion of model data to a simple array. Use this
+interface for RESTfull controller actions and saving/retrieving form data.</p>
+
+	</div>
+
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-KoolDevelop.Model.SimpleArrayConverter.html">KoolDevelop\Model\SimpleArrayConverter</a>
+	</div>
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-KoolDevelop.html">KoolDevelop</a>\<a href="namespace-KoolDevelop.Model.html">Model</a><br />
+		<b>Package:</b> KoolDevelop\Model<br />
+
+				<b>Copyright:</b>
+				Elze Kool, Kool Software en Webdevelopment<br />
+				<b>Author:</b>
+				Elze Kool<br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Model.IArrayConverter.html#14" title="Go to source code">framework/model/IArrayConverter.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="convertModelToArray" id="_convertModelToArray">
+
+		<td class="attributes"><code>
+			 public 
+			mixed[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_convertModelToArray">#</a>
+		<code><a href="source-class-KoolDevelop.Model.IArrayConverter.html#29" title="Go to source code">convertModelToArray</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Convert Model data to array</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Convert Model data to array</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$model</var></dt>
+					<dd><code><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code></code><br> Model</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed[]</code><br>Array<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="convertArrayToModel" id="_convertArrayToModel">
+
+		<td class="attributes"><code>
+			 public 
+			mixed[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_convertArrayToModel">#</a>
+		<code><a href="source-class-KoolDevelop.Model.IArrayConverter.html#39" title="Go to source code">convertArrayToModel</a>( <span>mixed[] <var>$data</var></span>, <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Convert Array to Model data</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Convert Array to Model data</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed[]</code><br> Input Arrat</dd>
+					<dt><var>$model</var></dt>
+					<dd><code><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code></code><br> Model</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed[]</code><br>Array<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

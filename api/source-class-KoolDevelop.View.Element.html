@@ -7,8 +7,8 @@
 
 	<title>File framework/view/Element.php | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
-	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -34,6 +34,8 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
@@ -42,7 +44,7 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
 						</li>
 				<li class="active"><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
@@ -64,7 +66,9 @@
 			<h3>Classes</h3>
 			<ul>
 				<li class="active"><a href="class-KoolDevelop.View.Element.html">Element</a></li>
+				<li><a href="class-KoolDevelop.View.EmailView.html">EmailView</a></li>
 				<li><a href="class-KoolDevelop.View.Helper.html">Helper</a></li>
+				<li><a href="class-KoolDevelop.View.Image.html">Image</a></li>
 				<li><a href="class-KoolDevelop.View.Placeholder.html">Placeholder</a></li>
 				<li><a href="class-KoolDevelop.View.View.html">View</a></li>
 			</ul>
@@ -171,10 +175,10 @@
 <a href="#57" id="57" class="l"> 57: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \InvalidArgumentException(__f(<span class="php-quote">&quot;View name contains invalid characters&quot;</span>,<span class="php-quote">'kooldevelop'</span>));
 <a href="#58" id="58" class="l"> 58: </a>        }
 <a href="#59" id="59" class="l"> 59: </a>
-<a href="#60" id="60" class="l"> 60: </a>        <span class="php-comment">// Kijk of view wel bestaat</span>
+<a href="#60" id="60" class="l"> 60: </a>        <span class="php-comment">// Check if view file exists</span>
 <a href="#61" id="61" class="l"> 61: </a>        <span class="php-var">$view_file</span> = \KoolDevelop\Configuration::getInstance(<span class="php-quote">'core'</span>)-&gt;get(<span class="php-quote">'path.element'</span>) . DS . <span class="php-keyword2">str_replace</span>(<span class="php-keyword1">array</span>(<span class="php-quote">'\\'</span>, <span class="php-quote">'/'</span>), DS, <span class="php-var">$view</span>) . <span class="php-quote">'.php'</span>;
 <a href="#62" id="62" class="l"> 62: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">file_exists</span>(<span class="php-var">$view_file</span>)) {
-<a href="#63" id="63" class="l"> 63: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \InvalidArgumentException(__f(<span class="php-quote">&quot;Element file not found&quot;</span>,<span class="php-quote">'kooldevelop'</span>));
+<a href="#63" id="63" class="l"> 63: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \KoolDevelop\Exception\FileNotFoundException(__f(<span class="php-quote">&quot;Element file not found&quot;</span>,<span class="php-quote">'kooldevelop'</span>));
 <a href="#64" id="64" class="l"> 64: </a>        }
 <a href="#65" id="65" class="l"> 65: </a>
 <a href="#66" id="66" class="l"> 66: </a>        <span class="php-var">$this</span>-&gt;View = <span class="php-var">$view</span>;

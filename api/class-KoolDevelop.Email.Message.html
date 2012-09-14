@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Class KoolDevelop\Email\Message | KoolDevelop</title>
+
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
+						<ul>
+				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Console.html">Console</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
+						</li>
+				<li class="active"><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.View.html">View</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-View.html">View<span></span></a>
+						<ul>
+				<li><a href="namespace-View.Helper.html">Helper</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-KoolDevelop.Email.Message.html">Message</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-KoolDevelop.Email.html" title="Summary of KoolDevelop\Email"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="kooldevelop-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Message</h1>
+
+
+	<div class="description">
+	
+<p>E-mail message</p>
+
+<p>E-mail messaging class. Use this class to send e-mail messages. This class
+uses PHPMailer internaly</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>KoolDevelop\Email\Message</span></b>			
+			 implements 
+				<a href="class-KoolDevelop.Configuration.IConfigurable.html"><span>KoolDevelop\Configuration\IConfigurable</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-KoolDevelop.html">KoolDevelop</a>\<a href="namespace-KoolDevelop.Email.html">Email</a><br />
+		<b>Package:</b> KoolDevelop\Core<br />
+
+				<b>Copyright:</b>
+				Elze Kool, Kool Software en Webdevelopment<br />
+				<b>Author:</b>
+				Elze Kool<br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Email.Message.html#20" title="Go to source code">framework/email/Message.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="checkEmailValid" id="_checkEmailValid">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkEmailValid">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#95" title="Go to source code">checkEmailValid</a>( <span>string <var>$emailaddress</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Check if given e-mailadres is valid</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Check if given e-mailadres is valid</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$emailaddress</var></dt>
+					<dd><code>string</code><br> Address to check</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Address valid<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#110" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+<p>Constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setFrom" id="_setFrom">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setFrom">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#117" title="Go to source code">setFrom</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set From address</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set From address</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$address</var></dt>
+					<dd><code>string</code><br> Address</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br>Self<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setReplyTo" id="_setReplyTo">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setReplyTo">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#135" title="Go to source code">setReplyTo</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set Reply-To</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set Reply-To</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$address</var></dt>
+					<dd><code>string</code><br> Address</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br>Self<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addBCC" id="_addBCC">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addBCC">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#153" title="Go to source code">addBCC</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Add Blind Carbon Copy Recipient</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add Blind Carbon Copy Recipient</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$address</var></dt>
+					<dd><code>string</code><br> Address</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br>Self<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addTo" id="_addTo">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addTo">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#170" title="Go to source code">addTo</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Add Recipient</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add Recipient</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$address</var></dt>
+					<dd><code>string</code><br> Address</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br>Self<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addAttachment" id="_addAttachment">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addAttachment">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#187" title="Go to source code">addAttachment</a>( <span>string <var>$filename</var></span>, <span>string <var>$name</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Add attachment</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add attachment</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd><code>string</code><br> Filename (full path)</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br> Name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br>Self<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSubject" id="_setSubject">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSubject">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#203" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set Subject</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set Subject</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$subject</var></dt>
+					<dd><code>string</code><br> Subject</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setContents" id="_setContents">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setContents">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#215" title="Go to source code">setContents</a>( <span>string <var>$message_view</var></span>, <span>mixed[] <var>$parameters</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Set Contents of E-mail Message</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set Contents of E-mail Message</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message_view</var></dt>
+					<dd><code>string</code><br> View file to use</dd>
+					<dt><var>$parameters</var></dt>
+					<dd><code>mixed[]</code><br> Parameters</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="reset" id="_reset">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_reset">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#236" title="Go to source code">reset</a>( )</code>
+
+		<div class="description short">
+			
+<p>Reset settings, allowing to send new message</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Reset settings, allowing to send new message</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send" id="_send">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#317" title="Go to source code">send</a>( )</code>
+
+		<div class="description short">
+			
+<p>Send E-mail</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Send E-mail</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDependendClasses" id="_getDependendClasses">
+
+		<td class="attributes"><code>
+			 public static
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDependendClasses">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#367" title="Go to source code">getDependendClasses</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get list of (configurable) classes that this class depends on.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get list of (configurable) classes that this class depends on.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string[]</code><br>Depends on<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getDependendClasses</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getConfigurationOptions" id="_getConfigurationOptions">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-KoolDevelop.Configuration.IConfigurableOption.html">KoolDevelop\Configuration\IConfigurableOption</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getConfigurationOptions">#</a>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#379" title="Go to source code">getConfigurationOptions</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get Configuration options for this class</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get Configuration options for this class</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-KoolDevelop.Configuration.IConfigurableOption.html">KoolDevelop\Configuration\IConfigurableOption</a>[]</code></code><br>Options for class<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getConfigurationOptions</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

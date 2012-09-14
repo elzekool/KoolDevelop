@@ -6,8 +6,8 @@
 
 	<title>Class KoolDevelop\Model\ContainerModel | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?3750111843"></script>
-	<script type="text/javascript" src="elementlist.js?2422460540"></script>
+	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
+	<script type="text/javascript" src="elementlist.js?1026925873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
 
 </head>
@@ -33,6 +33,8 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
@@ -41,7 +43,7 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Route.html">Route</a>
 						</li>
-				<li><a href="namespace-KoolDevelop.SessionStorage.html">SessionStorage</a>
+				<li><a href="namespace-KoolDevelop.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.View.html">View</a>
 						</li>
@@ -64,8 +66,13 @@
 			<ul>
 				<li class="active"><a href="class-KoolDevelop.Model.ContainerModel.html">ContainerModel</a></li>
 				<li><a href="class-KoolDevelop.Model.Model.html">Model</a></li>
+				<li><a href="class-KoolDevelop.Model.SimpleArrayConverter.html">SimpleArrayConverter</a></li>
 			</ul>
 
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-KoolDevelop.Model.IArrayConverter.html">IArrayConverter</a></li>
+			</ul>
 
 
 
@@ -179,7 +186,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#__ModelToDatabase">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#50" title="Go to source code">_ModelToDatabase</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span>, <span><code><a href="class-KoolDevelop.Database.Row.html">KoolDevelop\Database\Row</a></code> <var>&amp; $database_row</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#56" title="Go to source code">_ModelToDatabase</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span>, <span><code><a href="class-KoolDevelop.Database.Row.html">KoolDevelop\Database\Row</a></code> <var>&amp; $database_row</var></span> )</code>
 
 		<div class="description short">
 			
@@ -219,7 +226,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#__DatabaseToModel">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#60" title="Go to source code">_DatabaseToModel</a>( <span><code><a href="class-KoolDevelop.Database.Row.html">KoolDevelop\Database\Row</a></code> <var>&amp; $database_row</var></span>, <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#66" title="Go to source code">_DatabaseToModel</a>( <span><code><a href="class-KoolDevelop.Database.Row.html">KoolDevelop\Database\Row</a></code> <var>&amp; $database_row</var></span>, <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
 
 		<div class="description short">
 			
@@ -259,7 +266,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPrimaryKey">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#70" title="Go to source code">getPrimaryKey</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#76" title="Go to source code">getPrimaryKey</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
 
 		<div class="description short">
 			
@@ -296,7 +303,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPrimaryKey">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#77" title="Go to source code">setPrimaryKey</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span>, <span> <var>$value</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#83" title="Go to source code">setPrimaryKey</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span>, <span> <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -336,7 +343,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#__ProcesConditions">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#87" title="Go to source code">_ProcesConditions</a>( <span>mixed[] <var>$conditions</var></span>, <span><code><a href="class-KoolDevelop.Database.Query.html">KoolDevelop\Database\Query</a></code> <var>&amp; $query</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#93" title="Go to source code">_ProcesConditions</a>( <span>mixed[] <var>$conditions</var></span>, <span><code><a href="class-KoolDevelop.Database.Query.html">KoolDevelop\Database\Query</a></code> <var>&amp; $query</var></span> )</code>
 
 		<div class="description short">
 			
@@ -376,7 +383,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_newObject">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#100" title="Go to source code">newObject</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#106" title="Go to source code">newObject</a>( )</code>
 
 		<div class="description short">
 			
@@ -413,7 +420,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#110" title="Go to source code">save</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#116" title="Go to source code">save</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
 
 		<div class="description short">
 			
@@ -451,7 +458,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#143" title="Go to source code">delete</a>( <span> <var>$conditions</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#153" title="Go to source code">delete</a>( <span> <var>$conditions</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -484,7 +491,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#160" title="Go to source code">update</a>( <span>mixed[] <var>$data</var></span>, <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#170" title="Go to source code">update</a>( <span>mixed[] <var>$data</var></span>, <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -524,7 +531,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_count">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#184" title="Go to source code">count</a>( <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#194" title="Go to source code">count</a>( <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -566,7 +573,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_first">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#205" title="Go to source code">first</a>( <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span>, <span>string[][] <var>$sort</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#215" title="Go to source code">first</a>( <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span>, <span>string[][] <var>$sort</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -610,7 +617,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_index">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#245" title="Go to source code">index</a>( <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span>, <span>string[][] <var>$sort</var> = <span class="php-keyword1">array</span>()</span>, <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$start</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#255" title="Go to source code">index</a>( <span>mixed[] <var>$conditions</var> = <span class="php-keyword1">array</span>()</span>, <span>string[][] <var>$sort</var> = <span class="php-keyword1">array</span>()</span>, <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$start</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
 			
@@ -658,7 +665,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDependendClasses">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#289" title="Go to source code">getDependendClasses</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#299" title="Go to source code">getDependendClasses</a>( )</code>
 
 		<div class="description short">
 			
@@ -697,7 +704,7 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConfigurationOptions">#</a>
-		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#304" title="Go to source code">getConfigurationOptions</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Model.ContainerModel.html#314" title="Go to source code">getConfigurationOptions</a>( )</code>
 
 		<div class="description short">
 			
@@ -814,6 +821,34 @@ convert this data into Models. The ContainerModel is a form of ORM.</p>
 			<div class="description detailed hidden">
 				
 <p>Model to use</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="PrimaryKeyField" id="$PrimaryKeyField">
+
+		<td class="attributes"><code>
+			protected 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-KoolDevelop.Model.ContainerModel.html#50" title="Go to source code"><var>$PrimaryKeyField</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'id'</span></code></td>
+		<td class="description"><div>
+			<a href="#$PrimaryKeyField" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Field used as Primary Key</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Field used as Primary Key</p>
 
 
 			</div>
