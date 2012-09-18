@@ -67,15 +67,16 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
         $this->Profiling = ($configuration->get($config . '.profiling', 0) == 1);
         
 		try {
-
+			
 			$this->PdoConnection = new \PDO(
 				$configuration->get($config . '.dsn', ''),
 				$configuration->get($config . '.username', ''),
-				$configuration->get($config . '.password', '')
+				$configuration->get($config . '.password', ''), array(
+					\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8;"
+				)
 			);
 
             $this->PdoConnection->setAttribute(\PDO::ATTR_STATEMENT_CLASS, array('\\' . __NAMESPACE__  . '\\' . 'Result'));
-            $this->PdoConnection->setAttribute(\PDO::MYSQL_ATTR_INIT_COMMAND , "SET NAMES utf8");
             
 		} catch(\PDOException $e) {
 			$exception = new \KoolDevelop\Exception\DatabaseException(__f("Failed to connect to database",'kooldevelop'));
