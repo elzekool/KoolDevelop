@@ -85,6 +85,15 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
 		}
 
 	}
+	
+	/**
+	 * Check if within an transaction
+	 *
+	 * @return boolean In Transaction
+	 **/
+	public function inTransaction() {
+		return $this->PdoConnection->inTransaction();
+	}
 
     /**
      * Begin new transaction
