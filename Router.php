@@ -133,7 +133,7 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 
 		foreach($this->getParameters() as $parameter) {
 			if (preg_match(self::NAMED_PARAMETER_REGEG, $parameter, $matches) > 0) {
-				$parameters[$matches[1]] = $matches[2];
+				$parameters[$matches[1]] = urldecode($matches[2]);
 			}
 		}
 
