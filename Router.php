@@ -242,6 +242,8 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 	 */
 	public function route($url) {
 
+        $logger = \KoolDevelop\Log\Logger::getInstance();
+        
 		// Unify url
 		$url = str_replace('\\', '/', $url);
 
@@ -255,15 +257,17 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
 			$url = substr($url, 0, -1);
 		}
 
+        $logger->low(sprintf('Routing started: %s', $url), 'KoolDevelop.Routing');
 
 		// Proces route
 		foreach($this->Routes as &$route) {
 			if ($route->route($url)) {
+                $logger->low(sprintf('Processed route %s: %s', get_class($route), $url), 'KoolDevelop.Routing');
 				break;
 			}
-		}
-
-		
+		}		
+        
+        $logger->low(sprintf('Routing ended: %s', $url), 'KoolDevelop.Routing');
 
 		$url_explode = explode('/', $url);
 		if (count($url_explode) < 3) {

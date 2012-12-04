@@ -140,7 +140,7 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
         }        
         $filename .= str_replace('_', DS, $_classname) . '.php';
 
-        if (file_exists(APP_PATH . DS . 'libs' . DS . $filename)) {
+        if (file_exists(APP_PATH . DS . 'libs' . DS . $filename)) {            
             $this->ClassPaths[$classname] = $filename;
             require APP_PATH . DS . 'libs' . DS . $filename;
             return true;

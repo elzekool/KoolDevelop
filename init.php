@@ -35,17 +35,27 @@ if (!defined('DS')) {
 // Load shorthand functions
 require FRAMEWORK_PATH . DS . 'shorthand.php';
 
+// Load Logger
+require_once FRAMEWORK_PATH . DS . 'log' . DS . 'Message.php';
+require_once FRAMEWORK_PATH . DS . 'log' . DS . 'Logger.php';
+
+$logger = \KoolDevelop\Log\Logger::getInstance();
+$logger->low('Started application', 'KoolDevelop.Core');
+    
 // Load AutoLoader
 require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
 $autoload = KoolDevelop\AutoLoader::getInstance();
 
 try {
-
+    
     // Load Bootstrapper
     $bootstrapper = new \Bootstrapper();
-	
+    
 	// Get current environment, and save this in the configuration class
-    \KoolDevelop\Configuration::setCurrentEnvironment($bootstrapper->getEnvironment());
+    $environment = $bootstrapper->getEnvironment();
+    \KoolDevelop\Configuration::setCurrentEnvironment($environment);
+    
+    $logger->low(sprintf('Bootstrapper loaded, environment %s', $environment), 'KoolDevelop.Core');
 
 	// Init
     $bootstrapper->init();
