@@ -310,7 +310,7 @@ class Pagination extends \Helper
      * 
      * @return string URL
      */
-    public function getLink($parameters = array(), $base = null, $reset = true) {
+    public function getLink($parameters = array(), $base = null, $reset = false) {
         
         $base_parameters = $reset ? array() : $this->BaseParameters;
         $base_parameters['sort'] = $this->getParameter('sort', null);
