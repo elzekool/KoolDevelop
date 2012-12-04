@@ -34,13 +34,6 @@ if (!defined('DS')) {
 
 // Load shorthand functions
 require FRAMEWORK_PATH . DS . 'shorthand.php';
-
-// Load Logger
-require_once FRAMEWORK_PATH . DS . 'log' . DS . 'Message.php';
-require_once FRAMEWORK_PATH . DS . 'log' . DS . 'Logger.php';
-
-$logger = \KoolDevelop\Log\Logger::getInstance();
-$logger->low('Started application', 'KoolDevelop.Core');
     
 // Load AutoLoader
 require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
@@ -48,6 +41,9 @@ $autoload = KoolDevelop\AutoLoader::getInstance();
 
 try {
     
+    $logger = \KoolDevelop\Log\Logger::getInstance();
+    $logger->low('Started application', 'KoolDevelop.Core');
+
     // Load Bootstrapper
     $bootstrapper = new \Bootstrapper();
     
