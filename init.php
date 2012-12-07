@@ -35,6 +35,21 @@ if (!defined('DS')) {
 // Load shorthand functions
 require FRAMEWORK_PATH . DS . 'shorthand.php';
     
+// Load Bootstrapper
+require FRAMEWORK_PATH . DS . 'Bootstrapper.php';
+if (file_exists(APP_PATH . DS . 'Bootstrapper.php')) {
+	require APP_PATH . DS . 'Bootstrapper.php';
+} else {
+	require FRAMEWORK_PATH . DS . 'application_base' . DS . 'Bootstrapper.php';
+}
+
+// Load Bootstrapper
+$bootstrapper = new \Bootstrapper();	
+
+// Get current environment, and save this in the configuration class
+$environment = $bootstrapper->getEnvironment();
+\KoolDevelop\Configuration::setCurrentEnvironment($environment);
+	
 // Load AutoLoader
 require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
 $autoload = KoolDevelop\AutoLoader::getInstance();
@@ -42,19 +57,7 @@ $autoload = KoolDevelop\AutoLoader::getInstance();
 try {
     
     $logger = \KoolDevelop\Log\Logger::getInstance();
-    $logger->low('Started application', 'KoolDevelop.Core');
-
-    // Load Bootstrapper
-    $bootstrapper = new \Bootstrapper();
-    
-	// Get current environment, and save this in the configuration class
-    $environment = $bootstrapper->getEnvironment();
-    \KoolDevelop\Configuration::setCurrentEnvironment($environment);
-
-	// Init ClassPaths from cache
-	$autoload->loadClassPathCache();
-    
-    $logger->low(sprintf('Bootstrapper loaded, environment %s', $environment), 'KoolDevelop.Core');
+    $logger->low(sprintf('Started application, environment %s', $environment), 'KoolDevelop.Core');
 
 	// Init
     $bootstrapper->init();
