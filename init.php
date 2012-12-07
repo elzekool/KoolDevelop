@@ -35,6 +35,9 @@ if (!defined('DS')) {
 // Load shorthand functions
 require FRAMEWORK_PATH . DS . 'shorthand.php';
     
+// Load Configuration c
+require FRAMEWORK_PATH . DS . 'Configuration.php';
+
 // Load Bootstrapper
 require FRAMEWORK_PATH . DS . 'Bootstrapper.php';
 if (file_exists(APP_PATH . DS . 'Bootstrapper.php')) {
