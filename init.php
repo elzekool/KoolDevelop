@@ -50,6 +50,9 @@ try {
 	// Get current environment, and save this in the configuration class
     $environment = $bootstrapper->getEnvironment();
     \KoolDevelop\Configuration::setCurrentEnvironment($environment);
+
+	// Init ClassPaths from cache
+	$autoload->loadClassPathCache();
     
     $logger->low(sprintf('Bootstrapper loaded, environment %s', $environment), 'KoolDevelop.Core');
 
