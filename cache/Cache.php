@@ -81,8 +81,10 @@ class Cache
             return;
         }
         
-        $this->loadStorage($cache_config['class'], $cache_config);        
-
+        if (isset($cache_config['class'])) {        
+            $this->loadStorage($cache_config['class'], $cache_config);        
+        }
+        
     }
 
     /**

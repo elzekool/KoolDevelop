@@ -33,6 +33,7 @@ class Php implements \KoolDevelop\Session\ISessionStorage
 	 */
 	public function __construct() {
 
+        $logger = \KoolDevelop\Log\Logger::getInstance();
         
         @session_start();        
         
@@ -40,6 +41,7 @@ class Php implements \KoolDevelop\Session\ISessionStorage
         if (!isset($_SESSION['PhpSessionStorageInitiated'])) {
             session_regenerate_id();
             $_SESSION['PhpSessionStorageInitiated'] = true;
+            $logger->low(sprintf('Session Id regenerated: %s', session_id()), 'KoolDevelop.Session.Php');
         }
         
         // Prevent session hijacking

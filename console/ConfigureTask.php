@@ -25,9 +25,11 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
 {
     
     private $DefaultClasses = array(
+        '\\KoolDevelop\\Log\\Logger',
         '\\KoolDevelop\\AutoLoader',
         '\\KoolDevelop\\Router',
         '\\KoolDevelop\\ErrorHandler',
+        '\\KoolDevelop\\Annotation\\Reader',
         '\\KoolDevelop\\View\\View',
         '\\KoolDevelop\\View\\Element',
         '\\KoolDevelop\\International\\I18n',

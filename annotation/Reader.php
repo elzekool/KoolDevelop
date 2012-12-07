@@ -22,7 +22,7 @@ namespace KoolDevelop\Annotation;
  * @package KoolDevelop
  * @subpackage Annotation
  **/
-class Reader
+class Reader implements \KoolDevelop\Configuration\IConfigurable
 {    
     /**
      * Annotated Class
@@ -59,7 +59,7 @@ class Reader
      * @var \KoolDevelop\Annotation\IAnnotation[]
      */
     private $Class = array();
-    
+
     /**
      * Reader instances
      * @var \KoolDevelop\Annotation\Reader[]
@@ -74,6 +74,8 @@ class Reader
      * 
      * @param string  $class Class
      * @param boolean $lazy  Lazy initialisation
+     * 
+     * @return \KoolDevelop\Annotation\Reader Reader
      */
     public static function createForClass($class, $lazy = true) {
         if (!isset(self::$Instances[$class])) {
@@ -147,7 +149,7 @@ class Reader
         $current = '';
         $type = null;
         $key = null;
-        
+        $str_start = '';
         
         $length = strlen($arguments);
         
@@ -157,8 +159,9 @@ class Reader
             
             // No type yet
             if ($type === null) {
-                if ($c == '"') {
+                if (($c == '"') OR ($c == "'")) {
                     $type = 'string';
+                    $str_start = $c;
                 } else if (preg_match('/[0-9\.\-\+]/', $c)) {
                     $type = 'number';
                     $x--;
@@ -188,7 +191,7 @@ class Reader
             } else if ($type === 'string') {                
                 if (($c == '\\') AND !$end) {
                     $current .= $arguments[++$x];
-                } else if ($c == '"' OR $end) {                    
+                } else if ($c == $str_start OR $end) {                    
                     if ($key !== null) { 
                         $p_parsed[$key] = $current; 
                         $key = null;
@@ -305,8 +308,7 @@ class Reader
      * 
      * @return \KoolDevelop\Annotation\IAnnotation[] Found annotations
      */
-    private function _getAnnotations(&$list, $class_filter) {
-        $this->parse();
+    private function _getAnnotations(&$list, $class_filter) {        
         if ($class_filter === null) {
             return $list;
         } if (null !== ($full_class = ($this->_getFullClassName($class_filter)))) {
@@ -330,6 +332,7 @@ class Reader
      * @return \KoolDevelop\Annotation\IAnnotation[] Found annotations
      */
     public function getAllForClass($class_filter = null) {
+        $this->parse();
         return $this->_getAnnotations($this->Class, $class_filter);
     }
     
@@ -342,6 +345,7 @@ class Reader
      * @return \KoolDevelop\Annotation\IAnnotation[] Found annotations
      */
     public function getAllForMethod($method, $class_filter = null) {
+        $this->parse();
         if (!isset($this->Methods[$method])) {
             return array();
         } else {
@@ -358,6 +362,7 @@ class Reader
      * @return \KoolDevelop\Annotation\IAnnotation[] Found annotations
      */
     public function getAllForProperty($property, $class_filter = null) {
+        $this->parse();
         if (!isset($this->Properties[$property])) {
             return array();
         } else {
@@ -376,9 +381,28 @@ class Reader
             return;
         }
         
+        // Load Cache Handler
+        $cache = \KoolDevelop\Cache\Cache::getInstance(
+            \KoolDevelop\Configuration::getInstance('core')->get('annotations.cache', 'annotations')
+        );
+        
         $class_reflect = new \ReflectionClass($this->ClassName);
         $this->Namespace = '\\' . $class_reflect->getNamespaceName();
-                
+
+        // Check if cached version exists and is up-to-date
+        $cache_key = strtolower($class_reflect->getShortName()) . '_' . sha1($class_reflect->getFileName());
+        $file_mtime = filemtime($class_reflect->getFileName());        
+        if (null !== ($cached = $cache->loadObject($cache_key))) {
+            if ($cached['mtime'] >= $file_mtime) {
+                $this->Class = $cached['Class'];
+                $this->Properties = $cached['Properties'];
+                $this->Methods = $cached['Methods'];
+                $this->Parsed = true;
+                return;
+            }
+        }
+        
+        
         if (false !== ($class_docblock = $class_reflect->getDocComment())) {
             $this->Class = $this->_parseDocBlock($class_docblock);
         }
@@ -399,8 +423,42 @@ class Reader
             }
         }
         
+        // Save in cache
+        $cache->saveObject($cache_key, array(
+            'mtime' => $file_mtime,
+            'Class' => $this->Class,
+            'Properties' => $this->Properties,
+            'Methods' => $this->Methods
+        ), 60 * 60 * 24);
+        
+        // Store that we've parsed the class
+        $this->Parsed = true;
         
     }   
+
+    /**
+     * Get list of (configurable) classes that this class
+     * depends on. 
+     * 
+     * @return string[] Depends on
+     */
+    public static function getDependendClasses() {
+        return array(
+            '\\KoolDevelop\\Cache\\Cache',
+        );
+    }
+    
+    /**
+     * Get Configuration options for this class
+     * 
+     * @return \KoolDevelop\Configuration\IConfigurableOption[] Options for class
+     */
+    public static function getConfigurationOptions() {      
+        return array(
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'annotations.enabled', '0', ('When enabled core annotations are enabled. Make sure the cache option is configured correctly')),
+            new \KoolDevelop\Configuration\IConfigurableOption('core', 'annotations.cache', '\'annotations\'', ('Cache configuration that is used'))
+        );
+    }
 
     
     

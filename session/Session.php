@@ -57,6 +57,9 @@ class Session implements \KoolDevelop\Configuration\IConfigurable
         foreach($config->get('storage', array()) as $name => $classname) {
             $storage = new $classname();
             $this->registerSessionStorage($name, $storage);
+            
+            $logger = \KoolDevelop\Log\Logger::getInstance();
+            $logger->low(sprintf('Registered new Session storage: %s => %s', $name, $classname), 'KoolDevelop.Session.');
         }
 	}
 
