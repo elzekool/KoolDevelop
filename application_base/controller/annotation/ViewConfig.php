@@ -60,6 +60,34 @@ class ViewConfig implements \KoolDevelop\Annotation\IAnnotation
         }
     }
 
+    /**
+     * Get Auto Render
+     * 
+     * @return boolean Auto Render
+     */
+    public function getAutoRender() {
+        return $this->AutoRender;
+    }
+
+    /**
+     * Get View File
+     * 
+     * @return string View File
+     */
+    public function getView() {
+        return $this->View;
+    }
+
+    /**
+     * Get Layout File
+     * 
+     * @return string Layout File
+     */
+    public function getLayout() {
+        return $this->Layout;
+    }
+
+
 }
 
 ?>

@@ -138,6 +138,20 @@ abstract class Controller extends \KoolDevelop\Observable
 	 	if ($required_parameters > $given_parameters) {
 	 		throw new \InvalidArgumentException(__f("Controller action requires " . $required_parameters . " parameters, " . $given_parameters . " given",'kooldevelop'));
 	 	}
+        
+        // Check if we should enable annotated view configuration
+        $auto_render = false;
+        if (\KoolDevelop\Configuration::getInstance('core')->get('annotations.enabled', 0) == 1) {
+            $annotation_reader = \KoolDevelop\Annotation\Reader::createForClass(get_class($this));
+            if (null !== ($view_config = array_pop($annotation_reader->getAllForMethod($this->Action, 'ViewConfig')))) {
+                /* @var $view_config \Controller\Annotation\ViewConfig */
+                $this->View->setLayout($view_config->getLayout());
+                if ($view_config->getView() != '') {
+                    $this->View->setView($view_config->getView());
+                }
+                $auto_render = $view_config->getAutoRender();
+            }
+        }
 
         $this->fireObservable('beforeAction');
 
@@ -166,6 +180,10 @@ abstract class Controller extends \KoolDevelop\Observable
 		}
 
         $this->fireObservable('afterAction');
+        
+        if ($auto_render) {
+            $this->View->render();
+        }
 
 	}
 
