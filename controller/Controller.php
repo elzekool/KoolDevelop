@@ -143,13 +143,20 @@ abstract class Controller extends \KoolDevelop\Observable
         $auto_render = false;
         if (\KoolDevelop\Configuration::getInstance('core')->get('annotations.enabled', 0) == 1) {
             $annotation_reader = \KoolDevelop\Annotation\Reader::createForClass(get_class($this));
-            if (null !== ($view_config = array_pop($annotation_reader->getAllForMethod($this->Action, 'ViewConfig')))) {
-                /* @var $view_config \Controller\Annotation\ViewConfig */
-                $this->View->setLayout($view_config->getLayout());
-                if ($view_config->getView() != '') {
+            foreach($annotation_reader->getAllForMethod($this->Action, 'ViewConfig') as $view_config) {
+                /* @var $view_config \Controller\Annotation\ViewConfig */                
+                if ($view_config->getLayout() !== null) {
+                    $this->View->setLayout($view_config->getLayout());
+                }                
+                if ($view_config->getView() !== null) {
                     $this->View->setView($view_config->getView());
+                }                
+                if ($view_config->getTitle() !== null) {
+                    $this->View->setTitle($view_config->getTitle());
+                }                
+                if ($view_config->getAutoRender() !== null) {
+                    $auto_render = $view_config->getAutoRender();
                 }
-                $auto_render = $view_config->getAutoRender();
             }
         }
 

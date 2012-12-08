@@ -29,19 +29,26 @@ class ViewConfig implements \KoolDevelop\Annotation\IAnnotation
      * Auto Render View
      * @var boolean
      */
-    private $AutoRender = false;
+    private $AutoRender = null;
     
     /**
      * View File
      * @var string
      */
-    private $View = '';
+    private $View = null;
     
     /**
      * Layout File
      * @var string
      */
-    private $Layout = 'Layout';
+    private $Layout = null;
+
+    /**
+     * Title
+     * @var string
+     */
+    private $Title = null;
+
     
     /**
      * Construct
@@ -57,6 +64,9 @@ class ViewConfig implements \KoolDevelop\Annotation\IAnnotation
         }
         if (isset($settings['Layout'])) {
             $this->Layout = $settings['Layout'];
+        }
+        if (isset($settings['Title'])) {
+            $this->Title = $settings['Title'];
         }
     }
 
@@ -85,6 +95,15 @@ class ViewConfig implements \KoolDevelop\Annotation\IAnnotation
      */
     public function getLayout() {
         return $this->Layout;
+    }
+    
+    /**
+     * Get Title
+     * 
+     * @return string Title
+     */
+    public function getTitle() {
+        return $this->Title;
     }
 
 
