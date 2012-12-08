@@ -120,11 +120,27 @@ class Cache
     /**
      * Check if storage object exists
      *
+     * @param string $key Key
+     * 
      * @return boolean Object exists and is valid
      */
     public function objectExists($key) {
         if (null !== $this->Storage) {
             return $this->Storage->objectExists($key);
+        }
+        return false;
+    }
+    
+    /**
+     * Delete Object from Cache
+     *
+     * @param string $key Key
+     * 
+     * @return void
+     */
+    public function deleteObject($key) {
+        if (null !== $this->Storage) {
+            return $this->Storage->deleteObject($key);
         }
         return false;
     }

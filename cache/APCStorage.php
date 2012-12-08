@@ -22,13 +22,19 @@ namespace KoolDevelop\Cache;
  * @package KoolDevelop
  * @subpackage Cache
  **/
-class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
+class APCStorage implements \KoolDevelop\Cache\ICacheStorage
 {
     /**
      * Prefix used for APC
      * @var string
      */
-    private $_Prefix;
+    private $Prefix;
+    
+    /**
+     * Default Timeout
+     * @var int
+     */
+    private $Timeout = 0;
     
     /**
      * Instantiate new storage
@@ -39,9 +45,12 @@ class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
         if (!isset($options['prefix'])) {
             $logger = \KoolDevelop\Log\Logger::getInstance();            
             $logger->severe('You should set an prefix for APC caching, generating prefix based on file path', 'KoolDevelop.Cache.APC');            
-            $this->_Prefix = sha1(___FILE__);           
+            $this->Prefix = sha1(___FILE__);           
         } else {
-            $this->_Prefix = $options['prefix'];
+            $this->Prefix = $options['prefix'];
+        }
+        if (isset($options['timeout'])) {
+            $this->Timeout = intval($options['timeout']);
         }
     }
 
@@ -55,7 +64,7 @@ class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
      * @return void
      */
     public function saveObject($key, $object, $expire) {
-        if (false === apc_store($this->_Prefix . $key, serialize($object), $expire === null ? 0 : $expire)) {
+        if (false === apc_store($this->Prefix . $key, serialize($object), $expire === null ? $this->Timeout : $expire)) {
             // Do not throw an exception, but add it to the log
             $logger = \KoolDevelop\Log\Logger::getInstance();
             $logger->severe(sprintf('Error storing %s into APC cache', $key), 'KoolDevelop.Cache.APC');
@@ -71,7 +80,7 @@ class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
      * @return mixed
      */
     public function loadObject($key, $default = null) {
-        if (false !== ($serialized = apc_fetch($this->_Prefix . $key))) {
+        if (false !== ($serialized = apc_fetch($this->Prefix . $key))) {
             return unserialize($serialized);
         }
         return $default;
@@ -80,14 +89,27 @@ class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
     /**
      * Check if storage object exists
      *
+     * @param string $key Key
+     * 
      * @return boolean Object exists and is valid
      */
     public function objectExists($key) {
         if(function_exists('apc_exists')) {
-            return apc_exists($this->_Prefix . $key);
+            return apc_exists($this->Prefix . $key);
         } else {
-            return (false === apc_fetch($this->_Prefix . $key));
+            return (false === apc_fetch($this->Prefix . $key));
         }
+    }
+    
+    /**
+     * Delete Cache Object
+     * 
+     * @param string $key Key
+     *  
+     * @return void
+     */
+    public function deleteObject($key) {
+        apc_delete($this->Prefix . $key);
     }
 
 }

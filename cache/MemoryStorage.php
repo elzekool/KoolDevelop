@@ -82,6 +82,8 @@ class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
     /**
      * Check if storage object exists
      *
+     * @param string $key Key
+     * 
      * @return boolean Object exists and is valid
      */
     public function objectExists($key) {
@@ -89,5 +91,18 @@ class MemoryStorage implements \KoolDevelop\Cache\ICacheStorage
             throw new \InvalidArgumentException(__f("Invalid key for cache",'kooldevelop'));
         }
         return array_key_exists($key, $this->Cache);
+    }
+    
+    /**
+     * Delete Cache Object
+     * 
+     * @param string $key Key
+     *  
+     * @return void
+     */
+    public function deleteObject($key) {
+        if (array_key_exists($key, $this->Cache)) {
+            unset($this->Cache[$key]);
+        }
     }
 }

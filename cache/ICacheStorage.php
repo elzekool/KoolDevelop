@@ -53,8 +53,20 @@ interface ICacheStorage
     /**
      * Check if storage object exists
      *
+     * @param string $key Key
+     * 
      * @return boolean Object exists and is valid
      */
     public function objectExists($key);
 
+    /**
+     * Delete Cache Object
+     * 
+     * @param string $key Key
+     *  
+     * @return void
+     */
+    public function deleteObject($key);
+
+    
 }

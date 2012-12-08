@@ -114,6 +114,8 @@ class FileStorage implements \KoolDevelop\Cache\ICacheStorage
     /**
      * Check if storage object exists
      *
+     * @param string $key Key
+     * 
      * @return boolean Object exists and is valid
      */
     public function objectExists($key) {
@@ -122,4 +124,21 @@ class FileStorage implements \KoolDevelop\Cache\ICacheStorage
         }
         return (null === $this->_laadCacheFile($this->Path . $key . '.filecache'));
     }
+    
+    /**
+     * Delete Cache Object
+     * 
+     * @param string $key Key
+     *  
+     * @return void
+     */
+    public function deleteObject($key) {
+        if (preg_match('/^([a-z0-9_])+$/', $key) == 0) {
+            throw new \InvalidArgumentException(__f("Invalid key for cache",'kooldevelop'));
+        }
+        if (file_exists($this->Path . $key . '.filecache')) {
+            unlink($this->Path . $key . '.filecache');
+        }
+    }
+    
 }
