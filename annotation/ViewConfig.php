@@ -9,7 +9,7 @@
  * @subpackage Controller
  **/
 
-namespace Controller\Annotation;
+namespace KoolDevelop\Annotation;
 
 /**
  * ViewConfig Annotation

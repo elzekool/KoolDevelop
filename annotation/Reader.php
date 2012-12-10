@@ -112,8 +112,11 @@ class Reader implements \KoolDevelop\Configuration\IConfigurable
      */
     private function _getFullClassName($class) {
         $prefixes = array(
-            '\\', '\\Annotation\\', '\\KoolDevelop\\Annotation\\',
-            $this->Namespace . '\\', $this->Namespace . '\\Annotation\\'
+            '\\', 
+            '\\Annotation\\', 
+            '\\KoolDevelop\\Annotation\\',
+            $this->Namespace . '\\', 
+            $this->Namespace . '\\Annotation\\'
         );
         
         foreach($prefixes as $prefix) {
@@ -190,7 +193,11 @@ class Reader implements \KoolDevelop\Configuration\IConfigurable
             // String
             } else if ($type === 'string') {                
                 if (($c == '\\') AND !$end) {
-                    $current .= $arguments[++$x];
+                    if ($arguments[$x+1] == $str_start) {
+                        $current .= $arguments[++$x];
+                    } else {
+                        $current .= $c;
+                    }
                 } else if ($c == $str_start OR $end) {                    
                     if ($key !== null) { 
                         $p_parsed[$key] = $current; 
@@ -353,7 +360,17 @@ class Reader implements \KoolDevelop\Configuration\IConfigurable
         }
     }
     
-     /**
+    /**
+     * Get list of methods where annotations are present
+     * 
+     * @return string
+     */
+    public function getAnnotatedMethods() {
+        $this->parse();
+        return array_keys($this->Methods);
+    }
+        
+    /**
      * Get Annotations for property
      * 
      * @param string $property     Property name
@@ -368,6 +385,16 @@ class Reader implements \KoolDevelop\Configuration\IConfigurable
         } else {
             return $this->_getAnnotations($this->Properties[$property], $class_filter);
         }
+    }
+    
+    /**
+     * Get list of properties where annotations are present
+     * 
+     * @return string
+     */
+    public function getAnnotatedProperties() {
+        $this->parse();
+        return array_keys($this->Properties);
     }
     
     /**

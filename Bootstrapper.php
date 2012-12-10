@@ -27,7 +27,13 @@ namespace KoolDevelop;
  **/
 abstract class Bootstrapper 
 {
-
+    /**
+     * @Inject("\KoolDevelop\Router")
+     * @var \KoolDevelop\Router
+     */
+    protected $Router;
+    
+    
     /**
      * Function called on application initialisation
      * 
@@ -70,8 +76,7 @@ abstract class Bootstrapper
            $route = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : ''; 
         }
         
-        $router = \KoolDevelop\Router::getInstance();
-        $router->route($route);
+        $this->Router->route($route);
         
     }
     

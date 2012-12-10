@@ -23,7 +23,7 @@ namespace KoolDevelop\Controller;
 abstract class Controller extends \KoolDevelop\Observable
 {
 	/**
-	 * View
+	 * @Inject("\View")
 	 * @var \View
 	 */
 	protected $View;
@@ -32,7 +32,7 @@ abstract class Controller extends \KoolDevelop\Observable
 	 * Constructor
 	 */
 	public function __construct() {
-		$this->View = new \View();
+		\KoolDevelop\Di\Registry::getInstance()->injectAll($this);
 		$this->addObservable('beforeAction');
         $this->addObservable('afterAction');
 	}

@@ -86,19 +86,28 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
         
         // Register autoloader
         spl_autoload_register(array($this, 'autoload'));
-		
-		// Laad Cache
-        $this->Cache = \KoolDevelop\Cache\Cache::getInstance('autoloader');
-        $this->ClassPaths = $this->Cache->loadObject('classpaths', array());       
     }
 	
+    /**
+     * Function called when enviroment is available
+     * 
+     * @return void
+     */
+    public function environmentAvailable() {
+        // Laad Cache
+        $this->Cache = \KoolDevelop\Cache\Cache::getInstance('autoloader');
+        $this->ClassPaths = array_merge($this->Cache->loadObject('classpaths', array()), $this->ClassPaths);               
+    }
+    
     /**
      * Destructor
      * @ignore
      */
     public function __destruct() {
         // Save classpaths to cache
-		$this->Cache->saveObject('classpaths', $this->ClassPaths);
+		if (isset($this->Cache)) {
+            $this->Cache->saveObject('classpaths', $this->ClassPaths);
+        }
     }
     
     /**
