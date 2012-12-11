@@ -58,7 +58,6 @@ $autoload = KoolDevelop\AutoLoader::getInstance();
 try {
     
     // Inject Router into Bootstrapper
-    \KoolDevelop\Di\Registry::getInstance()->set('\KoolDevelop\Router', function() { return \KoolDevelop\Router::getInstance(); });
     \KoolDevelop\Di\Registry::getInstance()->injectAll($bootstrapper);
 
     // Start Logger

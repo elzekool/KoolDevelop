@@ -25,7 +25,7 @@ namespace KoolDevelop\Model;
  * @package KoolDevelop
  * @subpackage Model
  **/
-class SimpleArrayConverter extends \KoolDevelop\Observable implements \KoolDevelop\Model\IArrayConverter
+class SimpleArrayConverter implements \KoolDevelop\Model\IArrayConverter
 {
     /**
      * Underscored field names

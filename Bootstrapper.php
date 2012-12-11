@@ -25,10 +25,10 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-abstract class Bootstrapper 
+abstract class Bootstrapper
 {
     /**
-     * @Inject("\KoolDevelop\Router")
+     * @Inject("\KoolDevelop\Router", "\KoolDevelop\Router::getInstance()")
      * @var \KoolDevelop\Router
      */
     protected $Router;

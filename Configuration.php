@@ -56,7 +56,13 @@ class Configuration
      * @return 
      */
     public static function setCurrentEnvironment($environment) {
-        self::$CurrentEnvironment = $environment;
+        if (count(self::$Instances) > 0) {
+            throw new \RuntimeException(
+                'Configuration files are loaded before environment is set. Problable cause: ' .
+                'Usage of configuration class in Bootstrapper::getEnvironment()'
+            );
+        }
+        self::$CurrentEnvironment = $environment;        
     }   
    
     /**

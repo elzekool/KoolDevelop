@@ -31,27 +31,49 @@ class Inject implements \KoolDevelop\Annotation\IAnnotation
      **/
     private $Name;
     
+    /**
+     * Default Contents
+     * @var string
+     */
+    private $Default;
     
     /**
      * Construct
      * 
-     * @param string $name Object name
+     * @param string $name    Object name
+     * @param string $default Default Contents
      */
-    function __construct($name) {     
+    function __construct($name, $default = null) {     
         if (!is_string($name)) {
-            throw new \KoolDevelop\Exception\AnnotationException(__f('Inject setting should be a string', 'kooldevelop'));
+            throw new \KoolDevelop\Exception\AnnotationException(__f('Inject name should be a string', 'kooldevelop'));
         }
+        if ($default !== null AND !is_string($default)) {
+            throw new \KoolDevelop\Exception\AnnotationException(__f('Inject default should be a string or left empty', 'kooldevelop'));
+        }
+        
         $this->Name = $name;
+        $this->Default = $default;
+        
     }
     
     /**
      * Get Name
      * 
-     * @return string
+     * @return string Name
      */
     public function getName() {
         return $this->Name;
     }
+
+    /**
+     * Get Default
+     * 
+     * @return string Default Contents
+     */
+    public function getDefault() {
+        return $this->Default;
+    }
+
 
 
 }

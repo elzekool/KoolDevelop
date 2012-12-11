@@ -127,7 +127,7 @@ class Registry
         $annotation_reader = \KoolDevelop\Annotation\Reader::createForClass(get_class($object));
         foreach($annotation_reader->getAnnotatedProperties() as $property) {
             foreach($annotation_reader->getAllForProperty($property, 'Inject') as $inject) {
-                $this->_injectIntoProperty($object, $property, $this->get($inject->getName()));
+                $this->_injectIntoProperty($object, $property, $this->get($inject->getName(), $inject->getDefault()));
             }
         }
     }
@@ -148,10 +148,13 @@ class Registry
                 $content = $content($this);
                 $this->Contents[$name] = $content;
             }
-            return $content; 
-            
+            return $content;             
         } else if ($default !== null) {
-            return $this->Contents[$name] = $this->get($default);
+            try {
+                return $this->Contents[$name] = $this->get($default);
+            } catch(\KoolDevelop\Exception\DependencyException $e) {
+                throw new \KoolDevelop\Exception\DependencyException(sprintf(__f('Cannot resolve dependency %s', 'kooldevelop'), $name), 0, $e);
+            }
         } else if (is_string($name)) {
             return $this->Contents[$name] = $this->_fromString($name);
         } else {
