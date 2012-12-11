@@ -110,8 +110,6 @@ class Console extends \KoolDevelop\Observable
      */
     public function start() {
 
-        \KoolDevelop\Configuration::setCurrentEnvironment('console');
-
         // Load Bootstrapper
         $bootstrapper = new \Bootstrapper();
         $bootstrapper->console();
