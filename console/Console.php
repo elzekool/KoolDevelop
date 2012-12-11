@@ -64,44 +64,44 @@ class Console extends \KoolDevelop\Observable
      *
      * @return void
      */
-	private function runAction(\KoolDevelop\Console\ITask &$task, $command, $arguments) {
+    private function runAction(\KoolDevelop\Console\ITask &$task, $command, $arguments) {
 
-		// Check if required parameters are set
-	 	$class_reflection = new \ReflectionClass($task);
-	 	$method_reflection = $class_reflection->getMethod($command);
+        // Check if required parameters are set
+         $class_reflection = new \ReflectionClass($task);
+         $method_reflection = $class_reflection->getMethod($command);
 
-	 	$required_parameters = $method_reflection->getNumberOfRequiredParameters();
-	 	$given_parameters = count($arguments);
+         $required_parameters = $method_reflection->getNumberOfRequiredParameters();
+         $given_parameters = count($arguments);
 
-	 	if ($required_parameters > $given_parameters) {
-	 		throw new \InvalidArgumentException(__f("Command requires " . $required_parameters . " parameters, " . $given_parameters . " given",'kooldevelop'));
-	 	}
+         if ($required_parameters > $given_parameters) {
+             throw new \InvalidArgumentException(__f("Command requires " . $required_parameters . " parameters, " . $given_parameters . " given",'kooldevelop'));
+         }
 
-		switch (count($arguments)) {
-			case 0:
-				$task->$command();
-				break;
-			case 1:
-				$task->$command($arguments[0]);
-				break;
-			case 2:
-				$task->$command($arguments[0], $arguments[1]);
-				break;
-			case 3:
-				$task->$command($arguments[0], $arguments[1], $arguments[2]);
-				break;
-			case 4:
-				$task->$command($arguments[0], $arguments[1], $arguments[2], $arguments[3]);
-				break;
-			case 5:
-				$task->$command($arguments[0], $arguments[1], $arguments[2], $arguments[3], $arguments[4]);
-				break;
-			default:
-				call_user_func_array(array(&$task, $command), $arguments);
-				break;
-		}
+        switch (count($arguments)) {
+            case 0:
+                $task->$command();
+                break;
+            case 1:
+                $task->$command($arguments[0]);
+                break;
+            case 2:
+                $task->$command($arguments[0], $arguments[1]);
+                break;
+            case 3:
+                $task->$command($arguments[0], $arguments[1], $arguments[2]);
+                break;
+            case 4:
+                $task->$command($arguments[0], $arguments[1], $arguments[2], $arguments[3]);
+                break;
+            case 5:
+                $task->$command($arguments[0], $arguments[1], $arguments[2], $arguments[3], $arguments[4]);
+                break;
+            default:
+                call_user_func_array(array(&$task, $command), $arguments);
+                break;
+        }
 
-	}
+    }
 
     /**
      * Start Console Application

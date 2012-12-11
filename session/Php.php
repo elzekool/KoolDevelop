@@ -28,10 +28,10 @@ namespace KoolDevelop\Session;
 class Php implements \KoolDevelop\Session\ISessionStorage
 {
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
+    /**
+     * Constructor
+     */
+    public function __construct() {
 
         $logger = \KoolDevelop\Log\Logger::getInstance();
         
@@ -64,57 +64,57 @@ class Php implements \KoolDevelop\Session\ISessionStorage
         $_SESSION = array();
         die("SESSION CORRUPTED");
         
-	}
+    }
 
-	/**
-	 * Get value
-	 *
-	 * @param string $id      Identifier
-	 * @param mixed  $default Result when value not found
-	 *
-	 * @return mixed Value
-	 */
-	public function get($id) {
-		return $_SESSION[$id];
-	}
+    /**
+     * Get value
+     *
+     * @param string $id      Identifier
+     * @param mixed  $default Result when value not found
+     *
+     * @return mixed Value
+     */
+    public function get($id) {
+        return $_SESSION[$id];
+    }
 
 
-	/**
-	 * Set value
-	 *
-	 * @param string $id    Identifier
-	 * @param mixed  $value Value
-	 * @param int    $timeout Timeout in seconds, 0 browser session
-	 *
-	 * @return void
-	 */
-	public function set($id, $value, $timeout = 0) {
-		if ($timeout != 0) {
-			throw new \RuntimeException(__f('Timeout not allowed for PHP Session','kooldevelop'));
-		}
-		$_SESSION[$id] = $value;
-	}
+    /**
+     * Set value
+     *
+     * @param string $id    Identifier
+     * @param mixed  $value Value
+     * @param int    $timeout Timeout in seconds, 0 browser session
+     *
+     * @return void
+     */
+    public function set($id, $value, $timeout = 0) {
+        if ($timeout != 0) {
+            throw new \RuntimeException(__f('Timeout not allowed for PHP Session','kooldevelop'));
+        }
+        $_SESSION[$id] = $value;
+    }
 
-	/**
-	 * Check if Value exists
-	 *
-	 * @param string $id Identifier
-	 *
-	 * @return boolean Exists
-	 */
-	public function exists($id) {
-		return isset($_SESSION[$id]);
-	}
+    /**
+     * Check if Value exists
+     *
+     * @param string $id Identifier
+     *
+     * @return boolean Exists
+     */
+    public function exists($id) {
+        return isset($_SESSION[$id]);
+    }
 
-	/**
-	 * Delete Value
-	 *
-	 * @param string $id Identifier
-	 *
-	 * @return void
-	 */
-	public function del($id) {
-		unset($_SESSION[$id]);
-	}
+    /**
+     * Delete Value
+     *
+     * @param string $id Identifier
+     *
+     * @return void
+     */
+    public function del($id) {
+        unset($_SESSION[$id]);
+    }
 
 }

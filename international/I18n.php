@@ -29,24 +29,24 @@ class I18n
      */
     private $Translator;
 
-	/**
-	 * Singleton Instances
-	 * @var \KoolDevelop\International\I18n[]
-	 */
-	protected static $Instances = array();
+    /**
+     * Singleton Instances
+     * @var \KoolDevelop\International\I18n[]
+     */
+    protected static $Instances = array();
 
-	/**
-	 * Get \KoolDevelop\International\I18n instance
-	 *
+    /**
+     * Get \KoolDevelop\International\I18n instance
+     *
      * @param string  $domain Domain
      * @param boolean $create Create instance if not already initialized
      * 
-	 * @return \KoolDevelop\International\I18n
-	 */
-	public static function getInstance($domain, $create = true) {
-		if (!isset(self::$Instances[$domain])) {
-        	self::$Instances[$domain] = new self($domain);
-      	}
+     * @return \KoolDevelop\International\I18n
+     */
+    public static function getInstance($domain, $create = true) {
+        if (!isset(self::$Instances[$domain])) {
+            self::$Instances[$domain] = new self($domain);
+          }
         if ($create) {
             return self::$Instances[$domain];
         } else {
@@ -55,39 +55,39 @@ class I18n
     }
 
     /**
-	 * Constructor
-	 */
-	protected function __construct($domain) {
+     * Constructor
+     */
+    protected function __construct($domain) {
         $configuration = \KoolDevelop\Configuration::getInstance('international');
         $locale_settings = \KoolDevelop\International\L10n::getInstance()->getLocaleSettings();
         $translator = $configuration->get('core.translator', '\\KoolDevelop\\International\\PassTroughTranslator');
         $this->Translator = new $translator();
         $this->Translator->initialize($domain, $locale_settings, $configuration);
-	}
+    }
 
-	/**
-	 * Translate text
+    /**
+     * Translate text
      *
-	 * @param string $text Untranslated text
-	 *
-	 * @return string Translated tekst
-	 */
-	function singular($text) {
+     * @param string $text Untranslated text
+     *
+     * @return string Translated tekst
+     */
+    function singular($text) {
         return $this->Translator->singular($text);
-	}
+    }
 
-	/**
-	 * Translate text based on count, $count dictates wich version is used
-	 *
-	 * @param string $singular Singular untranslated text
-	 * @param string $plural   Plural untranslated text
-	 * @param int    $count    Count to determine singular/plural
-	 *
-	 * @return string Translated tekst
-	 */
-	function plural($singular, $plural, $count) {
-		return $this->Translator->plural($singular, $plural, $count);
-	}
+    /**
+     * Translate text based on count, $count dictates wich version is used
+     *
+     * @param string $singular Singular untranslated text
+     * @param string $plural   Plural untranslated text
+     * @param int    $count    Count to determine singular/plural
+     *
+     * @return string Translated tekst
+     */
+    function plural($singular, $plural, $count) {
+        return $this->Translator->plural($singular, $plural, $count);
+    }
 
 
 }

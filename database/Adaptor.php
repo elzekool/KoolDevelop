@@ -23,31 +23,31 @@ namespace KoolDevelop\Database;
 class Adaptor implements \KoolDevelop\Configuration\IConfigurable
 {
 
-	/**
-	 * Instances
-	 * @var \KoolDevelop\Database\Adaptor[]
-	 */
-	private static $Instances = array();
+    /**
+     * Instances
+     * @var \KoolDevelop\Database\Adaptor[]
+     */
+    private static $Instances = array();
 
-	/**
-	 * Get Instance of KoolDevelopDb_Adaptor
-	 *
-	 * @param string $config Configuration
-	 *
-	 * @return \KoolDevelop\Database\Adaptor Database Adaptor
-	 */
-	public static function getInstance($config = 'default') {
-		if (!isset(self::$Instances[$config])) {
-			return self::$Instances[$config] = new self($config);
-		}
-		return self::$Instances[$config];
-	}
-	
-	/**
-	 * PDO Connection
-	 * @var PDO
-	 */
-	private $PdoConnection;
+    /**
+     * Get Instance of KoolDevelopDb_Adaptor
+     *
+     * @param string $config Configuration
+     *
+     * @return \KoolDevelop\Database\Adaptor Database Adaptor
+     */
+    public static function getInstance($config = 'default') {
+        if (!isset(self::$Instances[$config])) {
+            return self::$Instances[$config] = new self($config);
+        }
+        return self::$Instances[$config];
+    }
+    
+    /**
+     * PDO Connection
+     * @var PDO
+     */
+    private $PdoConnection;
 
     /**
      * Profiling Enabled
@@ -55,45 +55,45 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
      */
     private $Profiling = false;
     
-	/**
-	 * Constructor
-	 * 
-	 * @param string $config Configuration
-	 */
-	private function __construct($config) {
+    /**
+     * Constructor
+     * 
+     * @param string $config Configuration
+     */
+    private function __construct($config) {
 
-		$configuration = \KoolDevelop\Configuration::getInstance('database');
+        $configuration = \KoolDevelop\Configuration::getInstance('database');
 
         $this->Profiling = ($configuration->get($config . '.profiling', 0) == 1);
         
-		try {
-			
-			$this->PdoConnection = new \PDO(
-				$configuration->get($config . '.dsn', ''),
-				$configuration->get($config . '.username', ''),
-				$configuration->get($config . '.password', ''), array(
-					\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8;"
-				)
-			);
+        try {
+            
+            $this->PdoConnection = new \PDO(
+                $configuration->get($config . '.dsn', ''),
+                $configuration->get($config . '.username', ''),
+                $configuration->get($config . '.password', ''), array(
+                    \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8;"
+                )
+            );
 
             $this->PdoConnection->setAttribute(\PDO::ATTR_STATEMENT_CLASS, array('\\' . __NAMESPACE__  . '\\' . 'Result'));
             
-		} catch(\PDOException $e) {
-			$exception = new \KoolDevelop\Exception\DatabaseException(__f("Failed to connect to database",'kooldevelop'));
-			$exception->setPDOException(__f($e,'kooldevelop'));
-			throw $exception;
-		}
+        } catch(\PDOException $e) {
+            $exception = new \KoolDevelop\Exception\DatabaseException(__f("Failed to connect to database",'kooldevelop'));
+            $exception->setPDOException(__f($e,'kooldevelop'));
+            throw $exception;
+        }
 
-	}
-	
-	/**
-	 * Check if within an transaction
-	 *
-	 * @return boolean In Transaction
-	 **/
-	public function inTransaction() {
-		return $this->PdoConnection->inTransaction();
-	}
+    }
+    
+    /**
+     * Check if within an transaction
+     *
+     * @return boolean In Transaction
+     **/
+    public function inTransaction() {
+        return $this->PdoConnection->inTransaction();
+    }
 
     /**
      * Begin new transaction
@@ -122,15 +122,15 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
         return $this->PdoConnection->commit();
     }
     
-	/**
-	 * Create new Query
-	 * 
-	 * @return \KoolDevelop\Database\Query Query
-	 */
-	public function newQuery() {
-		return new \KoolDevelop\Database\Query($this->PdoConnection, $this->Profiling);
-	}
-	
+    /**
+     * Create new Query
+     * 
+     * @return \KoolDevelop\Database\Query Query
+     */
+    public function newQuery() {
+        return new \KoolDevelop\Database\Query($this->PdoConnection, $this->Profiling);
+    }
+    
     /**
      * Return last inserted 
      * 

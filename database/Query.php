@@ -29,10 +29,10 @@ class Query
     public static $ProfileLog = array();
 
     /**
-	 * PDO Connection
-	 * @var \PDO
-	 **/
-	private $Pdo = null;
+     * PDO Connection
+     * @var \PDO
+     **/
+    private $Pdo = null;
 
     /**
      * Profiling Enabled
@@ -70,11 +70,11 @@ class Query
      */
     private $Parameters = array();
 
-	/**
-	 * Limit
-	 * @var int[]
-	 */
-	private $Limit = array();
+    /**
+     * Limit
+     * @var int[]
+     */
+    private $Limit = array();
 
     /**
      * From/To Table
@@ -82,11 +82,11 @@ class Query
      **/
     private $Table;
 
-	/**
-	 * Joins
-	 * @var string[][]
-	 */
-	private $Joins = array();
+    /**
+     * Joins
+     * @var string[][]
+     */
+    private $Joins = array();
 
 
     /**
@@ -113,21 +113,21 @@ class Query
      */
     private $Prepared = null;
 
-	/**
-	 * Constructor
-	 *
-	 * @internal Do not create directly, only \KoolDevelop\Database\Adaptor should
-	 * create a new Query
-	 *
-	 * @see \KoolDevelop\Database\Adaptor
-	 *
-	 * @param PDO     $pdo       PDO Connection
+    /**
+     * Constructor
+     *
+     * @internal Do not create directly, only \KoolDevelop\Database\Adaptor should
+     * create a new Query
+     *
+     * @see \KoolDevelop\Database\Adaptor
+     *
+     * @param PDO     $pdo       PDO Connection
      * @param boolean $profiling Profiling enabled
-	 */
-	public function __construct(\PDO $pdo, $profiling = false) {
-		$this->Pdo = $pdo;
+     */
+    public function __construct(\PDO $pdo, $profiling = false) {
+        $this->Pdo = $pdo;
         $this->Profiling = $profiling;
-	}
+    }
 
 
     /**
@@ -154,25 +154,25 @@ class Query
             // Select
             case 'select':
                 return
-					'SELECT ' .
-					join(', ', $this->Fields) .
-					' FROM ' . $this->Table .
-					$this->_sqlJoin() .
-					$this->_sqlWhere() .
+                    'SELECT ' .
+                    join(', ', $this->Fields) .
+                    ' FROM ' . $this->Table .
+                    $this->_sqlJoin() .
+                    $this->_sqlWhere() .
                     $this->_sqlGroupBy() .
                     $this->_sqlOrderBy() .
-					$this->_sqlLimit();
+                    $this->_sqlLimit();
 
             // Delete
             case 'delete':
                 return
                    'DELETE ' .
-					join(', ', $this->Fields) .
-					' FROM ' .
+                    join(', ', $this->Fields) .
+                    ' FROM ' .
                     $this->Table .
                     $this->_sqlJoin() .
-					$this->_sqlWhere() .
-					$this->_sqlLimit();
+                    $this->_sqlWhere() .
+                    $this->_sqlLimit();
 
             // Insert/Replace share syntax
             case 'insert':
@@ -194,7 +194,7 @@ class Query
                     join(', ', $this->Values) .
                     $this->_sqlWhere() .
                     $this->_sqlOrderBy() .
-					$this->_sqlLimit();
+                    $this->_sqlLimit();
 
             default:
                 return "ERROR: Query type not set/unimplemented";
@@ -225,7 +225,7 @@ class Query
         return (count($this->Where) == 0) ? '' : (' WHERE ' . join(' AND ', $this->Where));
     }
 
-	/**
+    /**
      * Return LIMIT part of SQL query
      *
      * @return string Limit part
@@ -252,20 +252,20 @@ class Query
         return (count($this->GroupBy) == 0) ? '' : (' GROUP BY ' . join(', ', $this->GroupBy));
     }
 
-	/**
+    /**
      * Return Joins part of SQL query
      *
      * @return string Join part
      **/
     private function _sqlJoin() {
-		if (count($this->Joins) == 0) {
-			return '';
-		}
-		$sql = '';
-		foreach($this->Joins as $join) {
-			$sql .= ' ' . $join[0] . ' JOIN ' . $join[1] . ' ON ' . $join[2];
-		}
-		return $sql;
+        if (count($this->Joins) == 0) {
+            return '';
+        }
+        $sql = '';
+        foreach($this->Joins as $join) {
+            $sql .= ' ' . $join[0] . ' JOIN ' . $join[1] . ' ON ' . $join[2];
+        }
+        return $sql;
     }
 
 
@@ -415,100 +415,100 @@ class Query
         return $this;
     }
 
-	/**
-	 * Set Limit
-	 *
-	 * @param <type> $count  Count
-	 * @param <type> $offset Offset
-	 *
-	 * @return \KoolDevelop\Database\Query
-	 */
-	public function limit($count, $offset = 0) {
+    /**
+     * Set Limit
+     *
+     * @param <type> $count  Count
+     * @param <type> $offset Offset
+     *
+     * @return \KoolDevelop\Database\Query
+     */
+    public function limit($count, $offset = 0) {
         $this->Prepared = null;
 
-		$this->Limit = array(
+        $this->Limit = array(
             $offset,
-			$count
-		);
-		return $this;
-	}
+            $count
+        );
+        return $this;
+    }
 
-	/**
-	 * Add Left Join
-	 *
-	 * @param string $table Table
- 	 * @param string $on    Join on
-	 *
-	 * @return \KoolDevelop\Database\Query
-	 */
-	public function leftJoin($table, $on) {
-		return $this->join('LEFT', $table, $on);
-	}
+    /**
+     * Add Left Join
+     *
+     * @param string $table Table
+      * @param string $on    Join on
+     *
+     * @return \KoolDevelop\Database\Query
+     */
+    public function leftJoin($table, $on) {
+        return $this->join('LEFT', $table, $on);
+    }
 
-	/**
-	 * Add Right Join
-	 *
-	 * @param string $table Table
- 	 * @param string $on    Join on
-	 *
-	 * @return \KoolDevelop\Database\Query
-	 */
-	public function rightJoin($table, $on) {
-		return $this->join('RIGHT', $table, $on);
-	}
+    /**
+     * Add Right Join
+     *
+     * @param string $table Table
+      * @param string $on    Join on
+     *
+     * @return \KoolDevelop\Database\Query
+     */
+    public function rightJoin($table, $on) {
+        return $this->join('RIGHT', $table, $on);
+    }
 
 
-	/**
-	 * Add Inner Join
-	 *
-	 * @param string $table Table
- 	 * @param string $on    Join on
-	 *
-	 * @return \KoolDevelop\Database\Query
-	 */
-	public function innerJoin($table, $on) {
-		return $this->join('INNER', $table, $on);
-	}
+    /**
+     * Add Inner Join
+     *
+     * @param string $table Table
+      * @param string $on    Join on
+     *
+     * @return \KoolDevelop\Database\Query
+     */
+    public function innerJoin($table, $on) {
+        return $this->join('INNER', $table, $on);
+    }
 
-	/**
-	 * Add Outer Join
-	 *
-	 * @param string $table Table
- 	 * @param string $on    Join on
-	 *
-	 * @return \KoolDevelop\Database\Query
-	 */
-	public function outerJoin($table, $on) {
-		return $this->join('OUTER', $table, $on);
-	}
+    /**
+     * Add Outer Join
+     *
+     * @param string $table Table
+      * @param string $on    Join on
+     *
+     * @return \KoolDevelop\Database\Query
+     */
+    public function outerJoin($table, $on) {
+        return $this->join('OUTER', $table, $on);
+    }
 
-	/**
-	 * Add Join
-	 *
-	 * @param string $type  Type
-	 * @param string $table Table
- 	 * @param string $on    Join on
-	 *
-	 * @return \KoolDevelop\Database\Query
-	 */
-	public function join($type, $table, $on) {
+    /**
+     * Add Join
+     *
+     * @param string $type  Type
+     * @param string $table Table
+      * @param string $on    Join on
+     *
+     * @return \KoolDevelop\Database\Query
+     */
+    public function join($type, $table, $on) {
         $this->Prepared = null;
 
-		if (!in_array($type, array('LEFT', 'RIGHT', 'INNER', 'OUTER'))) {
-			throw new \KoolDevelop\Exception\DatabaseException(__f("Invalid JOIN type",'kooldevelop'));
-		}
+        if (!in_array($type, array('LEFT', 'RIGHT', 'INNER', 'OUTER'))) {
+            throw new \KoolDevelop\Exception\DatabaseException(__f("Invalid JOIN type",'kooldevelop'));
+        }
 
-		if (!in_array($this->Type, array('select', 'delete', 'update'))) {
+        if (!in_array($this->Type, array('select', 'delete', 'update'))) {
             throw new \KoolDevelop\Exception\DatabaseException(__f("join only allowed for select/update/delete queries",'kooldevelop'));
         }
 
-		$this->Joins[] = array(
-			$type,
-			$table,
-			$on
-		);
-		return $this;
-	}
+        $this->Joins[] = array(
+            $type,
+            $table,
+            $on
+        );
+        return $this;
+    }
 
 
      /**

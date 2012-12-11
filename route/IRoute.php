@@ -26,12 +26,12 @@ namespace KoolDevelop\Route;
  **/
 interface IRoute
 {
-	/**
-	 * Proces routing
-	 *
-	 * @param string $route Reference to current route
-	 *
-	 * @return boolean Stop further processing
-	 */
-	public function route(&$route);
+    /**
+     * Proces routing
+     *
+     * @param string $route Reference to current route
+     *
+     * @return boolean Stop further processing
+     */
+    public function route(&$route);
 }

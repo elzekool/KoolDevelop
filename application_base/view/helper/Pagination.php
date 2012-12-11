@@ -45,19 +45,19 @@ class Pagination extends \Helper
      * @var string[]
      */
     private $AllowedSortingFields = array('id');
-	
-	/**
-	 * Default Sorting Field
-	 * @var string
-	 **/
-	private $DefaultSortField = 'id';
-	
-	/**
-	 * Default Sorting Direction
-	 * @var string
-	 **/
-	private $DefaultSortDirection = 'ASC';
-	    
+    
+    /**
+     * Default Sorting Field
+     * @var string
+     **/
+    private $DefaultSortField = 'id';
+    
+    /**
+     * Default Sorting Direction
+     * @var string
+     **/
+    private $DefaultSortDirection = 'ASC';
+        
     /**
      * Parameters
      * @var string[]
@@ -168,19 +168,19 @@ class Pagination extends \Helper
         return $this;
     }
     
-	/**
-	 * Set Default Sorting
-	 *
-	 * @param string $field     Default sorting Field
-	 * @param string $direction Set default sorting direction (ASC|DESC)
-	 *
-	 * @return \View\Helper\Pagination Self
+    /**
+     * Set Default Sorting
+     *
+     * @param string $field     Default sorting Field
+     * @param string $direction Set default sorting direction (ASC|DESC)
+     *
+     * @return \View\Helper\Pagination Self
      */
-	public function setDefaultSorting($field, $direction = 'ASC') {
-		$this->DefaultSortField = $field;
-		$this->DefaultSortDirection = $direction;
-		return $this;
-	}
+    public function setDefaultSorting($field, $direction = 'ASC') {
+        $this->DefaultSortField = $field;
+        $this->DefaultSortDirection = $direction;
+        return $this;
+    }
     
     /**
      * Set Session storage options.

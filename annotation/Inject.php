@@ -55,5 +55,3 @@ class Inject implements \KoolDevelop\Annotation\IAnnotation
 
 
 }
-
-?>

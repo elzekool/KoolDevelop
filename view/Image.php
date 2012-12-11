@@ -242,12 +242,12 @@ class Image
         }
                 
         if ($width > $this->Width) {
-			$width = $this->Width;
-		}
+            $width = $this->Width;
+        }
 
-		if ($height > $this->Height) {
-			$height = $this->Height;
-		}
+        if ($height > $this->Height) {
+            $height = $this->Height;
+        }
         
         if ($offset_x === null) {
             $offset_x = floor(($this->Width - $width) / 2);
@@ -312,12 +312,12 @@ class Image
         }
                 
         if ($width < $this->Width) {
-			$width = $this->Width;
-		}
+            $width = $this->Width;
+        }
 
-		if ($height < $this->Height) {
-			$height = $this->Height;
-		}
+        if ($height < $this->Height) {
+            $height = $this->Height;
+        }
         
         if ($offset_x === null) {
             $offset_x = floor(($width - $this->Width) / 2);

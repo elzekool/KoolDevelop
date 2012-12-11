@@ -31,12 +31,12 @@ class Wildcard extends \KoolDevelop\Route\RegEx
 {
 
     /**
-	 * Constructor
-	 *
-	 * @param string  $in   Wildcard expression to match
-	 * @param string  $out  Output on match (You can use $1, $2.. to get wildcard matches)
-	 * @param boolean $stop Stop on match
-	 */
+     * Constructor
+     *
+     * @param string  $in   Wildcard expression to match
+     * @param string  $out  Output on match (You can use $1, $2.. to get wildcard matches)
+     * @param boolean $stop Stop on match
+     */
     public function __construct($in, $out, $stop = false) {
                 
         $expression = '/^';

@@ -36,11 +36,11 @@ class Configuration
      */
     private static $CurrentEnvironment = 'production';
     
-	/**
-	 * Singleton Instance
-	 * @var \KoolDevelop\Configuration[]
-	 */
-	private static $Instances = array();
+    /**
+     * Singleton Instance
+     * @var \KoolDevelop\Configuration[]
+     */
+    private static $Instances = array();
     
     /**
      * Loaded configuration
@@ -59,18 +59,18 @@ class Configuration
         self::$CurrentEnvironment = $environment;
     }   
    
-	/**
-	 * Get \KoolDevelop\Configuration instance
-	 *
+    /**
+     * Get \KoolDevelop\Configuration instance
+     *
      * @param string $configuration Configuration
      * 
-	 * @return \KoolDevelop\Configuration
-	 */
-	public static function getInstance($configuration) {
+     * @return \KoolDevelop\Configuration
+     */
+    public static function getInstance($configuration) {
         if (!isset(self::$Instances[$configuration])) {
             self::$Instances[$configuration] = new self($configuration);
         }
-      	return self::$Instances[$configuration];
+          return self::$Instances[$configuration];
     }
 
     /**
@@ -82,26 +82,26 @@ class Configuration
      */
     protected function parseIniFile($filename) {
         
-		// Read configuration
-		ob_start();
-		require $filename;
-		$ini = ob_get_clean();
+        // Read configuration
+        ob_start();
+        require $filename;
+        $ini = ob_get_clean();
 
-		// Parse and store
-		return parse_ini_string($ini, true);
+        // Parse and store
+        return parse_ini_string($ini, true);
 
     }
 
     /**
-	 * Constructor
+     * Constructor
      * 
      * @param string $configuration Configuration
-	 */
-	protected function __construct($configuration) {		
+     */
+    protected function __construct($configuration) {        
         
-		if (preg_match('/^[a-z_]+$/', $configuration) == 0) {
-			throw new \InvalidArgumentException(__f("Invalid Configuration File",'kooldevelop'));
-		}
+        if (preg_match('/^[a-z_]+$/', $configuration) == 0) {
+            throw new \InvalidArgumentException(__f("Invalid Configuration File",'kooldevelop'));
+        }
         
         // First try to parse global configuration file
         if (file_exists(CONFIG_PATH . DS . $configuration . '.ini')) {
@@ -132,28 +132,28 @@ class Configuration
         
         
 
-	}
+    }
 
-	/**
-	 * Read Setting, return default if not found
-	 *
-	 * @param string $setting Setting
-	 * @param mixed  $default Default value
-	 *
-	 * @return mixed Setting value 
-	 */
-	public function get($setting, $default = null) {
+    /**
+     * Read Setting, return default if not found
+     *
+     * @param string $setting Setting
+     * @param mixed  $default Default value
+     *
+     * @return mixed Setting value 
+     */
+    public function get($setting, $default = null) {
 
-		if (preg_match('/^([a-zA-Z0-9_]+?)\.([a-zA-Z0-9_]+?)$/', $setting, $matches) != 0) {
-			return isset($this->Configuration[$matches[1]][$matches[2]]) ? $this->Configuration[$matches[1]][$matches[2]] : $default;
-		} else if (preg_match('/^([a-zA-Z0-9_]+)$/', $setting)) {
-			return isset($this->Configuration[$setting]) ? $this->Configuration[$setting] : $default;
-		} else {
-			throw new \InvalidArgumentException(__f("Invalid setting name",'kooldevelop'));
-		}
+        if (preg_match('/^([a-zA-Z0-9_]+?)\.([a-zA-Z0-9_]+?)$/', $setting, $matches) != 0) {
+            return isset($this->Configuration[$matches[1]][$matches[2]]) ? $this->Configuration[$matches[1]][$matches[2]] : $default;
+        } else if (preg_match('/^([a-zA-Z0-9_]+)$/', $setting)) {
+            return isset($this->Configuration[$setting]) ? $this->Configuration[$setting] : $default;
+        } else {
+            throw new \InvalidArgumentException(__f("Invalid setting name",'kooldevelop'));
+        }
 
-	}
+    }
 
-	
+    
 
 }

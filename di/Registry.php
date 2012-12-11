@@ -33,21 +33,21 @@ class Registry
     
     
     /**
-	 * Singleton Instance
-	 * @var \KoolDevelop\Di\Registry
-	 */
-	protected static $Instance;
+     * Singleton Instance
+     * @var \KoolDevelop\Di\Registry
+     */
+    protected static $Instance;
 
-	/**
-	 * Get Registry instance
-	 *
-	 * @return \KoolDevelop\Di\Registry
-	 */
-	public static function getInstance() {
-		if (self::$Instance === null) {
-        	self::$Instance = new self();
-      	}
-      	return self::$Instance;
+    /**
+     * Get Registry instance
+     *
+     * @return \KoolDevelop\Di\Registry
+     */
+    public static function getInstance() {
+        if (self::$Instance === null) {
+            self::$Instance = new self();
+          }
+          return self::$Instance;
     }
     
     /**
@@ -77,7 +77,7 @@ class Registry
             $object = unserialize(sprintf('O:%d:"%s":0:{}',strlen($classname), $classname));
         }
         
-		$this->injectAll($object);
+        $this->injectAll($object);
         $class_constructor->invoke($object);
         
         return $object;
@@ -143,12 +143,12 @@ class Registry
     public function get($name, $default = null) {        
         if (array_key_exists($name, $this->Contents)) {
             $content = $this->Contents[$name];
-			// If it's a closure, resolve it and save the bean
-			if ($content instanceof \Closure) {
-				$content = $content($this);
-				$this->Contents[$name] = $content;
-			}
-			return $content; 
+            // If it's a closure, resolve it and save the bean
+            if ($content instanceof \Closure) {
+                $content = $content($this);
+                $this->Contents[$name] = $content;
+            }
+            return $content; 
             
         } else if ($default !== null) {
             return $this->Contents[$name] = $this->get($default);

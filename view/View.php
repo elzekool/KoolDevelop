@@ -29,28 +29,28 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 {
 
     /**
-	 * Layout
-	 * @var string
-	 */
-	protected $Layout = 'default';
+     * Layout
+     * @var string
+     */
+    protected $Layout = 'default';
 
-	/**
-	 * Page title
-	 * @var string
-	 */
-	protected $PageTitle = '';
+    /**
+     * Page title
+     * @var string
+     */
+    protected $PageTitle = '';
 
-	/**
-	 * View
-	 * @var string
-	 */
-	protected $View = null;
+    /**
+     * View
+     * @var string
+     */
+    protected $View = null;
 
-	/**
-	 * Vars for View
-	 * @var mixed[]
-	 */
-	protected $ViewVars = array();
+    /**
+     * Vars for View
+     * @var mixed[]
+     */
+    protected $ViewVars = array();
 
     /**
      * Placeholders
@@ -58,19 +58,19 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
      */
     protected $Placeholders = array();
 
-	/**
-	 * Helpers
-	 * @var \Helper[]
-	 */
-	protected $Helpers = array();
+    /**
+     * Helpers
+     * @var \Helper[]
+     */
+    protected $Helpers = array();
 
-	/**
-	 * Var names that are invalid
-	 * @var array
-	 */
-	private static $InvalidVariableNames = array(
-		'view_content', 'page_title', 'Helpers', 'ViewVars', 'Layout', 'Placeholders', 'Helpers'
-	);
+    /**
+     * Var names that are invalid
+     * @var array
+     */
+    private static $InvalidVariableNames = array(
+        'view_content', 'page_title', 'Helpers', 'ViewVars', 'Layout', 'Placeholders', 'Helpers'
+    );
 
     /**
      * Create new View instance
@@ -83,104 +83,104 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 
 
     /**
-	 * Get Page Title
-	 *
-	 * @return string Page Title
-	 */
-	public function getTitle() {
-		return $this->PageTitle;
-	}
-
-	/**
-	 * Set Page Title
-	 *
-	 * @param string $title Page Title
-	 *
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->PageTitle = $title;
-	}
-
-	/**
-	 * Set Layout
-	 *
-	 * @param string $layout Layout
-	 *
-	 * @return void
-	 */
-	public function setLayout($layout) {
-
-		if (preg_match('/^[a-z](([a-z0-9_])+(\/|\\\)?([a-z0-9_])*)*[a-z0-9]$/', $layout) == false) {
-			throw new \InvalidArgumentException(__f("Layout name contains invalid characters",'kooldevelop'));
-		}
-
-        $layout_file = \KoolDevelop\Configuration::getInstance('core')->get('path.layout') . DS . str_replace(array('\\', '/'), DS, $layout) . '.php';
-		if (!file_exists($layout_file)) {
-			throw new \KoolDevelop\Exception\FileNotFoundException(__f("Layout file not found",'kooldevelop'));
-		}
-
-		$this->Layout = $layout;
-	}
+     * Get Page Title
+     *
+     * @return string Page Title
+     */
+    public function getTitle() {
+        return $this->PageTitle;
+    }
 
     /**
-	 * Set View
-	 *
-	 * @param string $view View
-	 *
-	 * @return void
-	 */
-	public function setView($view) {
+     * Set Page Title
+     *
+     * @param string $title Page Title
+     *
+     * @return void
+     */
+    public function setTitle($title) {
+        $this->PageTitle = $title;
+    }
 
-		if (preg_match('/^[a-z](([a-z0-9_])+(\/|\\\)?([a-z0-9_])*)*[a-z0-9]$/', $view) == false) {
-			throw new \InvalidArgumentException(__f("View name contains invalid characters",'kooldevelop'));
-		}
+    /**
+     * Set Layout
+     *
+     * @param string $layout Layout
+     *
+     * @return void
+     */
+    public function setLayout($layout) {
 
-		// Kijk of view wel bestaat
-		$view_file = \KoolDevelop\Configuration::getInstance('core')->get('path.view') . DS . str_replace(array('\\', '/'), DS, $view) . '.php';
-		if (!file_exists($view_file)) {
-			throw new \KoolDevelop\Exception\FileNotFoundException(__f("View file not found",'kooldevelop'));
-		}
+        if (preg_match('/^[a-z](([a-z0-9_])+(\/|\\\)?([a-z0-9_])*)*[a-z0-9]$/', $layout) == false) {
+            throw new \InvalidArgumentException(__f("Layout name contains invalid characters",'kooldevelop'));
+        }
 
-		$this->View = $view;
+        $layout_file = \KoolDevelop\Configuration::getInstance('core')->get('path.layout') . DS . str_replace(array('\\', '/'), DS, $layout) . '.php';
+        if (!file_exists($layout_file)) {
+            throw new \KoolDevelop\Exception\FileNotFoundException(__f("Layout file not found",'kooldevelop'));
+        }
 
-	}
+        $this->Layout = $layout;
+    }
+
+    /**
+     * Set View
+     *
+     * @param string $view View
+     *
+     * @return void
+     */
+    public function setView($view) {
+
+        if (preg_match('/^[a-z](([a-z0-9_])+(\/|\\\)?([a-z0-9_])*)*[a-z0-9]$/', $view) == false) {
+            throw new \InvalidArgumentException(__f("View name contains invalid characters",'kooldevelop'));
+        }
+
+        // Kijk of view wel bestaat
+        $view_file = \KoolDevelop\Configuration::getInstance('core')->get('path.view') . DS . str_replace(array('\\', '/'), DS, $view) . '.php';
+        if (!file_exists($view_file)) {
+            throw new \KoolDevelop\Exception\FileNotFoundException(__f("View file not found",'kooldevelop'));
+        }
+
+        $this->View = $view;
+
+    }
 
 
-	/**
-	 * Set Var for View
-	 *
-	 * @param string $name  Name
-	 * @param mixed  $value Value
-	 *
-	 * @return void
-	 */
-	public function set($name, $value) {
+    /**
+     * Set Var for View
+     *
+     * @param string $name  Name
+     * @param mixed  $value Value
+     *
+     * @return void
+     */
+    public function set($name, $value) {
 
-		if (preg_match('/^[A-Za-z]([A-Za-z0-9_])*$/', $name) == false) {
-			throw new \InvalidArgumentException(__f("Variabele name contains invalid characters",'kooldevelop'));
-		}
+        if (preg_match('/^[A-Za-z]([A-Za-z0-9_])*$/', $name) == false) {
+            throw new \InvalidArgumentException(__f("Variabele name contains invalid characters",'kooldevelop'));
+        }
 
-		if (in_array($name, self::$InvalidVariableNames)) {
-			throw new \InvalidArgumentException(__f("Variabele name not allowed",'kooldevelop'));
-		}
+        if (in_array($name, self::$InvalidVariableNames)) {
+            throw new \InvalidArgumentException(__f("Variabele name not allowed",'kooldevelop'));
+        }
 
-		// Sla waarde op
-		$this->ViewVars[$name] = $value;
-	}
+        // Sla waarde op
+        $this->ViewVars[$name] = $value;
+    }
 
     /**
      * Get placeholder
      *
      * @param string $name Placeholder name
-	 *
-	 * @return \KoolDevelop\View\Placeholder Placeholder
+     *
+     * @return \KoolDevelop\View\Placeholder Placeholder
      */
     public function placeholder($name) {
 
         if (preg_match('/^[a-zA-Z0-9]+$/', $name) == false) {
-			throw new \InvalidArgumentException(__f("Invalid placeholder name",'kooldevelop'));
-		}
+            throw new \InvalidArgumentException(__f("Invalid placeholder name",'kooldevelop'));
+        }
 
         if (isset($this->Placeholders[$name])) {
             return $this->Placeholders[$name];
@@ -190,25 +190,25 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
 
     }
 
-	/**
-	 * Get Helper
-	 *
-	 * @param string $classname Helper classname
-	 * @param string $namespace Namespace
-	 *
-	 * @return \Helper Helper
-	 */
-	public function helper($classname, $namespace = '\\View\\Helper\\') {
+    /**
+     * Get Helper
+     *
+     * @param string $classname Helper classname
+     * @param string $namespace Namespace
+     *
+     * @return \Helper Helper
+     */
+    public function helper($classname, $namespace = '\\View\\Helper\\') {
 
-		$fullclass = $namespace . ucfirst($classname);
+        $fullclass = $namespace . ucfirst($classname);
 
-		if (isset($this->Helpers[$fullclass])) {
-			return $this->Helpers[$fullclass];
-		}
+        if (isset($this->Helpers[$fullclass])) {
+            return $this->Helpers[$fullclass];
+        }
 
-		return $this->Helpers[$fullclass] = new $fullclass($this);
+        return $this->Helpers[$fullclass] = new $fullclass($this);
 
-	}
+    }
 
     /**
      * Render Element
@@ -230,47 +230,47 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
     }
 
     /**
-	 * View Renderen
-	 *
-	 * @return void
-	 */
-	public function render() {
+     * View Renderen
+     *
+     * @return void
+     */
+    public function render() {
 
-		if ($this->View == null) {
-			throw new \LogicException(__f("No view set to render",'kooldevelop'));
-		}
+        if ($this->View == null) {
+            throw new \LogicException(__f("No view set to render",'kooldevelop'));
+        }
         
         
 
-		// Set View vars
-		foreach ($this->ViewVars as $var_name => $var_value) {
-			$$var_name = $var_value;
-		}
+        // Set View vars
+        foreach ($this->ViewVars as $var_name => $var_value) {
+            $$var_name = $var_value;
+        }
 
-		$page_title = $this->PageTitle;
+        $page_title = $this->PageTitle;
         
         $this->fireObservable('beforeView');
 
-		// Load/Render View
+        // Load/Render View
         ob_start();
         require \KoolDevelop\Configuration::getInstance('core')->get('path.view') . DS . str_replace(array('\\', '/'), DS, $this->View) . '.php';
-		$view_content = ob_get_clean();
+        $view_content = ob_get_clean();
 
         $this->fireObservable('beforeLayout');
 
-		// Load/Render Layout
+        // Load/Render Layout
         require \KoolDevelop\Configuration::getInstance('core')->get('path.layout') . DS . str_replace(array('\\', '/'), DS, $this->Layout) . '.php';
 
-		// Unset View Content And Title
-		unset($view_content);
-		unset($page_title);
+        // Unset View Content And Title
+        unset($view_content);
+        unset($page_title);
 
-		// Unset set Vars
-		foreach ($this->ViewVars as $var_name => $var_value) {
-			unset($$var_name);
-		}
+        // Unset set Vars
+        foreach ($this->ViewVars as $var_name => $var_value) {
+            unset($$var_name);
+        }
 
-	}
+    }
     
     /**
      * Get list of (configurable) classes that this class

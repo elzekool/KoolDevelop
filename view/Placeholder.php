@@ -91,24 +91,24 @@ class Placeholder
 
     }
  
-	/**
-	 * Add arbritairy content
-	 * 
-	 * @param string  $content Content to add
-	 * @param boolean $replace Replace current content, false to append
-	 * 
-	 * @retrun void
-	 */
-	public function add($content, $replace = false) {
-		if ($this->Capturing) {
-			throw new \RuntimeException(__f('Cannot add content to placeholder while capturing.'));
-		}
-		if ($replace) {
-			$this->Contents = $content;
-		} else {
-			$this->Contents .= $content;
-		}
-	}
+    /**
+     * Add arbritairy content
+     * 
+     * @param string  $content Content to add
+     * @param boolean $replace Replace current content, false to append
+     * 
+     * @retrun void
+     */
+    public function add($content, $replace = false) {
+        if ($this->Capturing) {
+            throw new \RuntimeException(__f('Cannot add content to placeholder while capturing.'));
+        }
+        if ($replace) {
+            $this->Contents = $content;
+        } else {
+            $this->Contents .= $content;
+        }
+    }
 
     /**
      * Return contents

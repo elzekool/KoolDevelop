@@ -86,17 +86,10 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
         
         // Register autoloader
         spl_autoload_register(array($this, 'autoload'));
-    }
-	
-    /**
-     * Function called when enviroment is available
-     * 
-     * @return void
-     */
-    public function environmentAvailable() {
+        
         // Laad Cache
         $this->Cache = \KoolDevelop\Cache\Cache::getInstance('autoloader');
-        $this->ClassPaths = array_merge($this->Cache->loadObject('classpaths', array()), $this->ClassPaths);               
+        $this->ClassPaths = array_merge($this->Cache->loadObject('classpaths', array()), $this->ClassPaths);            
     }
     
     /**
@@ -105,7 +98,7 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
      */
     public function __destruct() {
         // Save classpaths to cache
-		if (isset($this->Cache)) {
+        if (isset($this->Cache)) {
             $this->Cache->saveObject('classpaths', $this->ClassPaths);
         }
     }
@@ -192,7 +185,7 @@ class AutoLoader implements \KoolDevelop\Configuration\IConfigurable
                     $_classfile = array_pop($_classpath);                    
                     $_classpath = $this->underscore_path('\\' . join('\\', $_classpath)) . '\\' . $_classfile;
                     
-                    $filename = $mapping . DS . \str_replace(array('\\'), DS, $_classpath) . '.php';				
+                    $filename = $mapping . DS . \str_replace(array('\\'), DS, $_classpath) . '.php';                
                     
                     if (\file_exists($filename)) {
                         $this->ClassPaths[$classname] = $filename;

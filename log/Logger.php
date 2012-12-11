@@ -24,44 +24,44 @@ namespace KoolDevelop\Log;
  * @subpackage Core
  **/
 class Logger implements \KoolDevelop\Configuration\IConfigurable
-{	
-	/**
-	 * Singleton Instance
-	 * @var \KoolDevelop\Log\Logger
-	 */
-	protected static $Instance;
+{    
+    /**
+     * Singleton Instance
+     * @var \KoolDevelop\Log\Logger
+     */
+    protected static $Instance;
 
-	/**
-	 * Log level (Scale: 0-255)
-	 * @var int
-	 **/
-	private $LogLevel = 255;
-	
+    /**
+     * Log level (Scale: 0-255)
+     * @var int
+     **/
+    private $LogLevel = 255;
+    
     /**
      * Log Messages
      * @var \KoolDevelop\Log\Message[]
      */
     private $Messages = array();
     
-	/**
-	 * Get Logger instance
-	 *
-	 * @return \KoolDevelop\Log\Logger
-	 */
-	public static function getInstance() {
+    /**
+     * Get Logger instance
+     *
+     * @return \KoolDevelop\Log\Logger
+     */
+    public static function getInstance() {
         if (self::$Instance === null) {
             self::$Instance = new self();
         }
         return self::$Instance;
     }
 
-	/**
-	 * Constructor
-	 */
-	protected function __construct() {
-		$config = \KoolDevelop\Configuration::getInstance('core');
-		$this->LogLevel = $config->get('logging.level', E_ALL);
- 	}
+    /**
+     * Constructor
+     */
+    protected function __construct() {
+        $config = \KoolDevelop\Configuration::getInstance('core');
+        $this->LogLevel = $config->get('logging.level', E_ALL);
+     }
     
     /**
      * Log Message

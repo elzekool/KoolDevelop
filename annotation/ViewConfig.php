@@ -108,5 +108,3 @@ class ViewConfig implements \KoolDevelop\Annotation\IAnnotation
 
 
 }
-
-?>

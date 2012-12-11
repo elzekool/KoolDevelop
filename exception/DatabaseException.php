@@ -29,7 +29,7 @@ class DatabaseException extends \KoolDevelop\Exception\Exception
      * PDO Exception
      * @var \PDOException
      */
-	private $PDOException;
+    private $PDOException;
     
     /**
      * Get associated PDO Exception

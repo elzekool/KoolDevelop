@@ -23,28 +23,28 @@ namespace KoolDevelop\View;
 abstract class Helper
 {
 
-	/**
-	 * Parent View
-	 * @var \KoolDevelop\View\View
-	 */
-	private $View;
+    /**
+     * Parent View
+     * @var \KoolDevelop\View\View
+     */
+    private $View;
 
-	/**
-	 * Get View
-	 *
-	 * @return \KoolDevelop\View\View View
-	 */
-	public function getView() {
-		return $this->View;
-	}
+    /**
+     * Get View
+     *
+     * @return \KoolDevelop\View\View View
+     */
+    public function getView() {
+        return $this->View;
+    }
 
-	/**
-	 * Constructor
-	 *
-	 * @param \KoolDevelop\View\View $View View
-	 */
-	function __construct(\KoolDevelop\View\View &$View) {
-		$this->View = $View;
-	}
+    /**
+     * Constructor
+     *
+     * @param \KoolDevelop\View\View $View View
+     */
+    function __construct(\KoolDevelop\View\View &$View) {
+        $this->View = $View;
+    }
 
 }

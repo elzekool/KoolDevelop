@@ -30,8 +30,8 @@ function r() {
  * @return Translated Text
  */
 function __($text, $domain = 'default') {
-	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
-	return $i18n->singular($text);
+    $i18n = \KoolDevelop\International\I18n::getInstance($domain);
+    return $i18n->singular($text);
 }
 
 /**
@@ -43,8 +43,8 @@ function __($text, $domain = 'default') {
  * @return void
  */
 function __e($text, $domain = 'default') {
-	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
-	echo $i18n->singular($text);
+    $i18n = \KoolDevelop\International\I18n::getInstance($domain);
+    echo $i18n->singular($text);
 }
 
 /**
@@ -56,8 +56,8 @@ function __e($text, $domain = 'default') {
  * @return void
  */
 function __w($text, $domain = 'default') {
-	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
-	echo htmlspecialchars($i18n->singular($text));
+    $i18n = \KoolDevelop\International\I18n::getInstance($domain);
+    echo htmlspecialchars($i18n->singular($text));
 }
 
 /**
@@ -71,8 +71,8 @@ function __w($text, $domain = 'default') {
  * @return string Translated text
  */
 function __n($singular, $plural, $count, $domain = 'default') {
-	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
-	return $i18n->plural($singular, $plural, $count);
+    $i18n = \KoolDevelop\International\I18n::getInstance($domain);
+    return $i18n->plural($singular, $plural, $count);
 }
 
 /**
@@ -86,8 +86,8 @@ function __n($singular, $plural, $count, $domain = 'default') {
  * @return void
  */
 function __en($singular, $plural, $count, $domain = 'default') {
-	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
-	echo $i18n->plural($singular, $plural, $count);
+    $i18n = \KoolDevelop\International\I18n::getInstance($domain);
+    echo $i18n->plural($singular, $plural, $count);
 }
 
 /**
@@ -101,8 +101,8 @@ function __en($singular, $plural, $count, $domain = 'default') {
  * @return void
  */
 function __wn($singular, $plural, $count, $domain = 'default') {
-	$i18n = \KoolDevelop\International\I18n::getInstance($domain);
-	echo htmlspecialchars($i18n->plural($singular, $plural, $count));
+    $i18n = \KoolDevelop\International\I18n::getInstance($domain);
+    echo htmlspecialchars($i18n->plural($singular, $plural, $count));
 }
 
 /**
@@ -121,7 +121,7 @@ function __f($text, $domain = 'default') {
         return $text;
     }
     define('__STOP_F__', true);
-	try {
+    try {
         if(null !== ($i18n = \KoolDevelop\International\I18n::getInstance($domain, false))) {
             return $i18n->singular($text);
         } else {

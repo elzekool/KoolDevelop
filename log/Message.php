@@ -24,21 +24,21 @@ namespace KoolDevelop\Log;
  **/
 class Message
 {
-	/**
-	 * Severe Message
-	 **/
-	const LEVEL_SEVERE = 255;
-	
-	/**
-	 * Normal Message
-	 **/
-	const LEVEL_NORMAL = 128;
+    /**
+     * Severe Message
+     **/
+    const LEVEL_SEVERE = 255;
+    
+    /**
+     * Normal Message
+     **/
+    const LEVEL_NORMAL = 128;
 
-	/**
-	 * Low priority (informational) Message
-	 **/
-	const LEVEL_INFO = 0;
-	
+    /**
+     * Low priority (informational) Message
+     **/
+    const LEVEL_INFO = 0;
+    
         /**
          * Message Level
          * @var int

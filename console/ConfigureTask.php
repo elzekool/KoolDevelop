@@ -37,109 +37,109 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
         '\\KoolDevelop\\Model\\ContainerModel',
     );
     
-	/**
-	 * Find index of section in file contents, create
-	 * new section if it doesn't exist
-	 *
-	 * @param string   $section       Section name
-	 * @param string[] $file_contents File contents, exploded on newline
-	 *
-	 * @return void
-	 */
-	private function findSectionIndex($section, &$file_contents) {
+    /**
+     * Find index of section in file contents, create
+     * new section if it doesn't exist
+     *
+     * @param string   $section       Section name
+     * @param string[] $file_contents File contents, exploded on newline
+     *
+     * @return void
+     */
+    private function findSectionIndex($section, &$file_contents) {
 
-		foreach($file_contents as $index => &$row) {
-			if (trim($row) == '[' . $section . ']') {
-				return $index;
-			}
-		}
-		
+        foreach($file_contents as $index => &$row) {
+            if (trim($row) == '[' . $section . ']') {
+                return $index;
+            }
+        }
+        
         if (count($file_contents) != 0) {
             $file_contents[] = '';
         }
-		$file_contents[] = '[' . $section . ']';
-		return \count($file_contents)-1;
-	}
-
-	/**
-	 * Check if option is already in section
-	 *
-	 * @param string   $option        Option name
-	 * @param int      $section_index Section index from findSectionIndex
-	 * @param string[] $file_contents File contents, exploded on newline
-	 *
-	 * @return boolean Option exists
-	 */
-	private function hasOption($option, $section_index, &$file_contents) {
-		
-		$file_contents_size = count($file_contents);
-
-		// If section is at file end, we know that there are no options
-		if (($section_index+1) >= $file_contents_size) {
-			return false;
-		}
-
-		for($x =($section_index+1); $x < $file_contents_size; $x++) {
-
-
-			// Start of new section
-			if (substr($file_contents[$x], 0, 1) == '[') {
-				return false;
-			}
-
-			// Find property in the form of
-			// property = ...
-			if (\preg_match('/^(;?)' . $option . '(\s*)=/', $file_contents[$x])) {
-				return true;
-			}
-
-
-			// Find property in the form of
-			// property[] = ...
-			if (\preg_match('/^(;?)' . $option . '\[\](\s*)=/', $file_contents[$x])) {
-				return true;
-			}
-
-		}
-
-		return false;
-		
-	}
+        $file_contents[] = '[' . $section . ']';
+        return \count($file_contents)-1;
+    }
 
     /**
-	 * Process configution file, adding new options
-	 * 
-	 * @param mixed[][] $options       Options collected by processClasses
-	 * @param string[]  $file_contents File contents, exploded on newline
-	 * 
-	 * @return void
-	 */
-	private function processFile(&$options, &$file_contents) {
+     * Check if option is already in section
+     *
+     * @param string   $option        Option name
+     * @param int      $section_index Section index from findSectionIndex
+     * @param string[] $file_contents File contents, exploded on newline
+     *
+     * @return boolean Option exists
+     */
+    private function hasOption($option, $section_index, &$file_contents) {
+        
+        $file_contents_size = count($file_contents);
 
-		foreach($options as $section => &$section_options) {
-			$section_index = $this->findSectionIndex($section, $file_contents);
-			foreach($section_options as $property => &$section_option) {
+        // If section is at file end, we know that there are no options
+        if (($section_index+1) >= $file_contents_size) {
+            return false;
+        }
 
-				/* @var $section_option \KoolDevelop\Configuration\IConfigurableOption */
-				if (!$this->hasOption($property, $section_index, $file_contents)) {
+        for($x =($section_index+1); $x < $file_contents_size; $x++) {
 
-					$n_option = array(
-						'[' . $section . ']'
-					);
 
-					if ($section_option->getDocumentation() != '') {
-						$n_option[] = '; ' . $section_option->getDocumentation();
-					}
+            // Start of new section
+            if (substr($file_contents[$x], 0, 1) == '[') {
+                return false;
+            }
 
-					$n_option[] = ($section_option->getRequired() ? '' : ';') . $property . '=' . $section_option->getDefault();
+            // Find property in the form of
+            // property = ...
+            if (\preg_match('/^(;?)' . $option . '(\s*)=/', $file_contents[$x])) {
+                return true;
+            }
 
-					array_splice($file_contents, $section_index, 1, $n_option);
 
-				}
-			}
-		}
-		
-	}
+            // Find property in the form of
+            // property[] = ...
+            if (\preg_match('/^(;?)' . $option . '\[\](\s*)=/', $file_contents[$x])) {
+                return true;
+            }
+
+        }
+
+        return false;
+        
+    }
+
+    /**
+     * Process configution file, adding new options
+     * 
+     * @param mixed[][] $options       Options collected by processClasses
+     * @param string[]  $file_contents File contents, exploded on newline
+     * 
+     * @return void
+     */
+    private function processFile(&$options, &$file_contents) {
+
+        foreach($options as $section => &$section_options) {
+            $section_index = $this->findSectionIndex($section, $file_contents);
+            foreach($section_options as $property => &$section_option) {
+
+                /* @var $section_option \KoolDevelop\Configuration\IConfigurableOption */
+                if (!$this->hasOption($property, $section_index, $file_contents)) {
+
+                    $n_option = array(
+                        '[' . $section . ']'
+                    );
+
+                    if ($section_option->getDocumentation() != '') {
+                        $n_option[] = '; ' . $section_option->getDocumentation();
+                    }
+
+                    $n_option[] = ($section_option->getRequired() ? '' : ';') . $property . '=' . $section_option->getDefault();
+
+                    array_splice($file_contents, $section_index, 1, $n_option);
+
+                }
+            }
+        }
+        
+    }
 
     /**
      * Process collected classnames
@@ -150,8 +150,8 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
      */
     private function processClasses($classnames) {
 
-		// Here options will be stored
-		// $options[<file>][<section>][option] = \KoolDevelop\Configuration\IConfigurableOption
+        // Here options will be stored
+        // $options[<file>][<section>][option] = \KoolDevelop\Configuration\IConfigurableOption
         $options = array();
         
         // Copy array of classes to process
@@ -191,20 +191,20 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
             }
         }
 
-		foreach($options as $file => &$file_options) {
-			if (file_exists(CONFIG_PATH . DS . $file . '.ini')) {
-				$file_contents = file(CONFIG_PATH . DS . $file . '.ini' , FILE_IGNORE_NEW_LINES);
-			} else {
-				$file_contents = array();
-			}
-			$this->processFile($file_options, $file_contents);
+        foreach($options as $file => &$file_options) {
+            if (file_exists(CONFIG_PATH . DS . $file . '.ini')) {
+                $file_contents = file(CONFIG_PATH . DS . $file . '.ini' , FILE_IGNORE_NEW_LINES);
+            } else {
+                $file_contents = array();
+            }
+            $this->processFile($file_options, $file_contents);
 
-			file_put_contents(
-				CONFIG_PATH . DS . $file . '.ini',
-				join("\n", $file_contents)
-			);
+            file_put_contents(
+                CONFIG_PATH . DS . $file . '.ini',
+                join("\n", $file_contents)
+            );
 
-		}
+        }
 
     }
 
@@ -240,7 +240,7 @@ class ConfigureTask implements \KoolDevelop\Console\ITask
             $options[$file][$section][$property] = array();
         }
 
-		// Always store the last version of the option
+        // Always store the last version of the option
         $options[$file][$section][$property] = $option;
     }
     
