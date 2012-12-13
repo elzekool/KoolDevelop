@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Controller\Controller | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -101,6 +107,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -155,8 +164,9 @@
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Controller.Controller.html#14" title="Go to source code">framework/controller/Controller.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Controller.Controller.html#14-197" title="Go to source code">framework/controller/Controller.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -172,7 +182,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Controller.Controller.html#31" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Controller.Controller.html#31-38" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			
@@ -187,43 +197,6 @@
 
 
 
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getAction" id="_getAction">
-
-		<td class="attributes"><code>
-			 protected 
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getAction">#</a>
-		<code><a href="source-class-KoolDevelop.Controller.Controller.html#63" title="Go to source code">getAction</a>( )</code>
-
-		<div class="description short">
-			
-<p>Get action to perform</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Get action to perform</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>string</code><br>Action to perform<br />
-				</div>
 
 
 
@@ -242,7 +215,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setAction">#</a>
-		<code><a href="source-class-KoolDevelop.Controller.Controller.html#72" title="Go to source code">setAction</a>( <span>string <var>$action</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Controller.Controller.html#72-102" title="Go to source code">setAction</a>( <span>string <var>$action</var></span> )</code>
 
 		<div class="description short">
 			
@@ -259,46 +232,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$action</var></dt>
-					<dd><code>string</code><br> Action</dd>
+					<dd><code>string</code><br>$action Action</dd>
 				</dl></div>
 
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getParameters" id="_getParameters">
-
-		<td class="attributes"><code>
-			 protected 
-			array
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getParameters">#</a>
-		<code><a href="source-class-KoolDevelop.Controller.Controller.html#104" title="Go to source code">getParameters</a>( )</code>
-
-		<div class="description short">
-			
-<p>Fetch all parameters</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Fetch all parameters</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array</code><br />
-				</div>
 
 
 
@@ -317,7 +253,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setParameters">#</a>
-		<code><a href="source-class-KoolDevelop.Controller.Controller.html#113" title="Go to source code">setParameters</a>( <span>string[] <var>$parameters</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Controller.Controller.html#113-122" title="Go to source code">setParameters</a>( <span>string[] <var>$parameters</var></span> )</code>
 
 		<div class="description short">
 			
@@ -334,7 +270,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$parameters</var></dt>
-					<dd><code>string[]</code><br> Parameters</dd>
+					<dd><code>string[]</code><br>$parameters Parameters</dd>
 				</dl></div>
 
 
@@ -355,7 +291,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_runAction">#</a>
-		<code><a href="source-class-KoolDevelop.Controller.Controller.html#124" title="Go to source code">runAction</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Controller.Controller.html#124-195" title="Go to source code">runAction</a>( )</code>
 
 		<div class="description short">
 			
@@ -383,10 +319,8 @@
 	<caption>Methods inherited from <a href="class-KoolDevelop.Observable.html#methods">KoolDevelop\Observable</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-KoolDevelop.Observable.html#_">addObservable()</a>, 
-			<a href="class-KoolDevelop.Observable.html#_">addObserver()</a>, 
-			<a href="class-KoolDevelop.Observable.html#_">clearObservers()</a>, 
-			<a href="class-KoolDevelop.Observable.html#_">fireObservable()</a>
+			<a href="class-KoolDevelop.Observable.html#_addObserver">addObserver()</a>, 
+			<a href="class-KoolDevelop.Observable.html#_clearObservers">clearObservers()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -396,44 +330,21 @@
 
 
 
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="View" id="$View">
-
-		<td class="attributes"><code>
-			protected 
-			<code><a href="class-View.html">View</a></code>
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-KoolDevelop.Controller.Controller.html#25" title="Go to source code"><var>$View</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$View" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>View</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>View</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	</table>
+
+
+
+
+
+
 
 
 
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

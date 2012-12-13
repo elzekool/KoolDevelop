@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Interface KoolDevelop\Cache\ICacheStorage | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li class="active"><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -64,8 +70,10 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-KoolDevelop.Cache.APCStorage.html">APCStorage</a></li>
 				<li><a href="class-KoolDevelop.Cache.Cache.html">Cache</a></li>
 				<li><a href="class-KoolDevelop.Cache.FileStorage.html">FileStorage</a></li>
+				<li><a href="class-KoolDevelop.Cache.MemcacheStorage.html">MemcacheStorage</a></li>
 				<li><a href="class-KoolDevelop.Cache.MemoryStorage.html">MemoryStorage</a></li>
 			</ul>
 
@@ -107,6 +115,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -131,7 +142,9 @@
 
 	<div>
 		<h4>Direct known implementers</h4>
+			<a href="class-KoolDevelop.Cache.APCStorage.html">KoolDevelop\Cache\APCStorage</a>, 
 			<a href="class-KoolDevelop.Cache.FileStorage.html">KoolDevelop\Cache\FileStorage</a>, 
+			<a href="class-KoolDevelop.Cache.MemcacheStorage.html">KoolDevelop\Cache\MemcacheStorage</a>, 
 			<a href="class-KoolDevelop.Cache.MemoryStorage.html">KoolDevelop\Cache\MemoryStorage</a>
 	</div>
 
@@ -148,8 +161,9 @@
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Cache.ICacheStorage.html#14" title="Go to source code">framework/cache/ICacheStorage.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Cache.ICacheStorage.html#14-72" title="Go to source code">framework/cache/ICacheStorage.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -165,7 +179,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#25" title="Go to source code">__construct</a>( <span>$options <var>$options</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#25-30" title="Go to source code">__construct</a>( <span>mixed <var>$options</var></span> )</code>
 
 		<div class="description short">
 			
@@ -182,7 +196,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$options</var></dt>
-					<dd><code>$options</code><br>Options from configuration file</dd>
+					<dd><code>mixed</code><br>$options Options from configuration file</dd>
 				</dl></div>
 
 
@@ -203,7 +217,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_saveObject">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#32" title="Go to source code">saveObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$object</var></span>, <span>integer <var>$expire</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#32-41" title="Go to source code">saveObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$object</var></span>, <span>integer <var>$expire</var></span> )</code>
 
 		<div class="description short">
 			
@@ -220,11 +234,11 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br> Key</dd>
+					<dd><code>string</code><br>$key Key</dd>
 					<dt><var>$object</var></dt>
-					<dd><code>mixed</code><br> Object</dd>
+					<dd><code>mixed</code><br>$object Object</dd>
 					<dt><var>$expire</var></dt>
-					<dd><code>integer</code><br> Expiration time in seconds</dd>
+					<dd><code>integer</code><br>$expire Expiration time in seconds</dd>
 				</dl></div>
 
 
@@ -245,7 +259,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadObject">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#43" title="Go to source code">loadObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#43-51" title="Go to source code">loadObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -262,9 +276,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br> Key</dd>
+					<dd><code>string</code><br>$key Key</dd>
 					<dt><var>$default</var></dt>
-					<dd><code>mixed</code><br> Default value</dd>
+					<dd><code>mixed</code><br>$default Default value</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -289,7 +303,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_objectExists">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#53" title="Go to source code">objectExists</a>( <span> <var>$key</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#53-60" title="Go to source code">objectExists</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			
@@ -303,11 +317,54 @@
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key Key</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>boolean</code><br>Object exists and is valid<br />
 				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="deleteObject" id="_deleteObject">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_deleteObject">#</a>
+		<code><a href="source-class-KoolDevelop.Cache.ICacheStorage.html#62-69" title="Go to source code">deleteObject</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Delete Cache Object</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Delete Cache Object</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key Key</dd>
+				</dl></div>
+
 
 
 
@@ -326,10 +383,18 @@
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

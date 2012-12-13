@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Session\Session | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -106,6 +112,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -155,8 +164,9 @@ or trough session.ini</p>
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Session.Session.html#14" title="Go to source code">framework/session/Session.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Session.Session.html#14-199" title="Go to source code">framework/session/Session.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -172,7 +182,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInstance">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#40" title="Go to source code">getInstance</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#40-50" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
 			
@@ -209,7 +219,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_registerSessionStorage">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#79" title="Go to source code">registerSessionStorage</a>( <span>string <var>$id</var></span>, <span><code><a href="class-KoolDevelop.Session.ISessionStorage.html">KoolDevelop\Session\ISessionStorage</a></code> <var>&amp; $storage</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#82-95" title="Go to source code">registerSessionStorage</a>( <span>string <var>$id</var></span>, <span><code><a href="class-KoolDevelop.Session.ISessionStorage.html">KoolDevelop\Session\ISessionStorage</a></code> <var>&amp; $storage</var></span> )</code>
 
 		<div class="description short">
 			
@@ -226,9 +236,9 @@ or trough session.ini</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br> Identifier</dd>
+					<dd><code>string</code><br>$id Identifier</dd>
 					<dt><var>$storage</var></dt>
-					<dd><code>KoolDevelop\Session\Session\ISessionStorage</code><br> Storage Handler</dd>
+					<dd><code>KoolDevelop\Session\Session\ISessionStorage</code><br>$storage Storage Handler</dd>
 				</dl></div>
 
 
@@ -249,7 +259,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_set">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#94" title="Go to source code">set</a>( <span>string <var>$id</var></span>, <span>mixed <var>$value</var></span>, <span>integer <var>$timeout</var> = <span class="php-num">0</span></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#97-113" title="Go to source code">set</a>( <span>string <var>$id</var></span>, <span>mixed <var>$value</var></span>, <span>integer <var>$timeout</var> = <span class="php-num">0</span></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -266,13 +276,13 @@ or trough session.ini</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br> Identifier</dd>
+					<dd><code>string</code><br>$id Identifier</dd>
 					<dt><var>$value</var></dt>
-					<dd><code>mixed</code><br> Value</dd>
+					<dd><code>mixed</code><br>$value Value</dd>
 					<dt><var>$timeout</var></dt>
-					<dd><code>integer</code><br> Timeout in sec of 0 for browser session</dd>
+					<dd><code>integer</code><br>$timeout Timeout in sec of 0 for browser session</dd>
 					<dt><var>$storage</var></dt>
-					<dd><code>null|string|string[]</code><br> Storage Handlers</dd>
+					<dd><code>null|string|string[]</code><br>$storage Storage Handlers</dd>
 				</dl></div>
 
 
@@ -293,7 +303,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#112" title="Go to source code">get</a>( <span>string <var>$id</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#115-135" title="Go to source code">get</a>( <span>string <var>$id</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -310,11 +320,11 @@ or trough session.ini</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br> Identifier</dd>
+					<dd><code>string</code><br>$id Identifier</dd>
 					<dt><var>$default</var></dt>
-					<dd><code>mixed</code><br> Default value</dd>
+					<dd><code>mixed</code><br>$default Default value</dd>
 					<dt><var>$storage</var></dt>
-					<dd><code>null|string|string[]</code><br> Storage Handlers</dd>
+					<dd><code>null|string|string[]</code><br>$storage Storage Handlers</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -339,7 +349,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_exists">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#134" title="Go to source code">exists</a>( <span>string <var>$id</var></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#137-156" title="Go to source code">exists</a>( <span>string <var>$id</var></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -356,9 +366,9 @@ or trough session.ini</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br> Identifier</dd>
+					<dd><code>string</code><br>$id Identifier</dd>
 					<dt><var>$storage</var></dt>
-					<dd><code>null|string|string[]</code><br> Storage Handlers</dd>
+					<dd><code>null|string|string[]</code><br>$storage Storage Handlers</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -383,7 +393,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_del">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#155" title="Go to source code">del</a>( <span>string <var>$id</var></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#158-176" title="Go to source code">del</a>( <span>string <var>$id</var></span>, <span>null|string|string[] <var>$storage</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -400,9 +410,9 @@ or trough session.ini</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br> Identifier</dd>
+					<dd><code>string</code><br>$id Identifier</dd>
 					<dt><var>$storage</var></dt>
-					<dd><code>null|string|string[]</code><br> Storage Handlers</dd>
+					<dd><code>null|string|string[]</code><br>$storage Storage Handlers</dd>
 				</dl></div>
 
 
@@ -423,7 +433,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDependendClasses">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#175" title="Go to source code">getDependendClasses</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#178-186" title="Go to source code">getDependendClasses</a>( )</code>
 
 		<div class="description short">
 			
@@ -447,7 +457,7 @@ or trough session.ini</p>
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getDependendClasses</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_getDependendClasses">KoolDevelop\Configuration\IConfigurable::getDependendClasses()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -462,7 +472,7 @@ or trough session.ini</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConfigurationOptions">#</a>
-		<code><a href="source-class-KoolDevelop.Session.Session.html#185" title="Go to source code">getConfigurationOptions</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Session.Session.html#188-197" title="Go to source code">getConfigurationOptions</a>( )</code>
 
 		<div class="description short">
 			
@@ -486,7 +496,7 @@ or trough session.ini</p>
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getConfigurationOptions</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_getConfigurationOptions">KoolDevelop\Configuration\IConfigurable::getConfigurationOptions()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -501,10 +511,18 @@ or trough session.ini</p>
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

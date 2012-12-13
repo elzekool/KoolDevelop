@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Route\Wildcard | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -64,6 +70,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-KoolDevelop.Route.File.html">File</a></li>
 				<li><a href="class-KoolDevelop.Route.Literal.html">Literal</a></li>
 				<li><a href="class-KoolDevelop.Route.RegEx.html">RegEx</a></li>
 				<li class="active"><a href="class-KoolDevelop.Route.Wildcard.html">Wildcard</a></li>
@@ -106,6 +113,9 @@
 		<ul>
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
 			</li>
 		</ul>
 		<ul>
@@ -166,8 +176,9 @@ URI/route.</p>
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Route.Wildcard.html#14" title="Go to source code">framework/route/Wildcard.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Route.Wildcard.html#14-76" title="Go to source code">framework/route/Wildcard.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -183,7 +194,7 @@ URI/route.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Route.Wildcard.html#33" title="Go to source code">__construct</a>( <span>string <var>$in</var></span>, <span>string <var>$out</var></span>, <span>boolean <var>$stop</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Route.Wildcard.html#33-74" title="Go to source code">__construct</a>( <span>string <var>$in</var></span>, <span>string <var>$out</var></span>, <span>boolean <var>$stop</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -200,18 +211,18 @@ URI/route.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$in</var></dt>
-					<dd><code>string</code><br> Wildcard expression to match</dd>
+					<dd><code>string</code><br>$in Wildcard expression to match</dd>
 					<dt><var>$out</var></dt>
-					<dd><code>string</code><br> Output on match (You can use $1, $2.. to get wildcard matches)</dd>
+					<dd><code>string</code><br>$out Output on match (You can use $1, $2.. to get wildcard matches)</dd>
 					<dt><var>$stop</var></dt>
-					<dd><code>boolean</code><br> Stop on match</dd>
+					<dd><code>boolean</code><br>$stop Stop on match</dd>
 				</dl></div>
 
 
 
 
 				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Route.RegEx.html#_">KoolDevelop\Route\RegEx::__construct</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Route.RegEx.html#___construct">KoolDevelop\Route\RegEx::__construct()</a></code></div>
 
 		</div>
 		</div></td>
@@ -222,7 +233,7 @@ URI/route.</p>
 	<caption>Methods inherited from <a href="class-KoolDevelop.Route.RegEx.html#methods">KoolDevelop\Route\RegEx</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-KoolDevelop.Route.RegEx.html#_">route()</a>
+			<a href="class-KoolDevelop.Route.RegEx.html#_route">route()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -235,10 +246,18 @@ URI/route.</p>
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>KoolDevelop</title>
 
 	<script type="text/javascript" src="resources/combined.js"></script>
 	<script type="text/javascript" src="elementlist.js"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -22,6 +22,8 @@
 			<ul>
 				<li><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -32,11 +34,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -68,10 +74,15 @@
 				<li><a href="class-Element.html">Element</a></li>
 				<li><a href="class-EmailView.html">EmailView</a></li>
 				<li><a href="class-Helper.html">Helper</a></li>
+				<li><a href="class-KoolDevelop.Annotation.Inject.html">KoolDevelop\Annotation\Inject</a></li>
+				<li><a href="class-KoolDevelop.Annotation.Reader.html">KoolDevelop\Annotation\Reader</a></li>
+				<li><a href="class-KoolDevelop.Annotation.ViewConfig.html">KoolDevelop\Annotation\ViewConfig</a></li>
 				<li><a href="class-KoolDevelop.AutoLoader.html">KoolDevelop\AutoLoader</a></li>
 				<li><a href="class-KoolDevelop.Bootstrapper.html">KoolDevelop\Bootstrapper</a></li>
+				<li><a href="class-KoolDevelop.Cache.APCStorage.html">KoolDevelop\Cache\APCStorage</a></li>
 				<li><a href="class-KoolDevelop.Cache.Cache.html">KoolDevelop\Cache\Cache</a></li>
 				<li><a href="class-KoolDevelop.Cache.FileStorage.html">KoolDevelop\Cache\FileStorage</a></li>
+				<li><a href="class-KoolDevelop.Cache.MemcacheStorage.html">KoolDevelop\Cache\MemcacheStorage</a></li>
 				<li><a href="class-KoolDevelop.Cache.MemoryStorage.html">KoolDevelop\Cache\MemoryStorage</a></li>
 				<li><a href="class-KoolDevelop.Configuration.html">KoolDevelop\Configuration</a></li>
 				<li><a href="class-KoolDevelop.Configuration.IConfigurableOption.html">KoolDevelop\Configuration\IConfigurableOption</a></li>
@@ -83,16 +94,20 @@
 				<li><a href="class-KoolDevelop.Database.Query.html">KoolDevelop\Database\Query</a></li>
 				<li><a href="class-KoolDevelop.Database.Result.html">KoolDevelop\Database\Result</a></li>
 				<li><a href="class-KoolDevelop.Database.Row.html">KoolDevelop\Database\Row</a></li>
+				<li><a href="class-KoolDevelop.Di.Registry.html">KoolDevelop\Di\Registry</a></li>
 				<li><a href="class-KoolDevelop.Email.Message.html">KoolDevelop\Email\Message</a></li>
 				<li><a href="class-KoolDevelop.ErrorHandler.html">KoolDevelop\ErrorHandler</a></li>
 				<li><a href="class-KoolDevelop.International.GettextTranslator.html">KoolDevelop\International\GettextTranslator</a></li>
 				<li><a href="class-KoolDevelop.International.I18n.html">KoolDevelop\International\I18n</a></li>
 				<li><a href="class-KoolDevelop.International.L10n.html">KoolDevelop\International\L10n</a></li>
 				<li><a href="class-KoolDevelop.International.PassTroughTranslator.html">KoolDevelop\International\PassTroughTranslator</a></li>
+				<li><a href="class-KoolDevelop.Log.Logger.html">KoolDevelop\Log\Logger</a></li>
+				<li><a href="class-KoolDevelop.Log.Message.html">KoolDevelop\Log\Message</a></li>
 				<li><a href="class-KoolDevelop.Model.ContainerModel.html">KoolDevelop\Model\ContainerModel</a></li>
 				<li><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></li>
 				<li><a href="class-KoolDevelop.Model.SimpleArrayConverter.html">KoolDevelop\Model\SimpleArrayConverter</a></li>
 				<li><a href="class-KoolDevelop.Observable.html">KoolDevelop\Observable</a></li>
+				<li><a href="class-KoolDevelop.Route.File.html">KoolDevelop\Route\File</a></li>
 				<li><a href="class-KoolDevelop.Route.Literal.html">KoolDevelop\Route\Literal</a></li>
 				<li><a href="class-KoolDevelop.Route.RegEx.html">KoolDevelop\Route\RegEx</a></li>
 				<li><a href="class-KoolDevelop.Route.Wildcard.html">KoolDevelop\Route\Wildcard</a></li>
@@ -115,6 +130,7 @@
 
 			<h3>Interfaces</h3>
 			<ul>
+				<li><a href="class-KoolDevelop.Annotation.IAnnotation.html">KoolDevelop\Annotation\IAnnotation</a></li>
 				<li><a href="class-KoolDevelop.Cache.ICacheStorage.html">KoolDevelop\Cache\ICacheStorage</a></li>
 				<li><a href="class-KoolDevelop.Configuration.IConfigurable.html">KoolDevelop\Configuration\IConfigurable</a></li>
 				<li><a href="class-KoolDevelop.Console.ITask.html">KoolDevelop\Console\ITask</a></li>
@@ -127,7 +143,9 @@
 
 			<h3>Exceptions</h3>
 			<ul>
+				<li><a href="class-KoolDevelop.Exception.AnnotationException.html">KoolDevelop\Exception\AnnotationException</a></li>
 				<li><a href="class-KoolDevelop.Exception.DatabaseException.html">KoolDevelop\Exception\DatabaseException</a></li>
+				<li><a href="class-KoolDevelop.Exception.DependencyException.html">KoolDevelop\Exception\DependencyException</a></li>
 				<li><a href="class-KoolDevelop.Exception.EmailException.html">KoolDevelop\Exception\EmailException</a></li>
 				<li><a href="class-KoolDevelop.Exception.Exception.html">KoolDevelop\Exception\Exception</a></li>
 				<li><a href="class-KoolDevelop.Exception.FileNotFoundException.html">KoolDevelop\Exception\FileNotFoundException</a></li>
@@ -176,6 +194,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -194,6 +215,9 @@
 		<td class="name"><a href="namespace-KoolDevelop.html">KoolDevelop</a></td>
 	</tr>
 	<tr>
+		<td class="name"><a href="namespace-KoolDevelop.Annotation.html">KoolDevelop\Annotation</a></td>
+	</tr>
+	<tr>
 		<td class="name"><a href="namespace-KoolDevelop.Cache.html">KoolDevelop\Cache</a></td>
 	</tr>
 	<tr>
@@ -209,6 +233,9 @@
 		<td class="name"><a href="namespace-KoolDevelop.Database.html">KoolDevelop\Database</a></td>
 	</tr>
 	<tr>
+		<td class="name"><a href="namespace-KoolDevelop.Di.html">KoolDevelop\Di</a></td>
+	</tr>
+	<tr>
 		<td class="name"><a href="namespace-KoolDevelop.Email.html">KoolDevelop\Email</a></td>
 	</tr>
 	<tr>
@@ -216,6 +243,9 @@
 	</tr>
 	<tr>
 		<td class="name"><a href="namespace-KoolDevelop.International.html">KoolDevelop\International</a></td>
+	</tr>
+	<tr>
+		<td class="name"><a href="namespace-KoolDevelop.Log.html">KoolDevelop\Log</a></td>
 	</tr>
 	<tr>
 		<td class="name"><a href="namespace-KoolDevelop.Model.html">KoolDevelop\Model</a></td>
@@ -244,7 +274,7 @@
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

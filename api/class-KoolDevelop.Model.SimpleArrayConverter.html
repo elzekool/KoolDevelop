@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Model\SimpleArrayConverter | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li class="active"><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -107,6 +113,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -132,13 +141,6 @@ setter functions</p>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-			<a href="class-KoolDevelop.Observable.html"><span>KoolDevelop\Observable</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:30px">
-			<img src="resources/inherit.png" alt="Extended by" />
 <b><span>KoolDevelop\Model\SimpleArrayConverter</span></b>			
 			 implements 
 				<a href="class-KoolDevelop.Model.IArrayConverter.html"><span>KoolDevelop\Model\IArrayConverter</span></a>
@@ -164,8 +166,9 @@ setter functions</p>
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#14" title="Go to source code">framework/model/SimpleArrayConverter.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#14-78" title="Go to source code">framework/model/SimpleArrayConverter.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -181,7 +184,7 @@ setter functions</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#36" title="Go to source code">__construct</a>( <span>string[] <var>$Fields</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#36-43" title="Go to source code">__construct</a>( <span>string[] <var>$Fields</var></span> )</code>
 
 		<div class="description short">
 			
@@ -198,7 +201,7 @@ setter functions</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$Fields</var></dt>
-					<dd><code>string[]</code><br> Underscored field names</dd>
+					<dd><code>string[]</code><br>$Fields Underscored field names</dd>
 				</dl></div>
 
 
@@ -219,7 +222,7 @@ setter functions</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_convertModelToArray">#</a>
-		<code><a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#45" title="Go to source code">convertModelToArray</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#45-59" title="Go to source code">convertModelToArray</a>( <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
 
 		<div class="description short">
 			
@@ -236,7 +239,7 @@ setter functions</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$model</var></dt>
-					<dd><code><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code></code><br> Model</dd>
+					<dd><code><code><a href="class-Model.html">Model</a></code></code><br>$model Model</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -248,7 +251,7 @@ setter functions</p>
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Model.IArrayConverter.html#_">KoolDevelop\Model\IArrayConverter::convertModelToArray</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Model.IArrayConverter.html#_convertModelToArray">KoolDevelop\Model\IArrayConverter::convertModelToArray()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -263,7 +266,7 @@ setter functions</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_convertArrayToModel">#</a>
-		<code><a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#62" title="Go to source code">convertArrayToModel</a>( <span>mixed[] <var>$data</var></span>, <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Model.SimpleArrayConverter.html#62-75" title="Go to source code">convertArrayToModel</a>( <span>mixed[] <var>$data</var></span>, <span><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code> <var>&amp; $model</var></span> )</code>
 
 		<div class="description short">
 			
@@ -280,9 +283,9 @@ setter functions</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$data</var></dt>
-					<dd><code>mixed[]</code><br> Input Arrat</dd>
+					<dd><code>mixed[]</code><br>$data Input Arrat</dd>
 					<dt><var>$model</var></dt>
-					<dd><code><code><a href="class-KoolDevelop.Model.Model.html">KoolDevelop\Model\Model</a></code></code><br> Model</dd>
+					<dd><code><code><a href="class-Model.html">Model</a></code></code><br>$model Model</dd>
 				</dl></div>
 
 
@@ -290,23 +293,20 @@ setter functions</p>
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Model.IArrayConverter.html#_">KoolDevelop\Model\IArrayConverter::convertArrayToModel</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Model.IArrayConverter.html#_convertArrayToModel">KoolDevelop\Model\IArrayConverter::convertArrayToModel()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-KoolDevelop.Observable.html#methods">KoolDevelop\Observable</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-KoolDevelop.Observable.html#_">addObservable()</a>, 
-			<a href="class-KoolDevelop.Observable.html#_">addObserver()</a>, 
-			<a href="class-KoolDevelop.Observable.html#_">clearObservers()</a>, 
-			<a href="class-KoolDevelop.Observable.html#_">fireObservable()</a>
-		</code></td>
-	</tr>
-	</table>
+
+
+
+
+
+
+
+
 
 
 
@@ -319,7 +319,7 @@ setter functions</p>
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

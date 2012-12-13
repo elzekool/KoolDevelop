@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class View\Helper\Image | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -103,6 +109,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -160,8 +169,9 @@
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-View.Helper.Image.html#14" title="Go to source code">framework/application_base/view/helper/Image.php</a><br />
+		<b>Located at</b> <a href="source-class-View.Helper.Image.html#14-111" title="Go to source code">framework/application_base/view/helper/Image.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -177,7 +187,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_convert">#</a>
-		<code><a href="source-class-View.Helper.Image.html#49" title="Go to source code">convert</a>( <span>string <var>$input</var></span>, <span>string <var>$output</var></span>, <span>callable <var>$transform</var></span> )</code>
+		<code><a href="source-class-View.Helper.Image.html#49-87" title="Go to source code">convert</a>( <span>string <var>$input</var></span>, <span>string <var>$output</var></span>, <span>callable <var>$transform</var></span> )</code>
 
 		<div class="description short">
 			
@@ -204,11 +214,11 @@ indicated by starting with the DIRECTORY_SEPARATOR</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$input</var></dt>
-					<dd><code>string</code><br> Input image filename</dd>
+					<dd><code>string</code><br>$input Input image filename</dd>
 					<dt><var>$output</var></dt>
-					<dd><code>string</code><br> Output image filename</dd>
+					<dd><code>string</code><br>$output Output image filename</dd>
 					<dt><var>$transform</var></dt>
-					<dd><code>callable</code><br> Transformation callback</dd>
+					<dd><code>callable</code><br>$transform Transformation callback</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -233,7 +243,7 @@ indicated by starting with the DIRECTORY_SEPARATOR</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_display">#</a>
-		<code><a href="source-class-View.Helper.Image.html#89" title="Go to source code">display</a>( <span>type <var>$input</var></span>, <span>type <var>$output</var></span>, <span>type <var>$transform</var></span>, <span>type <var>$html</var> = <span class="php-quote">'&lt;img src=&quot;%FILENAME%&quot; /&gt;'</span></span> )</code>
+		<code><a href="source-class-View.Helper.Image.html#89-108" title="Go to source code">display</a>( <span>type <var>$input</var></span>, <span>type <var>$output</var></span>, <span>type <var>$transform</var></span>, <span>type <var>$html</var> = <span class="php-quote">'&lt;img src=&quot;%FILENAME%&quot; /&gt;'</span></span> )</code>
 
 		<div class="description short">
 			
@@ -252,13 +262,13 @@ indicated by starting with the DIRECTORY_SEPARATOR</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$input</var></dt>
-					<dd><code>type</code><br> Input filename</dd>
+					<dd><code>type</code><br>$input Input filename</dd>
 					<dt><var>$output</var></dt>
-					<dd><code>type</code><br> Output filename</dd>
+					<dd><code>type</code><br>$output Output filename</dd>
 					<dt><var>$transform</var></dt>
-					<dd><code>type</code><br> Transformation callback</dd>
+					<dd><code>type</code><br>$transform Transformation callback</dd>
 					<dt><var>$html</var></dt>
-					<dd><code>type</code><br> HTML Output, %FILENAME% is replaced</dd>
+					<dd><code>type</code><br>$html HTML Output, %FILENAME% is replaced</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -278,8 +288,8 @@ indicated by starting with the DIRECTORY_SEPARATOR</p>
 	<caption>Methods inherited from <a href="class-KoolDevelop.View.Helper.html#methods">KoolDevelop\View\Helper</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-KoolDevelop.View.Helper.html#_">__construct()</a>, 
-			<a href="class-KoolDevelop.View.Helper.html#_">getView()</a>
+			<a href="class-KoolDevelop.View.Helper.html#___construct">__construct()</a>, 
+			<a href="class-KoolDevelop.View.Helper.html#_getView">getView()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -292,10 +302,18 @@ indicated by starting with the DIRECTORY_SEPARATOR</p>
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

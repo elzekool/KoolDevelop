@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Email\Message | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li class="active"><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -101,6 +107,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -149,8 +158,9 @@ uses PHPMailer internaly</p>
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Email.Message.html#20" title="Go to source code">framework/email/Message.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Email.Message.html#20-406" title="Go to source code">framework/email/Message.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -166,7 +176,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_checkEmailValid">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#95" title="Go to source code">checkEmailValid</a>( <span>string <var>$emailaddress</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#95-108" title="Go to source code">checkEmailValid</a>( <span>string <var>$emailaddress</var></span> )</code>
 
 		<div class="description short">
 			
@@ -183,7 +193,7 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$emailaddress</var></dt>
-					<dd><code>string</code><br> Address to check</dd>
+					<dd><code>string</code><br>$emailaddress Address to check</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -208,7 +218,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#110" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#110-115" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			
@@ -241,7 +251,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setFrom">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#117" title="Go to source code">setFrom</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#117-133" title="Go to source code">setFrom</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -258,9 +268,9 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$address</var></dt>
-					<dd><code>string</code><br> Address</dd>
+					<dd><code>string</code><br>$address Address</dd>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> Name</dd>
+					<dd><code>string</code><br>$name Name</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -285,7 +295,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setReplyTo">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#135" title="Go to source code">setReplyTo</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#135-151" title="Go to source code">setReplyTo</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -302,9 +312,9 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$address</var></dt>
-					<dd><code>string</code><br> Address</dd>
+					<dd><code>string</code><br>$address Address</dd>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> Name</dd>
+					<dd><code>string</code><br>$name Name</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -329,7 +339,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addBCC">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#153" title="Go to source code">addBCC</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#153-168" title="Go to source code">addBCC</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -346,9 +356,9 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$address</var></dt>
-					<dd><code>string</code><br> Address</dd>
+					<dd><code>string</code><br>$address Address</dd>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> Name</dd>
+					<dd><code>string</code><br>$name Name</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -373,7 +383,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addTo">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#170" title="Go to source code">addTo</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#170-185" title="Go to source code">addTo</a>( <span>string <var>$address</var></span>, <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -390,9 +400,9 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$address</var></dt>
-					<dd><code>string</code><br> Address</dd>
+					<dd><code>string</code><br>$address Address</dd>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> Name</dd>
+					<dd><code>string</code><br>$name Name</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -417,7 +427,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addAttachment">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#187" title="Go to source code">addAttachment</a>( <span>string <var>$filename</var></span>, <span>string <var>$name</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#187-201" title="Go to source code">addAttachment</a>( <span>string <var>$filename</var></span>, <span>string <var>$name</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -434,9 +444,9 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$filename</var></dt>
-					<dd><code>string</code><br> Filename (full path)</dd>
+					<dd><code>string</code><br>$filename Filename (full path)</dd>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> Name</dd>
+					<dd><code>string</code><br>$name Name</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -461,7 +471,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSubject">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#203" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#203-213" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
 
 		<div class="description short">
 			
@@ -478,7 +488,7 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$subject</var></dt>
-					<dd><code>string</code><br> Subject</dd>
+					<dd><code>string</code><br>$subject Subject</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -503,7 +513,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setContents">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#215" title="Go to source code">setContents</a>( <span>string <var>$message_view</var></span>, <span>mixed[] <var>$parameters</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#215-234" title="Go to source code">setContents</a>( <span>string <var>$message_view</var></span>, <span>mixed[] <var>$parameters</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -520,9 +530,9 @@ uses PHPMailer internaly</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$message_view</var></dt>
-					<dd><code>string</code><br> View file to use</dd>
+					<dd><code>string</code><br>$message_view View file to use</dd>
 					<dt><var>$parameters</var></dt>
-					<dd><code>mixed[]</code><br> Parameters</dd>
+					<dd><code>mixed[]</code><br>$parameters Parameters</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -547,7 +557,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_reset">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#236" title="Go to source code">reset</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#236-313" title="Go to source code">reset</a>( )</code>
 
 		<div class="description short">
 			
@@ -580,7 +590,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#317" title="Go to source code">send</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#317-365" title="Go to source code">send</a>( )</code>
 
 		<div class="description short">
 			
@@ -613,7 +623,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDependendClasses">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#367" title="Go to source code">getDependendClasses</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#367-377" title="Go to source code">getDependendClasses</a>( )</code>
 
 		<div class="description short">
 			
@@ -637,7 +647,7 @@ uses PHPMailer internaly</p>
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getDependendClasses</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_getDependendClasses">KoolDevelop\Configuration\IConfigurable::getDependendClasses()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -652,7 +662,7 @@ uses PHPMailer internaly</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConfigurationOptions">#</a>
-		<code><a href="source-class-KoolDevelop.Email.Message.html#379" title="Go to source code">getConfigurationOptions</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Email.Message.html#379-404" title="Go to source code">getConfigurationOptions</a>( )</code>
 
 		<div class="description short">
 			
@@ -676,7 +686,7 @@ uses PHPMailer internaly</p>
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_">KoolDevelop\Configuration\IConfigurable::getConfigurationOptions</a></code></div>
+				<div class="list"><code><a href="class-KoolDevelop.Configuration.IConfigurable.html#_getConfigurationOptions">KoolDevelop\Configuration\IConfigurable::getConfigurationOptions()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -691,10 +701,18 @@ uses PHPMailer internaly</p>
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

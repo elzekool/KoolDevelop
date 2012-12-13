@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Cache\Cache | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li class="active"><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -64,8 +70,10 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-KoolDevelop.Cache.APCStorage.html">APCStorage</a></li>
 				<li class="active"><a href="class-KoolDevelop.Cache.Cache.html">Cache</a></li>
 				<li><a href="class-KoolDevelop.Cache.FileStorage.html">FileStorage</a></li>
+				<li><a href="class-KoolDevelop.Cache.MemcacheStorage.html">MemcacheStorage</a></li>
 				<li><a href="class-KoolDevelop.Cache.MemoryStorage.html">MemoryStorage</a></li>
 			</ul>
 
@@ -107,6 +115,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -143,8 +154,9 @@
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Cache.Cache.html#14" title="Go to source code">framework/cache/Cache.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Cache.Cache.html#14-148" title="Go to source code">framework/cache/Cache.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -160,7 +172,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInstance">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.Cache.html#32" title="Go to source code">getInstance</a>( <span>string <var>$config</var> = <span class="php-quote">'default'</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.Cache.html#32-44" title="Go to source code">getInstance</a>( <span>string <var>$config</var> = <span class="php-quote">'default'</span></span> )</code>
 
 		<div class="description short">
 			
@@ -177,51 +189,13 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$config</var></dt>
-					<dd><code>string</code><br> Cache configuration identifier</dd>
+					<dd><code>string</code><br>$config Cache configuration identifier</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code><code><a href="class-KoolDevelop.Cache.Cache.html">KoolDevelop\Cache\Cache</a></code></code><br />
 				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 protected 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.Cache.html#72" title="Go to source code">__construct</a>( <span>string <var>$config</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Constructor</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Constructor</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$config</var></dt>
-					<dd><code>string</code><br> Configuration identifier</dd>
-				</dl></div>
-
 
 
 
@@ -240,7 +214,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_saveObject">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.Cache.html#88" title="Go to source code">saveObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$object</var></span>, <span>integer <var>$expire</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.Cache.html#90-103" title="Go to source code">saveObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$object</var></span>, <span>integer <var>$expire</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -257,11 +231,11 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br> Key</dd>
+					<dd><code>string</code><br>$key Key</dd>
 					<dt><var>$object</var></dt>
-					<dd><code>mixed</code><br> Object</dd>
+					<dd><code>mixed</code><br>$object Object</dd>
 					<dt><var>$expire</var></dt>
-					<dd><code>integer</code><br> Expiration time in seconds</dd>
+					<dd><code>integer</code><br>$expire Expiration time in seconds</dd>
 				</dl></div>
 
 
@@ -282,7 +256,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadObject">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.Cache.html#103" title="Go to source code">loadObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.Cache.html#105-118" title="Go to source code">loadObject</a>( <span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -299,9 +273,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br> Key</dd>
+					<dd><code>string</code><br>$key Key</dd>
 					<dt><var>$default</var></dt>
-					<dd><code>mixed</code><br> Default value</dd>
+					<dd><code>mixed</code><br>$default Default value</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -326,7 +300,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_objectExists">#</a>
-		<code><a href="source-class-KoolDevelop.Cache.Cache.html#118" title="Go to source code">objectExists</a>( <span> <var>$key</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Cache.Cache.html#120-132" title="Go to source code">objectExists</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			
@@ -340,11 +314,54 @@
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key Key</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>boolean</code><br>Object exists and is valid<br />
 				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="deleteObject" id="_deleteObject">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_deleteObject">#</a>
+		<code><a href="source-class-KoolDevelop.Cache.Cache.html#134-146" title="Go to source code">deleteObject</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Delete Object from Cache</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Delete Object from Cache</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key Key</dd>
+				</dl></div>
+
 
 
 
@@ -360,44 +377,21 @@
 
 
 
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="Instances" id="$Instances">
-
-		<td class="attributes"><code>
-			protected static
-			<code><a href="class-KoolDevelop.Cache.Cache.html">KoolDevelop\Cache\Cache</a>[]</code>
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-KoolDevelop.Cache.Cache.html#26" title="Go to source code"><var>$Instances</var></a>
-		</td>
-		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
-		<td class="description"><div>
-			<a href="#$Instances" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>Cache Instance</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Cache Instance</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	</table>
+
+
+
+
+
+
 
 
 
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

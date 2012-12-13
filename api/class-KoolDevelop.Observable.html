@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Observable | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -107,6 +113,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -136,7 +145,6 @@ observables with addObserver.</p>
 			<a href="class-KoolDevelop.Console.Console.html">KoolDevelop\Console\Console</a>, 
 			<a href="class-KoolDevelop.Controller.Controller.html">KoolDevelop\Controller\Controller</a>, 
 			<a href="class-KoolDevelop.ErrorHandler.html">KoolDevelop\ErrorHandler</a>, 
-			<a href="class-KoolDevelop.Model.SimpleArrayConverter.html">KoolDevelop\Model\SimpleArrayConverter</a>, 
 			<a href="class-KoolDevelop.Router.html">KoolDevelop\Router</a>, 
 			<a href="class-KoolDevelop.View.View.html">KoolDevelop\View\View</a>
 	</div>
@@ -165,90 +173,13 @@ observables with addObserver.</p>
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Observable.html#14" title="Go to source code">framework/Observable.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Observable.html#14-140" title="Go to source code">framework/Observable.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="addObservable" id="_addObservable">
-
-		<td class="attributes"><code>
-			 protected 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_addObservable">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#35" title="Go to source code">addObservable</a>( <span>string <var>$name</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Add observable</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Add observable</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> Name</dd>
-				</dl></div>
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="fireObservable" id="_fireObservable">
-
-		<td class="attributes"><code>
-			 protected 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_fireObservable">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#54" title="Go to source code">fireObservable</a>( <span>string <var>$observable</var></span>, <span>boolean <var>$stopontrue</var> = <span class="php-keyword1">false</span></span> )</code>
-
-		<div class="description short">
-			
-<p>Execute Observers for Observable</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Execute Observers for Observable</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$observable</var></dt>
-					<dd><code>string</code><br> Observable</dd>
-					<dt><var>$stopontrue</var></dt>
-					<dd><code>boolean</code><br> When enabled stops fireing when observer returns true</dd>
-				</dl></div>
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="addObserver" id="_addObserver">
 
 		<td class="attributes"><code>
@@ -260,7 +191,7 @@ observables with addObserver.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addObserver">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#83" title="Go to source code">addObserver</a>( <span>string <var>$observable</var></span>, <span>&lt;type&gt; <var>$callback</var></span>, <span>&lt;type&gt; <var>$prepend</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Observable.html#83-111" title="Go to source code">addObserver</a>( <span>string <var>$observable</var></span>, <span>&lt;type&gt; <var>$callback</var></span>, <span>&lt;type&gt; <var>$prepend</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -279,11 +210,11 @@ be used for deleting observer</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$observable</var></dt>
-					<dd><code>string</code><br> Observable</dd>
+					<dd><code>string</code><br>$observable Observable</dd>
 					<dt><var>$callback</var></dt>
-					<dd><code>&lt;type&gt;</code><br> Callback</dd>
+					<dd><code>&lt;type&gt;</code><br>$callback Callback</dd>
 					<dt><var>$prepend</var></dt>
-					<dd><code>&lt;type&gt;</code><br> True to prepend, false to append</dd>
+					<dd><code>&lt;type&gt;</code><br>$prepend True to prepend, false to append</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -308,7 +239,7 @@ be used for deleting observer</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_clearObservers">#</a>
-		<code><a href="source-class-KoolDevelop.Observable.html#113" title="Go to source code">clearObservers</a>( <span>string <var>$observable</var></span>, <span>string <var>$id</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Observable.html#113-137" title="Go to source code">clearObservers</a>( <span>string <var>$observable</var></span>, <span>string <var>$id</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -325,9 +256,9 @@ be used for deleting observer</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$observable</var></dt>
-					<dd><code>string</code><br> Observable</dd>
+					<dd><code>string</code><br>$observable Observable</dd>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br> Unique observer id returned by addObserver, null to delete all</dd>
+					<dd><code>string</code><br>$id Unique observer id returned by addObserver, null to delete all</dd>
 				</dl></div>
 
 
@@ -348,10 +279,18 @@ be used for deleting observer</p>
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

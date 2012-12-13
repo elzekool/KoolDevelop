@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class KoolDevelop\Database\Query | KoolDevelop</title>
 
-	<script type="text/javascript" src="resources/combined.js?2279242761"></script>
-	<script type="text/javascript" src="elementlist.js?1026925873"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<script type="text/javascript" src="resources/combined.js?4171783438"></script>
+	<script type="text/javascript" src="elementlist.js?2108698796"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-KoolDevelop.html">KoolDevelop<span></span></a>
 						<ul>
+				<li><a href="namespace-KoolDevelop.Annotation.html">Annotation</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Cache.html">Cache</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Configuration.html">Configuration</a>
@@ -33,11 +35,15 @@
 						</li>
 				<li class="active"><a href="namespace-KoolDevelop.Database.html">Database</a>
 						</li>
+				<li><a href="namespace-KoolDevelop.Di.html">Di</a>
+						</li>
 				<li><a href="namespace-KoolDevelop.Email.html">Email</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Exception.html">Exception</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.International.html">International</a>
+						</li>
+				<li><a href="namespace-KoolDevelop.Log.html">Log</a>
 						</li>
 				<li><a href="namespace-KoolDevelop.Model.html">Model</a>
 						</li>
@@ -104,6 +110,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -140,8 +149,9 @@
 				Elze Kool, Kool Software en Webdevelopment<br />
 				<b>Author:</b>
 				Elze Kool<br />
-		<b>Located at</b> <a href="source-class-KoolDevelop.Database.Query.html#14" title="Go to source code">framework/database/Query.php</a><br />
+		<b>Located at</b> <a href="source-class-KoolDevelop.Database.Query.html#14-624" title="Go to source code">framework/database/Query.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -157,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#116" title="Go to source code">__construct</a>( <span>PDO <var>$pdo</var></span>, <span>boolean <var>$profiling</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#116-130" title="Go to source code">__construct</a>( <span>PDO <var>$pdo</var></span>, <span>boolean <var>$profiling</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -174,16 +184,16 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$pdo</var></dt>
-					<dd><code>PDO</code><br> PDO Connection</dd>
+					<dd><code>PDO</code><br>$pdo PDO Connection</dd>
 					<dt><var>$profiling</var></dt>
-					<dd><code>boolean</code><br> Profiling enabled</dd>
+					<dd><code>boolean</code><br>$profiling Profiling enabled</dd>
 				</dl></div>
 
 
 
 				<h4>See</h4>
 				<div class="list">
-						\KoolDevelop\Database\Adaptor<br />
+						<code><code><a href="class-KoolDevelop.Database.Adaptor.html">KoolDevelop\Database\Adaptor</a></code></code><br />
 				</div>
 
 
@@ -201,7 +211,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#133" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#133-140" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			
@@ -238,7 +248,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_custom">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#272" title="Go to source code">custom</a>( <span>string <var>$sql</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#272-293" title="Go to source code">custom</a>( <span>string <var>$sql</var></span> )</code>
 
 		<div class="description short">
 			
@@ -257,7 +267,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br> Custom SQL</dd>
+					<dd><code>string</code><br>$sql Custom SQL</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -282,7 +292,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_select">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#295" title="Go to source code">select</a>( <span>string|string[] <var>$fields</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#295-308" title="Go to source code">select</a>( <span>string|string[] <var>$fields</var></span> )</code>
 
 		<div class="description short">
 			
@@ -299,7 +309,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$fields</var></dt>
-					<dd><code>string|string[]</code><br> Fields to select</dd>
+					<dd><code>string|string[]</code><br>$fields Fields to select</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -324,7 +334,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_insert">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#310" title="Go to source code">insert</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#310-319" title="Go to source code">insert</a>( )</code>
 
 		<div class="description short">
 			
@@ -361,7 +371,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_replace">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#321" title="Go to source code">replace</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#321-331" title="Go to source code">replace</a>( )</code>
 
 		<div class="description short">
 			
@@ -398,7 +408,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#333" title="Go to source code">update</a>( )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#333-343" title="Go to source code">update</a>( )</code>
 
 		<div class="description short">
 			
@@ -435,7 +445,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#345" title="Go to source code">delete</a>( <span>string <var>$fields</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#345-359" title="Go to source code">delete</a>( <span>string <var>$fields</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
@@ -452,7 +462,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$fields</var></dt>
-					<dd><code>string</code><br> Tables to delete (in case of JOIN)</dd>
+					<dd><code>string</code><br>$fields Tables to delete (in case of JOIN)</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -477,7 +487,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_from">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#361" title="Go to source code">from</a>( <span>string <var>$table</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#361-376" title="Go to source code">from</a>( <span>string <var>$table</var></span> )</code>
 
 		<div class="description short">
 			
@@ -494,7 +504,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -519,7 +529,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_into">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#378" title="Go to source code">into</a>( <span>string <var>$table</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#378-393" title="Go to source code">into</a>( <span>string <var>$table</var></span> )</code>
 
 		<div class="description short">
 			
@@ -536,7 +546,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -561,7 +571,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_where">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#395" title="Go to source code">where</a>( <span>string|string[] <var>$conditions</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#395-416" title="Go to source code">where</a>( <span>string|string[] <var>$conditions</var></span> )</code>
 
 		<div class="description short">
 			
@@ -580,7 +590,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$conditions</var></dt>
-					<dd><code>string|string[]</code><br> Conditions</dd>
+					<dd><code>string|string[]</code><br>$conditions Conditions</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -605,7 +615,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_limit">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#418" title="Go to source code">limit</a>( <span>&lt;type&gt; <var>$count</var></span>, <span>&lt;type&gt; <var>$offset</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#418-434" title="Go to source code">limit</a>( <span>&lt;type&gt; <var>$count</var></span>, <span>&lt;type&gt; <var>$offset</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
 			
@@ -622,9 +632,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$count</var></dt>
-					<dd><code>&lt;type&gt;</code><br> Count</dd>
+					<dd><code>&lt;type&gt;</code><br>$count Count</dd>
 					<dt><var>$offset</var></dt>
-					<dd><code>&lt;type&gt;</code><br> Offset</dd>
+					<dd><code>&lt;type&gt;</code><br>$offset Offset</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -649,7 +659,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_leftJoin">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#436" title="Go to source code">leftJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#436-446" title="Go to source code">leftJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
 
 		<div class="description short">
 			
@@ -666,9 +676,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 					<dt><var>$on</var></dt>
-					<dd><code>string</code><br> Join on</dd>
+					<dd><code>string</code><br>$on Join on</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -693,7 +703,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_rightJoin">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#448" title="Go to source code">rightJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#448-458" title="Go to source code">rightJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
 
 		<div class="description short">
 			
@@ -710,9 +720,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 					<dt><var>$on</var></dt>
-					<dd><code>string</code><br> Join on</dd>
+					<dd><code>string</code><br>$on Join on</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -737,7 +747,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_innerJoin">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#461" title="Go to source code">innerJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#461-471" title="Go to source code">innerJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
 
 		<div class="description short">
 			
@@ -754,9 +764,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 					<dt><var>$on</var></dt>
-					<dd><code>string</code><br> Join on</dd>
+					<dd><code>string</code><br>$on Join on</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -781,7 +791,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_outerJoin">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#473" title="Go to source code">outerJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#473-483" title="Go to source code">outerJoin</a>( <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
 
 		<div class="description short">
 			
@@ -798,9 +808,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 					<dt><var>$on</var></dt>
-					<dd><code>string</code><br> Join on</dd>
+					<dd><code>string</code><br>$on Join on</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -825,7 +835,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_join">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#485" title="Go to source code">join</a>( <span>string <var>$type</var></span>, <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#485-511" title="Go to source code">join</a>( <span>string <var>$type</var></span>, <span>string <var>$table</var></span>, <span>string <var>$on</var></span> )</code>
 
 		<div class="description short">
 			
@@ -842,11 +852,11 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$type</var></dt>
-					<dd><code>string</code><br> Type</dd>
+					<dd><code>string</code><br>$type Type</dd>
 					<dt><var>$table</var></dt>
-					<dd><code>string</code><br> Table</dd>
+					<dd><code>string</code><br>$table Table</dd>
 					<dt><var>$on</var></dt>
-					<dd><code>string</code><br> Join on</dd>
+					<dd><code>string</code><br>$on Join on</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -871,7 +881,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_set">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#514" title="Go to source code">set</a>( <span>string|string[] <var>$values</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#514-538" title="Go to source code">set</a>( <span>string|string[] <var>$values</var></span> )</code>
 
 		<div class="description short">
 			
@@ -890,7 +900,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$values</var></dt>
-					<dd><code>string|string[]</code><br> Field &lt;-&gt; Value combination(s)</dd>
+					<dd><code>string|string[]</code><br>$values Field &lt;-&gt; Value combination(s)</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -915,7 +925,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_orderby">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#540" title="Go to source code">orderby</a>( <span>string <var>$field</var></span>, <span>string <var>$direction</var> = <span class="php-quote">'ASC'</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#540-555" title="Go to source code">orderby</a>( <span>string <var>$field</var></span>, <span>string <var>$direction</var> = <span class="php-quote">'ASC'</span></span> )</code>
 
 		<div class="description short">
 			
@@ -932,9 +942,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$field</var></dt>
-					<dd><code>string</code><br> Field</dd>
+					<dd><code>string</code><br>$field Field</dd>
 					<dt><var>$direction</var></dt>
-					<dd><code>string</code><br> Direction (ASC|DESC)</dd>
+					<dd><code>string</code><br>$direction Direction (ASC|DESC)</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -959,7 +969,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_groupby">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#557" title="Go to source code">groupby</a>( <span>string <var>$field</var></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#557-567" title="Go to source code">groupby</a>( <span>string <var>$field</var></span> )</code>
 
 		<div class="description short">
 			
@@ -976,7 +986,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$field</var></dt>
-					<dd><code>string</code><br> Field</dd>
+					<dd><code>string</code><br>$field Field</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -1001,7 +1011,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_execute">#</a>
-		<code><a href="source-class-KoolDevelop.Database.Query.html#570" title="Go to source code">execute</a>( <span>mixed[] <var>$params</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-KoolDevelop.Database.Query.html#570-621" title="Go to source code">execute</a>( <span>mixed[] <var>$params</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1018,7 +1028,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$params</var></dt>
-					<dd><code>mixed[]</code><br> Override params</dd>
+					<dd><code>mixed[]</code><br>$params Override params</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -1040,17 +1050,21 @@
 
 
 
+
+
+
+
+
 	<table class="summary" id="properties">
 	<caption>Properties summary</caption>
 	<tr data-order="ProfileLog" id="$ProfileLog">
-
 		<td class="attributes"><code>
-			public static
+			public static 
 			mixed[][]
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-KoolDevelop.Database.Query.html#25" title="Go to source code"><var>$ProfileLog</var></a>
+				<a href="source-class-KoolDevelop.Database.Query.html#25-29" title="Go to source code"><var>$ProfileLog</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
 		<td class="description"><div>
@@ -1074,10 +1088,13 @@
 
 
 
+
+
+
 </div>
 
 	<div id="footer">
-		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		KoolDevelop API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>
