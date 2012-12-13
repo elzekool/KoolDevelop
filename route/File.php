@@ -70,6 +70,26 @@ class File implements \KoolDevelop\Route\IRoute
     }
 
     /**
+     * Render File
+     * 
+     * @param string $filename Full filename
+     * 
+     * @return void
+     */
+    private function _renderFile($filename) {
+        foreach($this->Headers as $header) {
+            header($header);
+        }
+
+        // End all output buffering
+        while(@ob_end_clean());
+
+        // Readfile and exit
+        readfile($filename);
+        die();
+    }
+    
+    /**
      * Proces routing
      *
      * @param string $route Reference to current route
@@ -98,16 +118,8 @@ class File implements \KoolDevelop\Route\IRoute
                 return false;                
             }
             
-            foreach($this->Headers as $header) {
-                header($header);
-            }
-            
-            // End all output buffering
-            while(@ob_end_clean());
-            
-            // Readfile and exit
-            readfile($filename);
-            die();
+            // Render file
+            $this->_renderFile($filename);
             
         }
 
