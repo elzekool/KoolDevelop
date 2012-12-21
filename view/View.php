@@ -218,7 +218,7 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
      *
      * @return void
      */
-    private function element($element, $parameters = array()) {
+    protected function element($element, $parameters = array()) {
 
         $n_element = new \Element($this);
         $n_element->setView($element);
