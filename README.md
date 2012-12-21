@@ -4,14 +4,6 @@ KoolDevelop - PHP 5.3+ Framework
 The KoolDevelop is a modern, namespaced, object-oriented PHP framework. Altrough
 it uses modern grammer it is made to be easy understandible and no-nonsence
 
-----------
-
-Want to start a new KoolDevelop powered application? Fork https://github.com/elzekool/KoolDevelopBaseApp
-
-For a more complete example take a look at the provided sample application by forking https://github.com/elzekool/KoolDevelopSampleApp
-
-----------
-
 #### Namespace based
 The framework utilizes PHP namespaces fully, allowing easy inclusion of external libraries. It has an easy to configure AutoLoader for internal files and a PSR-0 compatible autoloader for external dependancies.
 

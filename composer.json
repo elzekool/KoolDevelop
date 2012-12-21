@@ -1,0 +1,13 @@
+{
+    "name": "elzekool/kooldevelop",
+    "description": "KoolDevelop PHP 5.3+ Framework",
+    "authors": [
+        {
+            "name": "Elze Kool",
+            "email": "info@kooldevelopment.nl"
+        }
+    ],
+    "require": {
+
+    }
+}
