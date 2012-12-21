@@ -1,6 +1,9 @@
 {
     "name": "elzekool/kooldevelop",
     "description": "KoolDevelop PHP 5.3+ Framework",
+    "type": "library",
+    "keywords" : ["framework","di","namespaces"],
+    "licence" : "GPL-3.0+",    
     "authors": [
         {
             "name": "Elze Kool",
@@ -8,6 +11,7 @@
         }
     ],
     "require": {
-
+        "php": ">=5.3.7",
+        
     }
 }
