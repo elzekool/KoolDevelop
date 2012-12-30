@@ -140,7 +140,7 @@ class Image
             
         // PNG
         } else if ($this->ImageSize[self::IMAGEINFO_TYPE] == IMAGETYPE_PNG) {            
-            if (false == ($this->_img = imagecreatefrompng($filename))) {
+            if (false == ($this->GDImage = imagecreatefrompng($filename))) {
                 throw new \KoolDevelop\Exception\Exception(__f('Error reading PNG image', 'kooldevelop'));
             }
 

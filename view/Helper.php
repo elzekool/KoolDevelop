@@ -27,7 +27,7 @@ abstract class Helper
      * Parent View
      * @var \KoolDevelop\View\View
      */
-    private $View;
+    protected $View;
 
     /**
      * Get View

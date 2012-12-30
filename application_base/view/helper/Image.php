@@ -32,7 +32,7 @@ class Image extends \Helper
      */
     private function _convertOutputPath($input, $output) {
         
-        if ($output[0] != DS) {
+        if ($output[0] != '.') {
             $input_path = str_replace('/', DS, pathinfo($input, PATHINFO_DIRNAME));
             $path = str_replace('/', DS, pathinfo($output, PATHINFO_DIRNAME));
             $file = pathinfo($output, PATHINFO_BASENAME);

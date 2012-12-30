@@ -30,7 +30,7 @@ abstract class Element extends \KoolDevelop\View\View implements \KoolDevelop\Co
      * Parent View
      * @var \KoolDevelop\View\View
      */
-    private $Parent;
+    protected $Parent;
 
 
     /**
