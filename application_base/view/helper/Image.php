@@ -31,10 +31,9 @@ class Image extends \Helper
      * @return string Absolute path, false on errer
      */
     private function _convertOutputPath($input, $output) {
-        
-        if ($output[0] != '.') {
-            $input_path = str_replace('/', DS, pathinfo($input, PATHINFO_DIRNAME));
-            $path = str_replace('/', DS, pathinfo($output, PATHINFO_DIRNAME));
+        if ($output[0] == '.') {
+            $input_path = str_replace(array('/', '\\'), DS, pathinfo($input, PATHINFO_DIRNAME));
+            $path = str_replace(array('/', '\\'), DS, pathinfo($output, PATHINFO_DIRNAME));
             $file = pathinfo($output, PATHINFO_BASENAME);
             
             if (null === ($path = realpath($input_path . DS . $path))) {
@@ -42,7 +41,6 @@ class Image extends \Helper
             }            
             $output = $path . DS . $file;                        
         }
-        
         return $output;
     }
     
