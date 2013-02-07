@@ -363,14 +363,29 @@ class Pagination extends \Helper
      * @return int[] Page numbers
      */
     public function getPageNumbers($count = 10) {
-        $pages = array();
         $page = $this->CurrentPageNumber;
-        for($x = $page - ($count / 2); $x < ($page + ($count / 2)); $x++) {           
-            if (($x >= 0) AND ($x < $this->NumberOfPages)) {
-                $pages[] = $x;
-            }            
+        $last = $this->NumberOfPages-1;        
+        $count_h = floor($count/2);
+
+        if ($this->NumberOfPages == 0) {
+            return array(0);
         }
-        return $pages;
+        
+        // Current page is front of range
+        if ($page-$count_h < 0) {
+            $start = 0;
+            $end = ($last > $count-1) ? $count-1 : $last;            
+        // Current page is in end of range
+        } else if ($page + $count_h > $last) {
+            $end = $last;
+            $start = ($last-$count > 0) ? $last-$count : 0;            
+        // Current page in within range
+        } else {
+            $start = $page-$count_h;
+            $end = $start + $count-1;            
+        }
+        
+        return range($start, $end, 1);
     }
     
     
