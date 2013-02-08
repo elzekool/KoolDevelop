@@ -165,10 +165,36 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
             throw new \InvalidArgumentException(__f("Variabele name not allowed",'kooldevelop'));
         }
 
-        // Sla waarde op
+        // Save value
         $this->ViewVars[$name] = $value;
     }
 
+    /**
+     * Get Var set for View
+     *
+     * @param string $name    Name
+     * @param mixed  $default Default value
+     *
+     * @return void
+     */
+    public function get($name, $default = null) {
+
+        if (preg_match('/^[A-Za-z]([A-Za-z0-9_])*$/', $name) == false) {
+            throw new \InvalidArgumentException(__f("Variabele name contains invalid characters",'kooldevelop'));
+        }
+
+        if (in_array($name, self::$InvalidVariableNames)) {
+            throw new \InvalidArgumentException(__f("Variabele name not allowed",'kooldevelop'));
+        }
+        
+        if (!(array_key_exists($name, $this->ViewVars))) {
+            return $default;
+        }
+        
+        return $this->ViewVars[$name];
+
+    }
+    
     /**
      * Get placeholder
      *
