@@ -92,7 +92,10 @@ class Adaptor implements \KoolDevelop\Configuration\IConfigurable
      * @return boolean In Transaction
      **/
     public function inTransaction() {
-        return $this->PdoConnection->inTransaction();
+        $in_trans = $this->PdoConnection->inTransaction();
+        // Resolve following bug:
+        // https://bugs.php.net/bug.php?id=62685
+        return (($in_trans === true) OR ($in_trans === 1));
     }
 
     /**
