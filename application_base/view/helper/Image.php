@@ -22,7 +22,7 @@ namespace View\Helper;
  **/
 class Image extends \Helper
 {    
-    /**
+        /**
      * Convert relative output path to an absolute one
      * 
      * @param string   $input     Input image filename
@@ -34,15 +34,21 @@ class Image extends \Helper
         if ($output[0] == '.') {
             $input_path = str_replace(array('/', '\\'), DS, pathinfo($input, PATHINFO_DIRNAME));
             $path = str_replace(array('/', '\\'), DS, pathinfo($output, PATHINFO_DIRNAME));
+
+            if ($path[0] == '.' AND $path[1] == DS) {
+		        $n_path = $input_path . substr($path, 1);
+	        } else {
+		        $n_path = realpath($input_path . DS . $path);
+		        if ($n_path === false) {
+			        return false;
+		        }
+	        }
             $file = pathinfo($output, PATHINFO_BASENAME);
-            
-            if (null === ($path = realpath($input_path . DS . $path))) {
-                return false;
-            }            
-            $output = $path . DS . $file;                        
+            $output = $n_path . DS . $file;                        
         }
         return $output;
     }
+    
     
     /**
      * Convert an image
