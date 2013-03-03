@@ -35,7 +35,7 @@ class Image extends \Helper
             $input_path = str_replace(array('/', '\\'), DS, pathinfo($input, PATHINFO_DIRNAME));
             $path = str_replace(array('/', '\\'), DS, pathinfo($output, PATHINFO_DIRNAME));
 
-            if ($path[0] == '.' AND $path[1] == DS) {
+            if ($output[0] == '.' AND $output[1] == DS) {
 		        $n_path = $input_path . substr($path, 1);
 	        } else {
 		        $n_path = realpath($input_path . DS . $path);
