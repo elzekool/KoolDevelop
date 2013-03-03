@@ -108,6 +108,18 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
     }
 
     /**
+     * Determine current URL before routing
+     *
+     * @return string URL
+     */
+    public function getCurrentUrl() {
+        $url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+        $url .= $_SERVER['HTTP_HOST'];
+        $url .= $_SERVER['REQUEST_URI'];
+        return $url;
+    }
+    
+    /**
      * Get Parameters after routing
      *
      * @return string[] Parameters
