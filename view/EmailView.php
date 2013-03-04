@@ -48,19 +48,6 @@ abstract class EmailView extends \KoolDevelop\View\View implements \KoolDevelop\
     }
 
     /**
-     * Get Helper
-     *
-     * @param string $classname Helper classname
-     * @param string $namespace Namespace
-     *
-     * @return \Helper Helper
-     */
-    public function helper($classname, $namespace = '\\View\\Helper\\') {
-        return $this->Parent->helper($classname, $namespace);
-    }
-
-
-    /**
      * View Renderen
      *
      * @return void
