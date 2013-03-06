@@ -211,6 +211,30 @@ abstract class ContainerModel extends \Model implements \KoolDevelop\Configurati
         return $result->fetchColumn(0);
 
     }
+    
+    /**
+     * Get sum of field based on conditions
+     *
+     * @param string  $field      Fieldname
+     * @param mixed[] $conditions Conditions
+     *
+     * @return mixed|null Sum or null if no rows
+     */
+    public function sum($field, $conditions = array()) {
+
+        $field = str_replace('`', '', $field);
+        
+        // Create new SELECT query
+        $query = DatabaseAdaptor::getInstance($this->DatabaseConfiguration)->newQuery();
+        $query->select('SUM(`' . $field . '`)')->from($this->DatabaseTable);
+
+        // Process conditions
+        $this->_ProcesConditions($conditions, $query);
+        $result = $query->execute();
+
+        return $result->fetchColumn(0);
+
+    }
 
     /**
      * Return first Model that complies to the conditions or null if none match
