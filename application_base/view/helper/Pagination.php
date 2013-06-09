@@ -250,10 +250,23 @@ class Pagination extends \Helper
             }
         }
         
+        $pagination_first = 1 + ($page * $this->PageSize);
+		if ($pagination_first > $count) {
+            $pagination_first = $count;
+        }
+		
+        $pagination_last = $pagination_first + $this->PageSize - 1;
+        if ($pagination_last > $count) {
+            $pagination_last = $count;
+        }
+        
         
         $this->getView()->set('paginate_count', $count);
         $this->getView()->set('paginate_page', $this->CurrentPageNumber = $page);
         $this->getView()->set('paginate_pages', $this->NumberOfPages = $pages);
+        $this->getView()->set('paginate_first', $pagination_first);        
+        $this->getView()->set('paginate_last', $pagination_last);        
+        $this->getView()->set('paginate_pagesize', $this->PageSize);        
         $this->getView()->set('paginate_items', $items);        
         
     }
