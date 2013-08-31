@@ -238,17 +238,17 @@ class PhpMailerMailer implements IMailer, \KoolDevelop\Configuration\IConfigurab
 
             // Set From
             $this->setFrom(
-                    $configuration->get('core.from_address', 'noreply@example.org'), $configuration->get('core.from_name', $configuration->get('core.from_address', 'noreply@example.org'))
+                $configuration->get('core.from_address', 'noreply@example.org'), $configuration->get('core.from_name', $configuration->get('core.from_address', 'noreply@example.org'))
             );
 
             // Set Reply To
             if (null !== $configuration->get('core.replyto_address', null)) {
                 $this->setReplyTo(
-                        $configuration->get('core.replyto_address', 'noreply@example.org'), $configuration->get('core.replyto_name', $configuration->get('core.replyto_address', 'noreply@example.org'))
+                    $configuration->get('core.replyto_address', 'noreply@example.org'), $configuration->get('core.replyto_name', $configuration->get('core.replyto_address', 'noreply@example.org'))
                 );
             } else {
                 $this->setReplyTo(
-                        $configuration->get('core.from_address', 'noreply@example.org'), $configuration->get('core.from_name', $configuration->get('core.from_address', 'noreply@example.org'))
+                    $configuration->get('core.from_address', 'noreply@example.org'), $configuration->get('core.from_name', $configuration->get('core.from_address', 'noreply@example.org'))
                 );
             }
 
