@@ -82,7 +82,7 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
     public function getBase($secure = null) {
         $config = \KoolDevelop\Configuration::getInstance('core');
         if ($secure === null) {
-            $secure = isset($_SERVER['HTTPS']);
+            $secure = (isset($_SERVER['HTTPS']) OR isset($_SERVER['HTTP_X_HTTPS']));
         }
         if ($secure) {
             if (null === ($url = $config->get('url.secure_base'))) {
