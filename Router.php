@@ -197,6 +197,12 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
         foreach($params as $key => $value) {
             $url .= urlencode($key) . ':' . urlencode($value) . '/';
         }
+        
+        // Make sure an URL never ends with a slash
+        if (strlen($url) > 1 AND substr($url, -1, 1) == '/') {
+            $url = substr($url, 0, -1);
+        }
+
 
         return $url;
         
