@@ -223,7 +223,7 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
      * 
      * @return \Controller
      */
-    private function loadController($controller_name) {
+    protected function loadController($controller_name) {
 
         if ((preg_match('/^([a-z0-9_])*$/', $controller_name) == false)) {
             throw new \InvalidArgumentException(__f("Controller name contains invalid characters",'kooldevelop'));
