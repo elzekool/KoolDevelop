@@ -80,6 +80,15 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
         $this->addObservable('beforeLayout');
     }
 
+    /**
+     * Register new Helper
+     * 
+     * @param string   $name   Name
+     * @param callable $helper Helper
+     */
+    public function registerHelper($name, callable $helper) {
+        $this->Helpers[$name] = $helper;
+    }
 
 
     /**
@@ -219,21 +228,17 @@ abstract class View extends \KoolDevelop\Observable implements \KoolDevelop\Conf
     /**
      * Get Helper
      *
-     * @param string $classname Helper classname
-     * @param string $namespace Namespace
+     * @param string $name Helper name
      *
      * @return \Helper Helper
      */
-    public function helper($classname, $namespace = '\\View\\Helper\\') {
-
-        $fullclass = $namespace . ucfirst($classname);
-
-        if (isset($this->Helpers[$fullclass])) {
-            return $this->Helpers[$fullclass];
+    public function helper($name) {
+        if (!isset($this->Helpers[$name])) {
+            throw new \Exception(__f("Unkown helper " . $name,'kooldevelop'));
         }
-
-        return $this->Helpers[$fullclass] = new $fullclass($this);
-
+        $helper = $this->Helpers[$name]();
+        $helper->setView($this);
+        return $helper;
     }
 
     /**

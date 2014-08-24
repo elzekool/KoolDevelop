@@ -12,12 +12,6 @@
 namespace KoolDevelop\Email;
 
 /**
- * Add PHPMailer
- * Old style lib that doesn't support PSR-0 style loading :(
- */
-require_once FRAMEWORK_PATH . DS . 'libs' . DS . 'PHPMailer' . DS . 'class.phpmailer.php';
-
-/**
  * Mailer using SendMail
  *
  * @author Elze Kool

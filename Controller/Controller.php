@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Controller
  *
@@ -7,7 +8,7 @@
  *
  * @package KoolDevelop
  * @subpackage Core
- **/
+ * */
 
 namespace KoolDevelop\Controller;
 
@@ -19,24 +20,32 @@ namespace KoolDevelop\Controller;
  *
  * @package KoolDevelop
  * @subpackage Core
- **/
-abstract class Controller extends \KoolDevelop\Observable
-{
+ * */
+abstract class Controller extends \KoolDevelop\Observable {
+
     /**
-     * @Inject("\View")
-     * @var \View
+     * Service Container
+     * @var \Pimple\Container
      */
-    protected $View;
+    protected $Container;
 
     /**
      * Constructor
+     * 
+     * @param \Pimple\Container $container Container
      */
-    public function __construct() {
-        \KoolDevelop\Di\Registry::getInstance()->injectAll($this);
+    public function __construct($container) {
+        $this->Container = $container;
+        $this->View = $container['view'];
         $this->addObservable('beforeAction');
         $this->addObservable('afterAction');
     }
-
+    
+    /**
+     * View
+     * @var \View
+     */
+    protected $View;
 
     /**
      * Action to perform
@@ -79,23 +88,23 @@ abstract class Controller extends \KoolDevelop\Observable
     public function setAction($action) {
 
         if (preg_match('/^[A-Za-z]([A-Za-z0-9_])*$/', $action) == false) {
-            throw new \InvalidArgumentException(__f("Controller action contains invalid characters",'kooldevelop'));
+            throw new \InvalidArgumentException(__f("Controller action contains invalid characters", 'kooldevelop'));
         }
 
         if (in_array($action, self::$InvalidCommands)) {
-            throw new \InvalidArgumentException(__f("Controller action not allowed",'kooldevelop'));
+            throw new \InvalidArgumentException(__f("Controller action not allowed", 'kooldevelop'));
         }
 
         if (!method_exists($this, $action)) {
-            throw new \KoolDevelop\Exception\NotFoundException(__f("Controller action not found",'kooldevelop'));
+            throw new \KoolDevelop\Exception\NotFoundException(__f("Controller action not found", 'kooldevelop'));
         }
 
         // Check if action public
-         $class_reflection = new \ReflectionClass($this);
-         $method_reflection = $class_reflection->getMethod($action);
-         if (!$method_reflection->isPublic()) {
-             throw new \InvalidArgumentException(__f("Controller action not a public funtion",'kooldevelop'));
-         }
+        $class_reflection = new \ReflectionClass($this);
+        $method_reflection = $class_reflection->getMethod($action);
+        if (!$method_reflection->isPublic()) {
+            throw new \InvalidArgumentException(__f("Controller action not a public funtion", 'kooldevelop'));
+        }
 
         // Sla nieuwe actie op
         $this->Action = $action;
@@ -129,31 +138,31 @@ abstract class Controller extends \KoolDevelop\Observable
     public function runAction() {
 
         // Check if required parameters are set
-         $class_reflection = new \ReflectionClass($this);
-         $method_reflection = $class_reflection->getMethod($this->Action);
+        $class_reflection = new \ReflectionClass($this);
+        $method_reflection = $class_reflection->getMethod($this->Action);
 
-         $required_parameters = $method_reflection->getNumberOfRequiredParameters();
-         $given_parameters = count($this->Parameters);
+        $required_parameters = $method_reflection->getNumberOfRequiredParameters();
+        $given_parameters = count($this->Parameters);
 
-         if ($required_parameters > $given_parameters) {
-             throw new \InvalidArgumentException(__f("Controller action requires " . $required_parameters . " parameters, " . $given_parameters . " given",'kooldevelop'));
-         }
-        
+        if ($required_parameters > $given_parameters) {
+            throw new \InvalidArgumentException(__f("Controller action requires " . $required_parameters . " parameters, " . $given_parameters . " given", 'kooldevelop'));
+        }
+
         // Check if we should enable annotated view configuration
         $auto_render = false;
         if (\KoolDevelop\Configuration::getInstance('core')->get('annotations.enabled', 0) == 1) {
             $annotation_reader = \KoolDevelop\Annotation\Reader::createForClass(get_class($this));
-            foreach($annotation_reader->getAllForMethod($this->Action, 'ViewConfig') as $view_config) {
-                /* @var $view_config \Controller\Annotation\ViewConfig */                
+            foreach ($annotation_reader->getAllForMethod($this->Action, 'ViewConfig') as $view_config) {
+                /* @var $view_config \Controller\Annotation\ViewConfig */
                 if ($view_config->getLayout() !== null) {
                     $this->View->setLayout($view_config->getLayout());
-                }                
+                }
                 if ($view_config->getView() !== null) {
                     $this->View->setView($view_config->getView());
-                }                
+                }
                 if ($view_config->getTitle() !== null) {
                     $this->View->setTitle($view_config->getTitle());
-                }                
+                }
                 if ($view_config->getAutoRender() !== null) {
                     $auto_render = $view_config->getAutoRender();
                 }
@@ -187,11 +196,10 @@ abstract class Controller extends \KoolDevelop\Observable
         }
 
         $this->fireObservable('afterAction');
-        
+
         if ($auto_render) {
             $this->View->render();
         }
-
     }
 
 }

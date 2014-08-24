@@ -39,12 +39,16 @@ abstract class Helper
     }
 
     /**
-     * Constructor
+     * Set View
      *
-     * @param \KoolDevelop\View\View $View View
+     * @param \KoolDevelop\View\View $view View
+     * 
+     * @return void
      */
-    function __construct(\KoolDevelop\View\View &$View) {
-        $this->View = $View;
+    public function setView($view) {
+        $this->View = $view;
     }
+
+    
 
 }

@@ -27,19 +27,13 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configuration\IConfigurable
+class Router implements \KoolDevelop\Configuration\IConfigurable
 {
     /**
      * RegEx for named parameters
      * 
      */
     const NAMED_PARAMETER_REGEG = '/^(.*):(.*)$/U';
-
-    /**
-     * Singleton Instance
-     * @var \KoolDevelop\Router
-     */
-    private static $Instance;
 
     /**
      * Registered routes
@@ -60,18 +54,20 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
     private $Parameters = null;
 
     /**
-     * Get \KoolDevelop\Router instance
-     *
-     * @return \KoolDevelop\Router
+     * Service Container
+     * @var \Pimple\Container
      */
-    public static function getInstance() {
-        if (self::$Instance === null) {
-            self::$Instance = new self();
-          }
-          return self::$Instance;
+    protected $Container;
+    
+    /**
+     * Constructor
+     * 
+     * @param \Pimple\Container $container Container
+     */
+    public function __construct($container) {
+       $this->Container = $container; 
     }
-
-
+    
     /**
      * Get Base URL
      *
@@ -209,14 +205,6 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
     }
 
     /**
-     * Constructor
-     */
-    private function __construct() {
-        $this->addObservable('beforeLoadController');
-        $this->addObservable('afterLoadController');
-    }
-
-    /**
      * Load Controller
      * 
      * @param string $controller_name Controller name from url
@@ -224,24 +212,15 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
      * @return \Controller
      */
     protected function loadController($controller_name) {
-
         if ((preg_match('/^([a-z0-9_])*$/', $controller_name) == false)) {
             throw new \InvalidArgumentException(__f("Controller name contains invalid characters",'kooldevelop'));
         }
 
-        $controller_name = '\\Controller\\' . \KoolDevelop\StringUtilities::camelcase($controller_name);
-
-        if (!class_exists($controller_name)) {
-            throw new \KoolDevelop\Exception\NotFoundException(__f("Controller not found",'kooldevelop'));
+        if (!$this->Container->offsetExists($controller_name . '_controller')) {
+            throw new \KoolDevelop\Exception\NotFoundException(__f("Controller not found " . $controller_name,'kooldevelop'));
         }
 
-        $controller = new $controller_name();
-        if (!($controller instanceof \Controller)) {
-            throw new \KoolDevelop\Exception\InvalidClassException(__f("Controller class not instance of \Controller",'kooldevelop'));
-        }
-
-        return $controller;
-        
+        return $this->Container[$controller_name . '_controller'];        
     }
 
     /**
@@ -309,9 +288,7 @@ class Router extends \KoolDevelop\Observable implements \KoolDevelop\Configurati
         $this->Url = $url;
         $this->Parameters = $route['parameters'];
 
-        $this->fireObservable('beforeLoadController', false, $route);
         $controller = $this->loadController($route['controller']);
-        $this->fireObservable('afterLoadController', false, $route, $controller);
         
         $controller->setAction($route['action']);
         $controller->setParameters($route['parameters']);

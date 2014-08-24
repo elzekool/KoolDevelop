@@ -17,7 +17,8 @@
  * @return \KoolDevelop\Router Router
  */
 function r() {
-    return \KoolDevelop\Router::getInstance();
+    global $container;
+    return $container['router'];
 }
 
 

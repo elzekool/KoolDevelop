@@ -25,35 +25,49 @@ namespace KoolDevelop;
  * @package KoolDevelop
  * @subpackage Core
  **/
-abstract class Bootstrapper
+class Bootstrapper
 {
     /**
-     * @Inject("\KoolDevelop\Router", "\KoolDevelop\Router::getInstance()")
-     * @var \KoolDevelop\Router
+     * Service Container
+     * @var \Pimple\Container
      */
-    protected $Router;
+    protected $Container;
     
-    
+    /**
+     * Constructor
+     * 
+     * @param \Pimple\Container $container Container
+     */
+    public function __construct($container) {
+       $this->Container = $container; 
+    }
+        
     /**
      * Function called on application initialisation
      * 
      * @return void
      */
-    abstract public function init();
+    public function init() {
+        
+    }
     
     /**
      * Function called on console launch
      * 
      * @return void
      */
-    abstract public function console();
+    public function console() {
+        
+    }
     
     /**
      * Function called on webservice request
      * 
      * @return void
      */
-    abstract public function webservice();
+    public function webservice() {
+        
+    }
     
     /**
      * Determine current environment. This environment is used
@@ -61,7 +75,9 @@ abstract class Bootstrapper
      * 
      * @return string
      */
-    abstract public function getEnvironment();
+    public function getEnvironment() {
+        return REQUEST_TYPE;
+    }
     
     /**
      * Route 
@@ -76,7 +92,7 @@ abstract class Bootstrapper
            $route = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : ''; 
         }
         
-        $this->Router->route($route);
+        $this->Container['router']->route($route);
         
     }
     

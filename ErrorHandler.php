@@ -26,27 +26,9 @@ namespace KoolDevelop;
 class ErrorHandler extends \KoolDevelop\Observable implements \KoolDevelop\Configuration\IConfigurable
 {
     /**
-     * Singleton Instance
-     * @var \KoolDevelop\ErrorHandler
-     */
-    protected static $Instance;
-
-    /**
-     * Get KoolDevelopRouter instance
-     *
-     * @return \KoolDevelop\ErrorHandler
-     */
-    public static function getInstance() {
-        if (self::$Instance === null) {
-            self::$Instance = new self();
-          }
-          return self::$Instance;
-    }
-
-    /**
      * Constructor
      */
-    protected function __construct() {
+    public function __construct() {
         $this->addObservable('onError');
 
         $config = \KoolDevelop\Configuration::getInstance('core');

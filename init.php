@@ -13,6 +13,10 @@ if (!defined('APP_PATH')) {
     throw new Exception("Application path not set!");
 }
 
+if (!defined('VENDORS_PATH')) {
+    throw new Exception("Vendors path not set!");
+}
+
 if (!defined('FRAMEWORK_PATH')) {
     throw new Exception("Framework path not set!");
 }
@@ -29,6 +33,12 @@ if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
 
+// Load Composer autoloader
+require_once VENDORS_PATH . '/autoload.php';
+
+
+// Initialize Pimple Container
+$container = new \Pimple\Container();
 
 // Load shorthand functions
 require FRAMEWORK_PATH . DS . 'shorthand.php';
@@ -40,29 +50,53 @@ require FRAMEWORK_PATH . DS . 'Configuration.php';
 require FRAMEWORK_PATH . DS . 'Bootstrapper.php';
 if (file_exists(APP_PATH . DS . 'Bootstrapper.php')) {
     require APP_PATH . DS . 'Bootstrapper.php';
+    $container['bootstrapper'] = function($c) { return new \Bootstrapper($c); };
 } else {
-    require FRAMEWORK_PATH . DS . 'application_base' . DS . 'Bootstrapper.php';
+    $container['bootstrapper'] = function($c) { return new \KoolDevelop\Bootstrapper($c); };
 }
 
+
+// Add Router to container
+$container['router'] = function($c) {
+    return new \KoolDevelop\Router($c);
+};
+
+// Add Logger to container
+$container['logger'] = function($c) {
+    return \KoolDevelop\Log\Logger::getInstance();
+};
+
+// Add View to container
+$container['assets_helper'] = function($c) { return new \KoolDevelop\Helper\Assets(); };
+$container['image_helper'] = function($c) { return new \KoolDevelop\Helper\Image(); };
+$container['pagination_helper'] = function($c) { return new \KoolDevelop\Helper\Pagination(); };
+$container['view'] = function($c) {
+    $view = new \View();
+    $view->registerHelper('Assets', function() use ($c) { return $c['assets_helper']; });
+    $view->registerHelper('Image', function() use ($c) { return $c['image_helper']; });
+    $view->registerHelper('Pagination', function() use ($c) { return $c['pagination_helper']; });
+    return $view;
+};
+
+// Create ErrorHandler
+$container['error_handler'] = function($c) {
+    return new KoolDevelop\ErrorHandler();
+};
+
 // Set Environment
-$bootstrapper = new \Bootstrapper();
-$environment = $bootstrapper->getEnvironment();
+$environment = $container['bootstrapper']->getEnvironment();
 \KoolDevelop\Configuration::setCurrentEnvironment($environment);
 
 try {
-    
-    // Inject Router into Bootstrapper
-    \KoolDevelop\Di\Registry::getInstance()->injectAll($bootstrapper);
 
     // Start Logger
-    $logger = \KoolDevelop\Log\Logger::getInstance();
-    $logger->low(sprintf('Finished loading bootstrapper, environment %s, now at application entry point', $environment), 'KoolDevelop.Core');
+    $container['logger']->low(sprintf('Finished loading bootstrapper, environment %s, now at application entry point', $environment), 'KoolDevelop.Core');
 
     // Init
-    $bootstrapper->init();
+    $container['bootstrapper']->init();
 
     // Start routing
-    $bootstrapper->route();
+    $container['bootstrapper']->route();
 
 } catch(\Exception $e) {
 
@@ -72,7 +106,7 @@ try {
     }
 
     // Send Error to Handler
-    \KoolDevelop\ErrorHandler::getInstance()->handleException(__f($e,'kooldevelop'));
+    $container['error_handler']->handleException(__f($e,'kooldevelop'));
     die();
     
 }
