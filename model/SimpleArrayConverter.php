@@ -49,7 +49,7 @@ class SimpleArrayConverter implements \KoolDevelop\Model\IArrayConverter
      * 
      * @return mixed[] Array
      */
-    public function convertModelToArray(\Model &$model) {
+    public function convertModelToArray(\KoolDevelop\Model\Model &$model) {
         $data = array();
         foreach($this->Fields as $field_underscored) {
             $getter = 'get' . \KoolDevelop\StringUtilities::camelcase($field_underscored);
@@ -67,7 +67,7 @@ class SimpleArrayConverter implements \KoolDevelop\Model\IArrayConverter
      * 
      * @return void
      */
-    public function convertArrayToModel($data, \Model &$model) {
+    public function convertArrayToModel($data, \KoolDevelop\Model\Model &$model) {
         foreach($this->Fields as $field_underscored) {
             $setter = 'set' . \KoolDevelop\StringUtilities::camelcase($field_underscored);
             $model->$setter($data[$field_underscored]);

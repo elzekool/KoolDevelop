@@ -26,7 +26,7 @@ use KoolDevelop\Database\Adaptor as DatabaseAdaptor;
  * @package KoolDevelop
  * @subpackage Model
  **/
-abstract class ContainerModel extends \Model implements \KoolDevelop\Configuration\IConfigurable
+abstract class ContainerModel extends Model implements \KoolDevelop\Configuration\IConfigurable
 {
 
     /**

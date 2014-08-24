@@ -33,7 +33,7 @@ interface IArrayConverter
      * 
      * @return mixed[] Array
      */
-    public function convertModelToArray(\Model &$model);
+    public function convertModelToArray(\KoolDevelop\Model\Model &$model);
     
     
     /**
@@ -44,7 +44,7 @@ interface IArrayConverter
      * 
      * @return mixed[] Array
      */
-    public function convertArrayToModel($data, \Model &$model);
+    public function convertArrayToModel($data, \KoolDevelop\Model\Model &$model);
     
     
 }
