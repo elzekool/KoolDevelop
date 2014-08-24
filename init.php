@@ -51,10 +51,6 @@ $bootstrapper = new \Bootstrapper();
 $environment = $bootstrapper->getEnvironment();
 \KoolDevelop\Configuration::setCurrentEnvironment($environment);
 
-// Load AutoLoader
-require_once FRAMEWORK_PATH . DS . 'AutoLoader.php';
-$autoload = KoolDevelop\AutoLoader::getInstance();
-
 try {
     
     // Inject Router into Bootstrapper
