@@ -9,8 +9,6 @@
  * @subpackage Core
  **/
 
-ini_set('display_errors', '1');
-
 if (!defined('APP_PATH')) {
     throw new Exception("Application path not set!");
 }
