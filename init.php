@@ -66,18 +66,6 @@ $container['logger'] = function($c) {
     return \KoolDevelop\Log\Logger::getInstance();
 };
 
-// Add View to container
-$container['assets_helper'] = function($c) { return new \KoolDevelop\Helper\Assets(); };
-$container['image_helper'] = function($c) { return new \KoolDevelop\Helper\Image(); };
-$container['pagination_helper'] = function($c) { return new \KoolDevelop\Helper\Pagination(); };
-$container['view'] = function($c) {
-    $view = new \View();
-    $view->registerHelper('Assets', function() use ($c) { return $c['assets_helper']; });
-    $view->registerHelper('Image', function() use ($c) { return $c['image_helper']; });
-    $view->registerHelper('Pagination', function() use ($c) { return $c['pagination_helper']; });
-    return $view;
-};
-
 // Create ErrorHandler
 $container['error_handler'] = function($c) {
     return new KoolDevelop\ErrorHandler();

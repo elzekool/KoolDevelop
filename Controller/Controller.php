@@ -21,7 +21,7 @@ namespace KoolDevelop\Controller;
  * @package KoolDevelop
  * @subpackage Core
  * */
-abstract class Controller extends \KoolDevelop\Observable {
+abstract class Controller {
 
     /**
      * Service Container
@@ -36,16 +36,8 @@ abstract class Controller extends \KoolDevelop\Observable {
      */
     public function __construct($container) {
         $this->Container = $container;
-        $this->View = $container['view'];
-        $this->addObservable('beforeAction');
-        $this->addObservable('afterAction');
     }
     
-    /**
-     * View
-     * @var \View
-     */
-    protected $View;
 
     /**
      * Action to perform
@@ -148,29 +140,6 @@ abstract class Controller extends \KoolDevelop\Observable {
             throw new \InvalidArgumentException(__f("Controller action requires " . $required_parameters . " parameters, " . $given_parameters . " given", 'kooldevelop'));
         }
 
-        // Check if we should enable annotated view configuration
-        $auto_render = false;
-        if (\KoolDevelop\Configuration::getInstance('core')->get('annotations.enabled', 0) == 1) {
-            $annotation_reader = \KoolDevelop\Annotation\Reader::createForClass(get_class($this));
-            foreach ($annotation_reader->getAllForMethod($this->Action, 'ViewConfig') as $view_config) {
-                /* @var $view_config \Controller\Annotation\ViewConfig */
-                if ($view_config->getLayout() !== null) {
-                    $this->View->setLayout($view_config->getLayout());
-                }
-                if ($view_config->getView() !== null) {
-                    $this->View->setView($view_config->getView());
-                }
-                if ($view_config->getTitle() !== null) {
-                    $this->View->setTitle($view_config->getTitle());
-                }
-                if ($view_config->getAutoRender() !== null) {
-                    $auto_render = $view_config->getAutoRender();
-                }
-            }
-        }
-
-        $this->fireObservable('beforeAction');
-
         switch (count($this->Parameters)) {
             case 0:
                 $this->{$this->Action}();
@@ -195,11 +164,6 @@ abstract class Controller extends \KoolDevelop\Observable {
                 break;
         }
 
-        $this->fireObservable('afterAction');
-
-        if ($auto_render) {
-            $this->View->render();
-        }
     }
 
 }
