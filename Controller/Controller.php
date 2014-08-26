@@ -58,7 +58,7 @@ abstract class Controller {
     private static $InvalidCommands = array(
         'init',
         'getAction', 'setAction', 'getParameters', 'setParameters',
-        'runAction', 'getNamedParameters'
+        'runAction'
     );
 
     /**
